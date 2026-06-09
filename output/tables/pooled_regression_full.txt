@@ -1,0 +1,305 @@
+Pooled regression -- full outputs: each species alone, NO plot/month term.
+x = time-matched ANI_disease (may=0, july=2mai, sep=4mai), per SD.
+Error model matched to 02: Gaussian lm for length/ratio; quasibinomial glm
+(overdispersed seed counts) for germination -- germ slope is log-odds per SD.
+CAVEAT: the pooled slope is mostly the confounded between-plot/treatment contrast
+        (effective n = 3 plots); the within-plot (defensible) version is R/02 + R/03.
+        These pooled fits are a descriptive complement, not the inferential headline.
+
+==== Overview (12 fits; slope per SD of ANI_disease) ====
+          species    response        family  n slope_per_SD      se statistic
+ Black-eyed susan      length      gaussian 40     0.160582 1.76255  0.091108
+ Black-eyed susan       ratio      gaussian 40    -0.226923 0.08696 -2.609479
+ Black-eyed susan germination quasibinomial 45    -0.211568 0.18370 -1.151703
+     Johnsongrass      length      gaussian 44    -1.911934 3.42172 -0.558764
+     Johnsongrass       ratio      gaussian 44     0.038398 0.06403  0.599667
+     Johnsongrass germination quasibinomial 45    -0.229459 0.14084 -1.629249
+  White snakeroot      length      gaussian 38     0.892097 1.21246  0.735773
+  White snakeroot       ratio      gaussian 38     0.003013 0.04343  0.069378
+  White snakeroot germination quasibinomial 45    -0.160182 0.18416 -0.869823
+           Yarrow      length      gaussian 44    -0.002149 1.01271 -0.002122
+           Yarrow       ratio      gaussian 44    -0.074803 0.06380 -1.172481
+           Yarrow germination quasibinomial 45    -0.365103 0.24883 -1.467273
+      p        R2
+ 0.9279 2.184e-04
+ 0.0129 1.520e-01
+ 0.2558        NA
+ 0.5793 7.379e-03
+ 0.5519 8.489e-03
+ 0.1106        NA
+ 0.4666 1.482e-02
+ 0.9451 1.337e-04
+ 0.3892        NA
+ 0.9983 1.073e-07
+ 0.2476 3.169e-02
+ 0.1496        NA
+
+==== Full summaries ====
+
+---------- Black-eyed susan : Total seedling length  (n = 40) ----------
+
+Call:
+lm(formula = y ~ z_ani, data = d)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-19.063  -6.101   1.014   4.634  38.295 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  22.5964     1.7700  12.767 2.56e-15 ***
+z_ani         0.1606     1.7626   0.091    0.928    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 11.19 on 38 degrees of freedom
+Multiple R-squared:  0.0002184,	Adjusted R-squared:  -0.02609 
+F-statistic: 0.008301 on 1 and 38 DF,  p-value: 0.9279
+
+95% CI for z_ani slope (per SD): [-3.4075, +3.7287]
+
+---------- Black-eyed susan : Root:shoot ratio  (n = 40) ----------
+
+Call:
+lm(formula = y ~ z_ani, data = d)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-0.9084 -0.3562 -0.0706  0.3091  1.5180 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  1.21043    0.08733  13.861   <2e-16 ***
+z_ani       -0.22692    0.08696  -2.609   0.0129 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.5522 on 38 degrees of freedom
+Multiple R-squared:  0.152,	Adjusted R-squared:  0.1296 
+F-statistic: 6.809 on 1 and 38 DF,  p-value: 0.0129
+
+95% CI for z_ani slope (per SD): [-0.4030, -0.0509]
+
+---------- Black-eyed susan : Germination (proportion)  (n = 45) ----------
+
+Call:
+glm(formula = cbind(germ, fail) ~ z_ani, family = quasibinomial, 
+    data = d)
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -0.6019     0.1682  -3.578 0.000873 ***
+z_ani        -0.2116     0.1837  -1.152 0.255807    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for quasibinomial family taken to be 2.875328)
+
+    Null deviance: 149.34  on 44  degrees of freedom
+Residual deviance: 145.27  on 43  degrees of freedom
+AIC: NA
+
+Number of Fisher Scoring iterations: 4
+
+95% Wald CI for z_ani slope (log-odds per SD): [-0.5716, +0.1485]
+
+---------- Johnsongrass : Total seedling length  (n = 44) ----------
+
+Call:
+lm(formula = y ~ z_ani, data = d)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-53.803 -13.904   2.436  14.418  36.657 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   66.122      3.421  19.329   <2e-16 ***
+z_ani         -1.912      3.422  -0.559    0.579    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 22.69 on 42 degrees of freedom
+Multiple R-squared:  0.007379,	Adjusted R-squared:  -0.01625 
+F-statistic: 0.3122 on 1 and 42 DF,  p-value: 0.5793
+
+95% CI for z_ani slope (per SD): [-8.8172, +4.9934]
+
+---------- Johnsongrass : Root:shoot ratio  (n = 44) ----------
+
+Call:
+lm(formula = y ~ z_ani, data = d)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.62198 -0.27810 -0.01598  0.24706  1.54368 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.80076    0.06402   12.51 9.42e-16 ***
+z_ani        0.03840    0.06403    0.60    0.552    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.4246 on 42 degrees of freedom
+Multiple R-squared:  0.008489,	Adjusted R-squared:  -0.01512 
+F-statistic: 0.3596 on 1 and 42 DF,  p-value: 0.5519
+
+95% CI for z_ani slope (per SD): [-0.0908, +0.1676]
+
+---------- Johnsongrass : Germination (proportion)  (n = 45) ----------
+
+Call:
+glm(formula = cbind(germ, fail) ~ z_ani, family = quasibinomial, 
+    data = d)
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -2.3548     0.1184 -19.884   <2e-16 ***
+z_ani        -0.2295     0.1408  -1.629    0.111    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for quasibinomial family taken to be 4.878333)
+
+    Null deviance: 214.62  on 44  degrees of freedom
+Residual deviance: 199.91  on 43  degrees of freedom
+AIC: NA
+
+Number of Fisher Scoring iterations: 5
+
+95% Wald CI for z_ani slope (log-odds per SD): [-0.5055, +0.0466]
+
+---------- White snakeroot : Total seedling length  (n = 38) ----------
+
+Call:
+lm(formula = y ~ z_ani, data = d)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-13.0956  -4.7205  -0.8607   3.6044  22.7633 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  16.7100     1.1527  14.496   <2e-16 ***
+z_ani         0.8921     1.2125   0.736    0.467    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 7.065 on 36 degrees of freedom
+Multiple R-squared:  0.01482,	Adjusted R-squared:  -0.01255 
+F-statistic: 0.5414 on 1 and 36 DF,  p-value: 0.4666
+
+95% CI for z_ani slope (per SD): [-1.5669, +3.3511]
+
+---------- White snakeroot : Root:shoot ratio  (n = 38) ----------
+
+Call:
+lm(formula = y ~ z_ani, data = d)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.50150 -0.21791  0.01736  0.15091  0.42032 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.683874   0.041292  16.562   <2e-16 ***
+z_ani       0.003013   0.043432   0.069    0.945    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.2531 on 36 degrees of freedom
+Multiple R-squared:  0.0001337,	Adjusted R-squared:  -0.02764 
+F-statistic: 0.004813 on 1 and 36 DF,  p-value: 0.9451
+
+95% CI for z_ani slope (per SD): [-0.0851, +0.0911]
+
+---------- White snakeroot : Germination (proportion)  (n = 45) ----------
+
+Call:
+glm(formula = cbind(germ, fail) ~ z_ani, family = quasibinomial, 
+    data = d)
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -2.2766     0.1623  -14.03   <2e-16 ***
+z_ani        -0.1602     0.1842   -0.87    0.389    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for quasibinomial family taken to be 3.957757)
+
+    Null deviance: 157.67  on 44  degrees of freedom
+Residual deviance: 154.41  on 43  degrees of freedom
+AIC: NA
+
+Number of Fisher Scoring iterations: 5
+
+95% Wald CI for z_ani slope (log-odds per SD): [-0.5211, +0.2008]
+
+---------- Yarrow : Total seedling length  (n = 44) ----------
+
+Call:
+lm(formula = y ~ z_ani, data = d)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-13.652  -2.652   1.723   4.637   7.348 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 16.650989   0.935159  17.806   <2e-16 ***
+z_ani       -0.002149   1.012707  -0.002    0.998    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 6.191 on 42 degrees of freedom
+Multiple R-squared:  1.073e-07,	Adjusted R-squared:  -0.02381 
+F-statistic: 4.505e-06 on 1 and 42 DF,  p-value: 0.9983
+
+95% CI for z_ani slope (per SD): [-2.0459, +2.0416]
+
+---------- Yarrow : Root:shoot ratio  (n = 44) ----------
+
+Call:
+lm(formula = y ~ z_ani, data = d)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.53506 -0.21554 -0.05304  0.11284  1.97923 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.68354    0.05891  11.602 1.11e-14 ***
+z_ani       -0.07480    0.06380  -1.172    0.248    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.39 on 42 degrees of freedom
+Multiple R-squared:  0.03169,	Adjusted R-squared:  0.008639 
+F-statistic: 1.375 on 1 and 42 DF,  p-value: 0.2476
+
+95% CI for z_ani slope (per SD): [-0.2036, +0.0539]
+
+---------- Yarrow : Germination (proportion)  (n = 45) ----------
+
+Call:
+glm(formula = cbind(germ, fail) ~ z_ani, family = quasibinomial, 
+    data = d)
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -1.0396     0.2049  -5.075 7.92e-06 ***
+z_ani        -0.3651     0.2488  -1.467     0.15    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for quasibinomial family taken to be 13.93684)
+
+    Null deviance: 652.87  on 44  degrees of freedom
+Residual deviance: 617.60  on 43  degrees of freedom
+AIC: NA
+
+Number of Fisher Scoring iterations: 4
+
+95% Wald CI for z_ani slope (log-odds per SD): [-0.8528, +0.1226]

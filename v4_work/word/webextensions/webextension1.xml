@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<we:webextension xmlns:we="http://schemas.microsoft.com/office/webextensions/webextension/2010/11" id="{F5FAF393-B0B5-4FF2-A478-F75FF9B41A76}">
+  <we:reference id="wa200009707" version="1.2.0.0" store="en-US" storeType="OMEX"/>
+  <we:alternateReferences>
+    <we:reference id="wa200009707" version="1.2.0.0" store="wa200009707" storeType="OMEX"/>
+  </we:alternateReferences>
+  <we:properties/>
+  <we:bindings/>
+  <we:snapshot xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"/>
+</we:webextension>

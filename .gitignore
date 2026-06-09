@@ -1,0 +1,38 @@
+# ── R ──────────────────────────────────────────────────────────────────────────
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+# renv package libraries are restored from renv.lock, never committed
+renv/library/
+renv/staging/
+renv/local/
+renv/cache/
+
+# ── Archived renv libraries (144 MB) and work/temp dirs ───────────────────────────
+archive/
+tmp_docx/
+tmp_refs/
+unpacked/
+verify/
+
+# ── Office docs & manuscripts → Google Drive, not git ─────────────────────────────
+*.docx
+*.doc
+*.pptx
+*.xlsx
+*.pdf
+
+# ── Python ─────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+
+# ── OS / editor ────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*.bak
+*.swp
+~$*
