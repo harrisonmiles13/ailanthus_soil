@@ -22,6 +22,7 @@ verify/
 *.doc
 *.pptx
 *.xlsx
+!bioassay_data_v_final.xlsx
 *.pdf
 
 # ── Python ─────────────────────────────────────────────────────────────────────
