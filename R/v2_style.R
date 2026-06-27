@@ -28,19 +28,19 @@ fig_v2 <- function(name) file.path(FIG_V2_DIR, name)
 # These remain a within-plot nuisance block (never compared), but readable labels
 # and a fixed order help the reader.
 PLOT_RECODE <- c(no_fungus_control = "No-fungus control",
-                 attenuated        = "Attenuated strain",
+                 attenuated        = "Formerly attenuated strain",
                  virulent          = "Virulent strain")
-PLOT_ORDER  <- c("No-fungus control", "Attenuated strain", "Virulent strain")
+PLOT_ORDER  <- c("No-fungus control", "Formerly attenuated strain", "Virulent strain")
 recode_plot <- function(x)
   factor(unname(PLOT_RECODE[as.character(x)]), levels = PLOT_ORDER)
 
 # --- colour-blind-safe encoding (Okabe-Ito) + redundant linetype -------------
-PLOT_COLOURS <- c("No-fungus control" = "#0072B2",   # blue
-                  "Attenuated strain" = "#D55E00",    # vermillion
-                  "Virulent strain"   = "#009E73")    # bluish green
-PLOT_LINETYPES <- c("No-fungus control" = "solid",
-                    "Attenuated strain" = "21",       # dashed
-                    "Virulent strain"   = "4121")     # dot-dash
+PLOT_COLOURS <- c("No-fungus control"          = "#0072B2",   # blue
+                  "Formerly attenuated strain" = "#D55E00",    # vermillion
+                  "Virulent strain"            = "#009E73")    # bluish green
+PLOT_LINETYPES <- c("No-fungus control"          = "solid",
+                    "Formerly attenuated strain" = "21",       # dashed
+                    "Virulent strain"            = "4121")     # dot-dash
 
 PLOT_LEGEND <- "Plot (within-plot nuisance)"
 scale_plot_colour   <- function(name = PLOT_LEGEND)
@@ -85,10 +85,10 @@ theme_v2 <- function(base_size = 16, legend = "bottom") {
 
 # --- high-contrast corner annotation (slope / P) -----------------------------
 # A white, lightly-bordered label so the text stays legible over any background;
-# placed in the top-left whitespace of each panel.
+# placed in the top-RIGHT whitespace of each panel (where the data are sparse).
 annot_layer <- function(annot, size = 4.0) {
-  geom_label(data = annot, aes(label = label), x = -Inf, y = Inf,
-             hjust = -0.06, vjust = 1.12, size = size, colour = "grey10",
+  geom_label(data = annot, aes(label = label), x = Inf, y = Inf,
+             hjust = 1.04, vjust = 1.12, size = size, colour = "grey10",
              fill = "white", alpha = 0.78, label.size = 0.2,
              label.padding = unit(0.28, "lines"), lineheight = 0.95,
              inherit.aes = FALSE)
