@@ -83,8 +83,8 @@ plt <- ggplot(long, aes(ani_tm, y, colour = plot_lab)) +
   geom_line(data = grids, aes(ani_tm, fit, colour = plot_lab, linetype = plot_lab),
             linewidth = 0.9) +
   geom_point(aes(shape = month), size = 2.3, alpha = 0.9, stroke = 0.5) +
-  geom_text(data = annot, aes(label = label), x = -Inf, y = Inf,
-            hjust = -0.06, vjust = 1.12, size = 3.6, colour = "grey10",
+  geom_text(data = annot, aes(label = label), x = Inf, y = Inf,
+            hjust = 1.05, vjust = 1.12, size = 3.6, colour = "grey10",
             lineheight = 0.95, inherit.aes = FALSE) +
   facet_wrap(~ panel, ncol = 3, scales = "free_y") +
   scale_plot_colour() + scale_plot_linetype() + scale_month_shape() +

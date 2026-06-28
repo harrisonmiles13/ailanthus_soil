@@ -36,8 +36,9 @@ same inputs as v1 (`output/tables/ani_disease.csv`, `bioassay_data_v_final.xlsx`
 
 ### Note on the map (06)
 The v1 map used the `ggnewscale` package to place a second `fill` scale on the
-tree markers. v2 removes that dependency: the disease-influence field stays on
-`fill` (magma) and each tree's disease score moves to the `colour` aesthetic
-(a light→dark blue ring on a white marker), which also reads better for
-colour-vision-deficient viewers because the cool ring contrasts with the warm
-field.
+tree markers. v2 removes that dependency without changing the marker look: the
+disease-influence field stays on `fill` (magma), and each tree is drawn as two
+layers — a disease-coloured disc (white→dark blue, on the free `colour`
+aesthetic) with a fixed grey ring on top for crisp definition, sized by DBH.
+This reproduces the v1 marker appearance using only the base ggplot2 stack.
+Soil-sample sites are cyan diamonds labelled with their `ANI_disease` value.

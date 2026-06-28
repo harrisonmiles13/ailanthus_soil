@@ -29,12 +29,12 @@ GRID_STEP  <- 0.2          # m
 
 # display labels, ordered control -> attenuated -> virulent (as in v1)
 TREEPLOT_TO_LABEL <- c(no_fungus_control = "No-fungus control",
-                       attenuated        = "Attenuated strain",
+                       attenuated        = "Formerly attenuated strain",
                        virulent          = "Virulent strain")
 TREAT_TO_LABEL    <- c(vnaa140_control = "No-fungus control",
-                       vnaa140_2019    = "Attenuated strain",
+                       vnaa140_2019    = "Formerly attenuated strain",
                        vnaa140_2023    = "Virulent strain")
-PLOT_LEVELS <- c("No-fungus control", "Attenuated strain", "Virulent strain")
+PLOT_LEVELS <- c("No-fungus control", "Formerly attenuated strain", "Virulent strain")
 
 polar_to_xy <- function(distance, bearing) {
   bearing  <- ifelse(is.na(bearing),  0, bearing)
@@ -46,8 +46,8 @@ polar_to_xy <- function(distance, bearing) {
 # timepoint -> tree disease-score column + AUDPC column (NA = pre-inoc, zero field)
 tp <- tibble(
   label     = c("May\n(pre-inoculation)",
-                "July\n(2 months post)",
-                "September\n(4 months post)"),
+                "July\n(2 months after inoculation)",
+                "September\n(4 months after inoculation)"),
   score_col = c("disease_initial", "disease_2_mai", "disease_4_mai"),
   audpc_col = c(NA, "audpc_adj_2mai", "audpc_adj_4mai")
 )
@@ -133,18 +133,21 @@ p <- ggplot() +
             linetype = "dashed", linewidth = 0.4) +
   geom_hline(yintercept = 0, colour = "grey80", linewidth = 0.25) +
   geom_vline(xintercept = 0, colour = "grey80", linewidth = 0.25) +
-  # Ailanthus stems: white marker, RING colour = disease score, size = DBH
-  geom_point(data = stem_all,
-             aes(x, y, size = dbh_cm, colour = disease_score),
-             shape = 21, fill = "white", stroke = 1.3, alpha = 0.95) +
-  scale_colour_gradient(low = "#cfe1f2", high = "#08306b",
+  # Ailanthus stems (v1 look, no ggnewscale): a disease-coloured disc with a
+  # crisp grey ring on top. Disc rides the free `colour` aesthetic (white -> dark
+  # blue = disease score); the fixed grey ring restores the v1 marker definition.
+  geom_point(data = stem_all, aes(x, y, size = dbh_cm, colour = disease_score),
+             shape = 16, alpha = 0.95) +
+  geom_point(data = stem_all, aes(x, y, size = dbh_cm),
+             shape = 21, fill = NA, colour = "grey20", stroke = 0.3) +
+  scale_colour_gradient(low = "white", high = "#08306b",
                         limits = c(1, 6), breaks = 1:6,
                         name = "Tree disease\nscore (1-6)") +
-  scale_size_continuous(range = c(2, 7), breaks = c(2, 5, 10, 20),
+  scale_size_continuous(range = c(1, 5), breaks = c(2, 5, 10, 20),
                         name = "DBH (cm)") +
-  # soil-sample sites: white diamond + labelled ANI value
+  # soil-sample sites: cyan diamond (as in v1) + labelled ANI value
   geom_point(data = soil_all, aes(x, y, shape = "Soil-sample site"),
-             size = 3.4, fill = "white", colour = "black", stroke = 0.7) +
+             size = 3.0, fill = "#17becf", colour = "black", stroke = 0.6) +
   scale_shape_manual(values = c("Soil-sample site" = 23), name = NULL) +
   geom_label_repel(data = soil_all, aes(x, y, label = round(ani)),
                    size = 3.6, colour = "black", fill = "white", alpha = 0.9,
