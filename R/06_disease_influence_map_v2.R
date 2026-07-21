@@ -144,7 +144,7 @@ p <- ggplot() +
                         limits = c(1, 6), breaks = 1:6,
                         name = "Tree disease\nscore (1-6)") +
   scale_size_continuous(range = c(1, 5), breaks = c(2, 5, 10, 20),
-                        name = "DBH (cm)") +
+                        name = "Stem DBH (cm)") +
   # soil-sample sites: cyan diamond (as in v1) + labelled ANI value
   geom_point(data = soil_all, aes(x, y, shape = "Soil-sample site"),
              size = 3.0, fill = "#17becf", colour = "black", stroke = 0.6) +

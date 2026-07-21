@@ -50,8 +50,8 @@ scale_plot_linetype <- function(name = PLOT_LEGEND)
 
 # --- sampling month -> shape (a second redundant, colour-blind-safe channel) --
 MONTH_SHAPES <- c(may = 17, july = 16, september = 15)   # triangle / circle / square
-scale_month_shape <- function(name = "Sampling month")
-  scale_shape_manual(values = MONTH_SHAPES, name = name)
+scale_month_shape <- function(name = "Sampling month", labels = waiver())
+  scale_shape_manual(values = MONTH_SHAPES, name = name, labels = labels)
 
 # --- short, typeset axis label for the index --------------------------------
 LAB_ANI <- expression("Disease-influence index ("*ANI[disease]*")")
