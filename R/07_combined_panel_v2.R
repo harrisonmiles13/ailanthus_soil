@@ -55,7 +55,7 @@ fit_within <- function(d, sp_code, rcode) {
   list(slope = co[["Estimate"]], p = co[["Pr(>|t|)"]], grid = grid)
 }
 
-pfmt <- function(p) if (p < 0.001) "P < 0.001" else sprintf("P = %.3f", p)
+pfmt <- function(p) if (p < 0.001) "p < 0.001" else sprintf("p = %.3f", p)
 
 # panel order: species (rows) x response (cols), row-major for facet_wrap(ncol=3)
 panel_levels <- as.vector(t(outer(unname(SPECIES),
@@ -87,7 +87,8 @@ plt <- ggplot(long, aes(ani_tm, y, colour = plot_lab)) +
             hjust = 1.05, vjust = 1.12, size = 3.6, colour = "grey10",
             lineheight = 0.95, inherit.aes = FALSE) +
   facet_wrap(~ panel, ncol = 3, scales = "free_y") +
-  scale_plot_colour() + scale_plot_linetype() + scale_month_shape() +
+  scale_plot_colour("Plot") + scale_plot_linetype("Plot") +
+  scale_month_shape(labels = c(may = "May", july = "July", september = "September")) +
   labs(x = LAB_ANI, y = NULL) +
   guides(colour = guide_legend(nrow = 1, override.aes = list(linewidth = 1.1)),
          linetype = guide_legend(nrow = 1), shape = guide_legend(nrow = 1)) +
