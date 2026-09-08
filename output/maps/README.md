@@ -69,14 +69,16 @@ packages:
 install.packages(c("sf", "maptiles", "tidyterra"))
 ```
 
-It writes, at 300 dpi:
+It writes, at 300 dpi, two versions of every panel:
 
 | File | Contents |
 |---|---|
-| `satellite_map_overview.png` | all three stands together |
-| `satellite_map_attenuated.png` | formerly attenuated strain, zoomed |
-| `satellite_map_virulent.png` | virulent strain, zoomed |
-| `satellite_map_no_fungus_control.png` | no-fungus control, zoomed |
+| `satellite_map_overview.png` | all three stands, on Esri World Imagery |
+| `satellite_map_attenuated.png` | formerly attenuated strain, zoomed, on imagery |
+| `satellite_map_virulent.png` | virulent strain, zoomed, on imagery |
+| `satellite_map_no_fungus_control.png` | no-fungus control, zoomed, on imagery |
+| `satellite_map_overview_blank.png` | all three stands, no basemap, transparent background |
+| `satellite_map_<stand>_blank.png` | one zoomed panel per stand, no basemap, transparent background |
 
 Each figure is sized to its own mapped aspect ratio, so the panel fills it
 rather than leaving blank bands. Imagery is downloaded on first run and cached
@@ -84,6 +86,22 @@ under `output/spatial/tile_cache/` (git-ignored).
 
 A convex hull of the mapped stems per stand is still written to
 `site_points.geojson` for GIS use, but neither map draws it.
+
+### The `_blank` figures
+
+A cached basemap can be the wrong vintage for the vegetation being described —
+Esri's mosaic for this site, for instance, does not necessarily show canopy
+cover from the study period. The `_blank` figures carry only the geometry
+(stems, soil points, sampling ring, stand centre, a 5 m scale bar) on a
+transparent background, with **no basemap fetch at all** — so they can be
+layered in image-editing or GIS software over an independent photo of the
+site from the study dates, using the scale bar and the known 10 m sampling
+rings to register scale and rotation by eye.
+
+They need only `readxl`, `dplyr`, `ggplot2`, `tibble` and `sf` — not
+`maptiles`/`tidyterra` — and no network access, so they render identically
+anywhere R runs. Toggle `RENDER_BASEMAP_MAPS` / `RENDER_BLANK_MAPS` at the top
+of the script to produce only one set.
 
 ## Bearing datum
 
