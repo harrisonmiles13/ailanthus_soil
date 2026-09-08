@@ -29,15 +29,15 @@
 # connection the first time it runs (tiles are then cached under CACHE_DIR).
 # ---------------------------------------------------------------------------
 
+need <- c("readxl", "dplyr", "ggplot2", "tibble", "sf", "maptiles", "tidyterra")
+missing <- need[!vapply(need, requireNamespace, logical(1), quietly = TRUE)]
+if (length(missing))
+  stop("Install the missing packages first:\n  install.packages(c(",
+       paste0('"', missing, '"', collapse = ", "), "))", call. = FALSE)
+
 suppressPackageStartupMessages({
   library(readxl); library(dplyr); library(ggplot2)
 })
-
-need <- c("sf", "maptiles", "tidyterra")
-missing <- need[!vapply(need, requireNamespace, logical(1), quietly = TRUE)]
-if (length(missing))
-  stop("Install the mapping packages first:\n  install.packages(c(",
-       paste0('"', missing, '"', collapse = ", "), "))", call. = FALSE)
 
 DATA_FILE       <- "bioassay_data_v_final.xlsx"
 OUT_FIG         <- "output/figures"
@@ -45,6 +45,13 @@ CACHE_DIR       <- "output/spatial/tile_cache"
 DECLINATION_DEG <- 0
 SAMPLING_RADIUS <- 10          # m, radius of the soil-sampling design
 TILE_PROVIDER   <- "Esri.WorldImagery"
+
+# every path here is relative to the repository root
+if (!file.exists(DATA_FILE))
+  stop("Cannot find ", DATA_FILE, " in the working directory (", getwd(), ").\n",
+       "Run this from the repository root, e.g.\n",
+       "  Rscript R/09_satellite_map.R", call. = FALSE)
+
 dir.create(OUT_FIG,   showWarnings = FALSE, recursive = TRUE)
 dir.create(CACHE_DIR, showWarnings = FALSE, recursive = TRUE)
 
@@ -129,10 +136,11 @@ soil_sf    <- as_pts(soil)
 centres_sf <- as_pts(centres)
 
 # stand outline = convex hull of the mapped stems; ring = 10 m sampling radius
-hulls_sf <- trees_sf %>%
-  group_by(stand_label) %>%
-  summarise(do_union = TRUE, .groups = "drop") %>%
-  sf::st_convex_hull()
+hulls_sf <- do.call(rbind, lapply(STAND_LEVELS, function(lab) {
+  stems <- sf::st_geometry(trees_sf[trees_sf$stand_label == lab, ])
+  sf::st_sf(stand_label = factor(lab, levels = STAND_LEVELS),
+            geometry    = sf::st_convex_hull(sf::st_combine(stems)))
+}))
 
 rings_sf <- centres_sf %>%
   sf::st_transform(3857) %>%

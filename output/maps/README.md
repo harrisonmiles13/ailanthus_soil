@@ -42,13 +42,28 @@ which also writes `output/spatial/site_points.csv` and `site_points.geojson`
 
 ## Static figures
 
+Run from the **repository root** (every path in the script is relative to it):
+
 ```
 Rscript R/09_satellite_map.R
 ```
 
-writes `output/figures/satellite_map_overview.png` plus one zoomed panel per
-stand. It needs `sf`, `maptiles` and `tidyterra`, and downloads Esri imagery on
-first run (cached under `output/spatial/tile_cache/`).
+On Windows, if `Rscript` is not on `PATH`, call it by full path — e.g.
+
+```
+"C:\Users\harri\R\R-4.4.1\bin\Rscript.exe" R/09_satellite_map.R
+```
+
+adjusting for the R version actually installed. First run needs the mapping
+packages:
+
+```r
+install.packages(c("sf", "maptiles", "tidyterra"))
+```
+
+It writes `output/figures/satellite_map_overview.png` plus one zoomed panel per
+stand, and downloads Esri imagery on first run (cached under
+`output/spatial/tile_cache/`, which is git-ignored).
 
 ## Bearing datum
 
