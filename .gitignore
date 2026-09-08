@@ -24,6 +24,9 @@ verify/
 *.xlsx
 *.pdf
 
+# ── Downloaded map-tile cache (maptiles), not a result ────────────────────────
+output/spatial/tile_cache/
+
 # ── Python ─────────────────────────────────────────────────────────────────────
 __pycache__/
 *.py[cod]

@@ -28,8 +28,7 @@ network connection; nothing is baked into the file.
   stand; click any stem for its full disease/AUDPC record
 - Cyan diamonds = soil-collection points (stand centre + 10 m N/E/S/W, each
   sampled in May, July and September)
-- Coloured outline = convex hull of the mapped stems; dashed white ring = the
-  10 m soil-sampling radius
+- Dashed white ring = the 10 m soil-sampling radius
 
 Regenerate with:
 
@@ -42,13 +41,40 @@ which also writes `output/spatial/site_points.csv` and `site_points.geojson`
 
 ## Static figures
 
+Run from the **repository root** (every path in the script is relative to it):
+
 ```
 Rscript R/09_satellite_map.R
 ```
 
-writes `output/figures/satellite_map_overview.png` plus one zoomed panel per
-stand. It needs `sf`, `maptiles` and `tidyterra`, and downloads Esri imagery on
-first run (cached under `output/spatial/tile_cache/`).
+On Windows, if `Rscript` is not on `PATH`, call it by full path — e.g.
+
+```
+"C:\Users\harri\R\R-4.4.1\bin\Rscript.exe" R/09_satellite_map.R
+```
+
+adjusting for the R version actually installed. First run needs the mapping
+packages:
+
+```r
+install.packages(c("sf", "maptiles", "tidyterra"))
+```
+
+It writes, at 300 dpi:
+
+| File | Contents |
+|---|---|
+| `satellite_map_overview.png` | all three stands together |
+| `satellite_map_attenuated.png` | formerly attenuated strain, zoomed |
+| `satellite_map_virulent.png` | virulent strain, zoomed |
+| `satellite_map_no_fungus_control.png` | no-fungus control, zoomed |
+
+Each figure is sized to its own mapped aspect ratio, so the panel fills it
+rather than leaving blank bands. Imagery is downloaded on first run and cached
+under `output/spatial/tile_cache/` (git-ignored).
+
+A convex hull of the mapped stems per stand is still written to
+`site_points.geojson` for GIS use, but neither map draws it.
 
 ## Bearing datum
 
