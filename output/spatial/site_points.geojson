@@ -1,0 +1,7893 @@
+{
+ "type": "FeatureCollection",
+ "crs": {
+  "type": "name",
+  "properties": {
+   "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+  }
+ },
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88538,
+     37.31725
+    ]
+   },
+   "properties": {
+    "kind": "centre",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-centre",
+    "east_m": 0.0,
+    "north_m": 0.0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88626,
+     37.31776
+    ]
+   },
+   "properties": {
+    "kind": "centre",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-centre",
+    "east_m": 0.0,
+    "north_m": 0.0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88659,
+     37.31766
+    ]
+   },
+   "properties": {
+    "kind": "centre",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-centre",
+    "east_m": 0.0,
+    "north_m": 0.0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88625898,
+     37.31775695
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T1",
+    "tree_num": 1,
+    "bearing_deg": 165,
+    "distance_m": 0.35,
+    "east_m": 0.091,
+    "north_m": -0.338,
+    "dbh_cm": 14.732,
+    "disease_initial": 1,
+    "disease_2_mai": 3,
+    "disease_4_mai": 3,
+    "audpc_adj_2mai": 3,
+    "audpc_adj_4mai": 8
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88625677,
+     37.31775819
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T2",
+    "tree_num": 2,
+    "bearing_deg": 125,
+    "distance_m": 0.35,
+    "east_m": 0.287,
+    "north_m": -0.201,
+    "dbh_cm": 9.652,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 5,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88626098,
+     37.31775556
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T3",
+    "tree_num": 3,
+    "bearing_deg": 190,
+    "distance_m": 0.5,
+    "east_m": -0.087,
+    "north_m": -0.492,
+    "dbh_cm": 13.97,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 5,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88624842,
+     37.3177346
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T4",
+    "tree_num": 4,
+    "bearing_deg": 160,
+    "distance_m": 3,
+    "east_m": 1.026,
+    "north_m": -2.819,
+    "dbh_cm": 14.224,
+    "disease_initial": 1,
+    "disease_2_mai": 4,
+    "disease_4_mai": 5,
+    "audpc_adj_2mai": 3.5,
+    "audpc_adj_4mai": 10
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88623462,
+     37.31772489
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T5",
+    "tree_num": 5,
+    "bearing_deg": 150,
+    "distance_m": 4.5,
+    "east_m": 2.25,
+    "north_m": -3.897,
+    "dbh_cm": 12.954,
+    "disease_initial": 1,
+    "disease_2_mai": 4,
+    "disease_4_mai": 5,
+    "audpc_adj_2mai": 4.5,
+    "audpc_adj_4mai": 11
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88622635,
+     37.31772162
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T6",
+    "tree_num": 6,
+    "bearing_deg": 145,
+    "distance_m": 5.2,
+    "east_m": 2.983,
+    "north_m": -4.26,
+    "dbh_cm": 12.192,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 5,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88621373,
+     37.31772305
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T7",
+    "tree_num": 7,
+    "bearing_deg": 135,
+    "distance_m": 5.8,
+    "east_m": 4.101,
+    "north_m": -4.101,
+    "dbh_cm": 9.398,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 5,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88623244,
+     37.31773377
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T8",
+    "tree_num": 8,
+    "bearing_deg": 140,
+    "distance_m": 3.8,
+    "east_m": 2.443,
+    "north_m": -2.911,
+    "dbh_cm": 10.16,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.8862099,
+     37.31774134
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T9",
+    "tree_num": 9,
+    "bearing_deg": 115,
+    "distance_m": 4.9,
+    "east_m": 4.441,
+    "north_m": -2.071,
+    "dbh_cm": 11.176,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 5,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88626585,
+     37.31781341
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T10",
+    "tree_num": 10,
+    "bearing_deg": 355,
+    "distance_m": 5.95,
+    "east_m": -0.519,
+    "north_m": 5.927,
+    "dbh_cm": 30.734,
+    "disease_initial": 1,
+    "disease_2_mai": 3,
+    "disease_4_mai": 3,
+    "audpc_adj_2mai": 1,
+    "audpc_adj_4mai": 6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88626846,
+     37.31783719
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T11",
+    "tree_num": 11,
+    "bearing_deg": 355,
+    "distance_m": 8.6,
+    "east_m": -0.75,
+    "north_m": 8.567,
+    "dbh_cm": 20.32,
+    "disease_initial": 1,
+    "disease_2_mai": 4,
+    "disease_4_mai": 3,
+    "audpc_adj_2mai": 3.5,
+    "audpc_adj_4mai": 9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88627312,
+     37.31778879
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T12",
+    "tree_num": 12,
+    "bearing_deg": 340,
+    "distance_m": 3.4,
+    "east_m": -1.163,
+    "north_m": 3.195,
+    "dbh_cm": 8.636,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 4,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 1.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88626656,
+     37.31777439
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T13",
+    "tree_num": 13,
+    "bearing_deg": 340,
+    "distance_m": 1.7,
+    "east_m": -0.581,
+    "north_m": 1.597,
+    "dbh_cm": 11.938,
+    "disease_initial": 1,
+    "disease_2_mai": 5,
+    "disease_4_mai": 2,
+    "audpc_adj_2mai": 5,
+    "audpc_adj_4mai": 11.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.8862716,
+     37.31777104
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T14",
+    "tree_num": 14,
+    "bearing_deg": 320,
+    "distance_m": 1.6,
+    "east_m": -1.028,
+    "north_m": 1.226,
+    "dbh_cm": 11.176,
+    "disease_initial": 1,
+    "disease_2_mai": 4,
+    "disease_4_mai": 4,
+    "audpc_adj_2mai": 4.5,
+    "audpc_adj_4mai": 10.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88628357,
+     37.31777318
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T15",
+    "tree_num": 15,
+    "bearing_deg": 305,
+    "distance_m": 2.55,
+    "east_m": -2.089,
+    "north_m": 1.463,
+    "dbh_cm": 12.192,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 5,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88632237,
+     37.31778323
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T16",
+    "tree_num": 16,
+    "bearing_deg": 295,
+    "distance_m": 6.1,
+    "east_m": -5.528,
+    "north_m": 2.578,
+    "dbh_cm": 13.208,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88631555,
+     37.31775218
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T17",
+    "tree_num": 17,
+    "bearing_deg": 260,
+    "distance_m": 5,
+    "east_m": -4.924,
+    "north_m": -0.868,
+    "dbh_cm": 13.716,
+    "disease_initial": 1,
+    "disease_2_mai": 4,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 3.5,
+    "audpc_adj_4mai": 8
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88629835,
+     37.31773855
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T18",
+    "tree_num": 18,
+    "bearing_deg": 235,
+    "distance_m": 4.15,
+    "east_m": -3.399,
+    "north_m": -2.38,
+    "dbh_cm": 12.446,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 5,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88629271,
+     37.31773388
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T19",
+    "tree_num": 19,
+    "bearing_deg": 225,
+    "distance_m": 4.1,
+    "east_m": -2.899,
+    "north_m": -2.899,
+    "dbh_cm": 13.208,
+    "disease_initial": 1,
+    "disease_2_mai": 4,
+    "disease_4_mai": 4,
+    "audpc_adj_2mai": 4.5,
+    "audpc_adj_4mai": 10.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88629843,
+     37.31772342
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T20",
+    "tree_num": 20,
+    "bearing_deg": 220,
+    "distance_m": 5.3,
+    "east_m": -3.407,
+    "north_m": -4.06,
+    "dbh_cm": 11.938,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 5,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88623969,
+     37.31773191
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T21",
+    "tree_num": 21,
+    "bearing_deg": 150,
+    "distance_m": 3.6,
+    "east_m": 1.8,
+    "north_m": -3.118,
+    "dbh_cm": 2.627650329928476,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88623839,
+     37.31773535
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T22",
+    "tree_num": 22,
+    "bearing_deg": 145,
+    "distance_m": 3.34,
+    "east_m": 1.916,
+    "north_m": -2.736,
+    "dbh_cm": 5.053173711400915,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.886227,
+     37.31772859
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T23",
+    "tree_num": 23,
+    "bearing_deg": 140,
+    "distance_m": 4.55,
+    "east_m": 2.925,
+    "north_m": -3.486,
+    "dbh_cm": 4.244665917576769,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88622336,
+     37.31774311
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T24",
+    "tree_num": 24,
+    "bearing_deg": 120,
+    "distance_m": 3.75,
+    "east_m": 3.248,
+    "north_m": -1.875,
+    "dbh_cm": 2.829777278384512,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88617759,
+     37.31772931
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T25",
+    "tree_num": 25,
+    "bearing_deg": 115,
+    "distance_m": 8.06,
+    "east_m": 7.305,
+    "north_m": -3.406,
+    "dbh_cm": 2.021269484560366,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88617769,
+     37.31772935
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T26",
+    "tree_num": 26,
+    "bearing_deg": 115,
+    "distance_m": 8.05,
+    "east_m": 7.296,
+    "north_m": -3.402,
+    "dbh_cm": 6.468062350593172,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88617105,
+     37.31772687
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T27",
+    "tree_num": 27,
+    "bearing_deg": 115,
+    "distance_m": 8.7,
+    "east_m": 7.885,
+    "north_m": -3.677,
+    "dbh_cm": 4.042538969120733,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88614869,
+     37.31772764
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T28",
+    "tree_num": 28,
+    "bearing_deg": 110,
+    "distance_m": 10.5,
+    "east_m": 9.867,
+    "north_m": -3.591,
+    "dbh_cm": 2.829777278384512,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88614816,
+     37.31772749
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T29",
+    "tree_num": 29,
+    "bearing_deg": 110,
+    "distance_m": 10.55,
+    "east_m": 9.914,
+    "north_m": -3.608,
+    "dbh_cm": 7.680824041329392,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88614837,
+     37.31772755
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T30",
+    "tree_num": 30,
+    "bearing_deg": 110,
+    "distance_m": 10.53,
+    "east_m": 9.895,
+    "north_m": -3.601,
+    "dbh_cm": 8.489331835153537,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88616334,
+     37.31774639
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T31",
+    "tree_num": 31,
+    "bearing_deg": 100,
+    "distance_m": 8.7,
+    "east_m": 8.568,
+    "north_m": -1.511,
+    "dbh_cm": 7.034017806270073,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88613557,
+     37.31774248
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T32",
+    "tree_num": 32,
+    "bearing_deg": 100,
+    "distance_m": 11.2,
+    "east_m": 11.03,
+    "north_m": -1.945,
+    "dbh_cm": 8.89358573206561,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88614223,
+     37.31774341
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T33",
+    "tree_num": 33,
+    "bearing_deg": 100,
+    "distance_m": 10.6,
+    "east_m": 10.439,
+    "north_m": -1.841,
+    "dbh_cm": 9.297839628977684,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.8861389,
+     37.31774295
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T34",
+    "tree_num": 34,
+    "bearing_deg": 100,
+    "distance_m": 10.9,
+    "east_m": 10.734,
+    "north_m": -1.893,
+    "dbh_cm": 5.255300659856952,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88614368,
+     37.31775187
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T35",
+    "tree_num": 35,
+    "bearing_deg": 95,
+    "distance_m": 10.35,
+    "east_m": 10.311,
+    "north_m": -0.902,
+    "dbh_cm": 8.994649206293628,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88616529,
+     37.31775736
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T36",
+    "tree_num": 36,
+    "bearing_deg": 92,
+    "distance_m": 8.4,
+    "east_m": 8.395,
+    "north_m": -0.293,
+    "dbh_cm": 6.063808453681098,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88616924,
+     37.31775747
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T37",
+    "tree_num": 37,
+    "bearing_deg": 92,
+    "distance_m": 8.05,
+    "east_m": 8.045,
+    "north_m": -0.281,
+    "dbh_cm": 8.89358573206561,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88616299,
+     37.31775865
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T38",
+    "tree_num": 38,
+    "bearing_deg": 91,
+    "distance_m": 8.6,
+    "east_m": 8.599,
+    "north_m": -0.15,
+    "dbh_cm": 11.31910911353805,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88620923,
+     37.31776
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T39",
+    "tree_num": 39,
+    "bearing_deg": 90,
+    "distance_m": 4.5,
+    "east_m": 4.5,
+    "north_m": 0.0,
+    "dbh_cm": 3.638285072208659,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 2,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88617773,
+     37.31777761
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T40",
+    "tree_num": 40,
+    "bearing_deg": 75,
+    "distance_m": 7.55,
+    "east_m": 7.293,
+    "north_m": 1.954,
+    "dbh_cm": 5.659554556769025,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 2,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88618445,
+     37.31777064
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T41",
+    "tree_num": 41,
+    "bearing_deg": 80,
+    "distance_m": 6.8,
+    "east_m": 6.697,
+    "north_m": 1.181,
+    "dbh_cm": 10.91485521662598,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 2,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88619167,
+     37.31776962
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T42",
+    "tree_num": 42,
+    "bearing_deg": 80,
+    "distance_m": 6.15,
+    "east_m": 6.057,
+    "north_m": 1.068,
+    "dbh_cm": 3.234031175296586,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88620493,
+     37.31776385
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T43",
+    "tree_num": 43,
+    "bearing_deg": 85,
+    "distance_m": 4.9,
+    "east_m": 4.881,
+    "north_m": 0.427,
+    "dbh_cm": 3.234031175296586,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 2,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88621707,
+     37.317757
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T44",
+    "tree_num": 44,
+    "bearing_deg": 95,
+    "distance_m": 3.82,
+    "east_m": 3.805,
+    "north_m": -0.333,
+    "dbh_cm": 1.617015587648293,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 2,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88623527,
+     37.31776173
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T45",
+    "tree_num": 45,
+    "bearing_deg": 85,
+    "distance_m": 2.2,
+    "east_m": 2.192,
+    "north_m": 0.192,
+    "dbh_cm": 6.468062350593172,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88623296,
+     37.31776113
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T46",
+    "tree_num": 46,
+    "bearing_deg": 87,
+    "distance_m": 2.4,
+    "east_m": 2.397,
+    "north_m": 0.126,
+    "dbh_cm": 10.91485521662598,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 2,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88619819,
+     37.31776432
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T47",
+    "tree_num": 47,
+    "bearing_deg": 85,
+    "distance_m": 5.5,
+    "east_m": 5.479,
+    "north_m": 0.479,
+    "dbh_cm": 4.648919814488842,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 2,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88621472,
+     37.31778532
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T48",
+    "tree_num": 48,
+    "bearing_deg": 55,
+    "distance_m": 4.9,
+    "east_m": 4.014,
+    "north_m": 2.811,
+    "dbh_cm": 8.287204886697502,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 2,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88621895,
+     37.31778751
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T49",
+    "tree_num": 49,
+    "bearing_deg": 50,
+    "distance_m": 4.75,
+    "east_m": 3.639,
+    "north_m": 3.053,
+    "dbh_cm": 9.702093525889756,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88621975,
+     37.31779831
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T50",
+    "tree_num": 50,
+    "bearing_deg": 40,
+    "distance_m": 5.55,
+    "east_m": 3.567,
+    "north_m": 4.252,
+    "dbh_cm": 1.617015587648293,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 2,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88621903,
+     37.317799
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T51",
+    "tree_num": 51,
+    "bearing_deg": 40,
+    "distance_m": 5.65,
+    "east_m": 3.632,
+    "north_m": 4.328,
+    "dbh_cm": 1.21276169073622,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 2,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88620575,
+     37.31780332
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T52",
+    "tree_num": 52,
+    "bearing_deg": 45,
+    "distance_m": 6.8,
+    "east_m": 4.808,
+    "north_m": 4.808,
+    "dbh_cm": 12.53187080427427,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 2,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88620414,
+     37.31780955
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T53",
+    "tree_num": 53,
+    "bearing_deg": 42,
+    "distance_m": 7.4,
+    "east_m": 4.952,
+    "north_m": 5.499,
+    "dbh_cm": 6.063808453681098,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88622068,
+     37.31778635
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T54",
+    "tree_num": 54,
+    "bearing_deg": 50,
+    "distance_m": 4.55,
+    "east_m": 3.486,
+    "north_m": 2.925,
+    "dbh_cm": 3.234031175296586,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88618913,
+     37.31780749
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T55",
+    "tree_num": 55,
+    "bearing_deg": 50,
+    "distance_m": 8.2,
+    "east_m": 6.282,
+    "north_m": 5.271,
+    "dbh_cm": 10.5106013197139,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88622913,
+     37.31782774
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T56",
+    "tree_num": 56,
+    "bearing_deg": 20,
+    "distance_m": 8,
+    "east_m": 2.736,
+    "north_m": 7.518,
+    "dbh_cm": 6.468062350593172,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88623606,
+     37.31783137
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T57",
+    "tree_num": 57,
+    "bearing_deg": 15,
+    "distance_m": 8.2,
+    "east_m": 2.122,
+    "north_m": 7.921,
+    "dbh_cm": 4.851046762944878,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88625131,
+     37.31783935
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T58",
+    "tree_num": 58,
+    "bearing_deg": 5,
+    "distance_m": 8.84,
+    "east_m": 0.77,
+    "north_m": 8.806,
+    "dbh_cm": 3.234031175296586,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88626654,
+     37.31781969
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T59",
+    "tree_num": 59,
+    "bearing_deg": 355,
+    "distance_m": 6.65,
+    "east_m": -0.58,
+    "north_m": 6.625,
+    "dbh_cm": 5.457427608312988,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88627552,
+     37.31783028
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T60",
+    "tree_num": 60,
+    "bearing_deg": 350,
+    "distance_m": 7.92,
+    "east_m": -1.375,
+    "north_m": 7.8,
+    "dbh_cm": 6.468062350593172,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88626806,
+     37.3178336
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T61",
+    "tree_num": 61,
+    "bearing_deg": 355,
+    "distance_m": 8.2,
+    "east_m": -0.715,
+    "north_m": 8.169,
+    "dbh_cm": 1.21276169073622,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88627695,
+     37.31783676
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T62",
+    "tree_num": 62,
+    "bearing_deg": 350,
+    "distance_m": 8.65,
+    "east_m": -1.502,
+    "north_m": 8.519,
+    "dbh_cm": 0.8085077938241465,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.8863421,
+     37.31781502
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T63",
+    "tree_num": 63,
+    "bearing_deg": 310,
+    "distance_m": 9.5,
+    "east_m": -7.277,
+    "north_m": 6.106,
+    "dbh_cm": 7.680824041329392,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88633474,
+     37.31778173
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T64",
+    "tree_num": 64,
+    "bearing_deg": 290,
+    "distance_m": 7.05,
+    "east_m": -6.625,
+    "north_m": 2.411,
+    "dbh_cm": 1.010634742280183,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88631407,
+     37.31777572
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T65",
+    "tree_num": 65,
+    "bearing_deg": 290,
+    "distance_m": 5.1,
+    "east_m": -4.792,
+    "north_m": 1.744,
+    "dbh_cm": 1.21276169073622,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88633138,
+     37.31777527
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T66",
+    "tree_num": 66,
+    "bearing_deg": 285,
+    "distance_m": 6.55,
+    "east_m": -6.327,
+    "north_m": 1.695,
+    "dbh_cm": 7.276570144417318,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88634912,
+     37.31776
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T67",
+    "tree_num": 67,
+    "bearing_deg": 270,
+    "distance_m": 7.9,
+    "east_m": -7.9,
+    "north_m": -0.0,
+    "dbh_cm": 3.234031175296586,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.8863471,
+     37.31775391
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T68",
+    "tree_num": 68,
+    "bearing_deg": 265,
+    "distance_m": 7.75,
+    "east_m": -7.721,
+    "north_m": -0.675,
+    "dbh_cm": 4.042538969120733,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88632406,
+     37.31775552
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T69",
+    "tree_num": 69,
+    "bearing_deg": 265,
+    "distance_m": 5.7,
+    "east_m": -5.678,
+    "north_m": -0.497,
+    "dbh_cm": 1.21276169073622,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88629221,
+     37.31774801
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T70",
+    "tree_num": 70,
+    "bearing_deg": 245,
+    "distance_m": 3.15,
+    "east_m": -2.855,
+    "north_m": -1.331,
+    "dbh_cm": 3.880837410355903,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88629414,
+     37.31773712
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T71",
+    "tree_num": 71,
+    "bearing_deg": 230,
+    "distance_m": 3.95,
+    "east_m": -3.026,
+    "north_m": -2.539,
+    "dbh_cm": 5.659554556769025,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88630547,
+     37.31772368
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T72",
+    "tree_num": 72,
+    "bearing_deg": 225,
+    "distance_m": 5.7,
+    "east_m": -4.031,
+    "north_m": -4.031,
+    "dbh_cm": 13.34037859809841,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88630539,
+     37.31772112
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T73",
+    "tree_num": 73,
+    "bearing_deg": 223,
+    "distance_m": 5.9,
+    "east_m": -4.024,
+    "north_m": -4.315,
+    "dbh_cm": 11.31910911353805,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88631047,
+     37.31770243
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T74",
+    "tree_num": 74,
+    "bearing_deg": 215,
+    "distance_m": 7.8,
+    "east_m": -4.474,
+    "north_m": -6.389,
+    "dbh_cm": 2.425523381472439,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88628015,
+     37.31769995
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T75",
+    "tree_num": 75,
+    "bearing_deg": 195,
+    "distance_m": 6.9,
+    "east_m": -1.786,
+    "north_m": -6.665,
+    "dbh_cm": 8.89358573206561,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88627254,
+     37.31770321
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T76",
+    "tree_num": 76,
+    "bearing_deg": 190,
+    "distance_m": 6.4,
+    "east_m": -1.111,
+    "north_m": -6.303,
+    "dbh_cm": 1.414888639192256,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.8862656,
+     37.31770884
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T77",
+    "tree_num": 77,
+    "bearing_deg": 185,
+    "distance_m": 5.7,
+    "east_m": -0.497,
+    "north_m": -5.678,
+    "dbh_cm": 1.617015587648293,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88626,
+     37.31772666
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-T78",
+    "tree_num": 78,
+    "bearing_deg": 180,
+    "distance_m": 3.7,
+    "east_m": 0.0,
+    "north_m": -3.7,
+    "dbh_cm": 1.819142536104329,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88659,
+     37.31767847
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T1",
+    "tree_num": 1,
+    "bearing_deg": 360,
+    "distance_m": 2.05,
+    "east_m": -0.0,
+    "north_m": 2.05,
+    "dbh_cm": 13.208,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 5,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88659202,
+     37.3176784
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T2",
+    "tree_num": 2,
+    "bearing_deg": 355,
+    "distance_m": 2.05,
+    "east_m": -0.179,
+    "north_m": 2.042,
+    "dbh_cm": 8.89,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 2,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 3.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88661248,
+     37.3176814
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T3",
+    "tree_num": 3,
+    "bearing_deg": 320,
+    "distance_m": 3.1,
+    "east_m": -1.993,
+    "north_m": 2.375,
+    "dbh_cm": 20.066,
+    "disease_initial": 1,
+    "disease_2_mai": 5,
+    "disease_4_mai": 2,
+    "audpc_adj_2mai": 4,
+    "audpc_adj_4mai": 6.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88662579,
+     37.31767333
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T4",
+    "tree_num": 4,
+    "bearing_deg": 295,
+    "distance_m": 3.5,
+    "east_m": -3.172,
+    "north_m": 1.479,
+    "dbh_cm": 13.97,
+    "disease_initial": 1,
+    "disease_2_mai": 5,
+    "disease_4_mai": 5,
+    "audpc_adj_2mai": 4,
+    "audpc_adj_4mai": 8
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88663163,
+     37.31768159
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T5",
+    "tree_num": 5,
+    "bearing_deg": 303,
+    "distance_m": 4.4,
+    "east_m": -3.69,
+    "north_m": 2.396,
+    "dbh_cm": 12.7,
+    "disease_initial": 1,
+    "disease_2_mai": 5,
+    "disease_4_mai": 5,
+    "audpc_adj_2mai": 4,
+    "audpc_adj_4mai": 8
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88663066,
+     37.31768274
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T6",
+    "tree_num": 6,
+    "bearing_deg": 305,
+    "distance_m": 4.4,
+    "east_m": -3.604,
+    "north_m": 2.524,
+    "dbh_cm": 14.732,
+    "disease_initial": 1,
+    "disease_2_mai": 4,
+    "disease_4_mai": 2,
+    "audpc_adj_2mai": 3.5,
+    "audpc_adj_4mai": 8.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88666698,
+     37.31765462
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T7",
+    "tree_num": 7,
+    "bearing_deg": 265,
+    "distance_m": 6.85,
+    "east_m": -6.824,
+    "north_m": -0.597,
+    "dbh_cm": 12.192,
+    "disease_initial": 1,
+    "disease_2_mai": 5,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 5,
+    "audpc_adj_4mai": 7
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.886675,
+     37.31764181
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T8",
+    "tree_num": 8,
+    "bearing_deg": 255,
+    "distance_m": 7.8,
+    "east_m": -7.534,
+    "north_m": -2.019,
+    "dbh_cm": 9.398,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88666132,
+     37.31762711
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T9",
+    "tree_num": 9,
+    "bearing_deg": 240,
+    "distance_m": 7.3,
+    "east_m": -6.322,
+    "north_m": -3.65,
+    "dbh_cm": 10.414,
+    "disease_initial": 1,
+    "disease_2_mai": 5,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 4,
+    "audpc_adj_4mai": 6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88665937,
+     37.31762801
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T10",
+    "tree_num": 10,
+    "bearing_deg": 240,
+    "distance_m": 7.1,
+    "east_m": -6.149,
+    "north_m": -3.55,
+    "dbh_cm": 8.89,
+    "disease_initial": 1,
+    "disease_2_mai": 3,
+    "disease_4_mai": 5,
+    "audpc_adj_2mai": 1,
+    "audpc_adj_4mai": 7
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88665237,
+     37.31763677
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T11",
+    "tree_num": 11,
+    "bearing_deg": 245,
+    "distance_m": 6.1,
+    "east_m": -5.528,
+    "north_m": -2.578,
+    "dbh_cm": 9.398,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 5,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88663299,
+     37.31764018
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T12",
+    "tree_num": 12,
+    "bearing_deg": 240,
+    "distance_m": 4.4,
+    "east_m": -3.811,
+    "north_m": -2.2,
+    "dbh_cm": 8.89,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88661247,
+     37.31764964
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T13",
+    "tree_num": 13,
+    "bearing_deg": 240,
+    "distance_m": 2.3,
+    "east_m": -1.992,
+    "north_m": -1.15,
+    "dbh_cm": 10.16,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 5,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88658099,
+     37.31765738
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T14",
+    "tree_num": 14,
+    "bearing_deg": 110,
+    "distance_m": 0.85,
+    "east_m": 0.799,
+    "north_m": -0.291,
+    "dbh_cm": 10.16,
+    "disease_initial": 1,
+    "disease_2_mai": 5,
+    "disease_4_mai": 5,
+    "audpc_adj_2mai": 5,
+    "audpc_adj_4mai": 9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88655278,
+     37.31766524
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T15",
+    "tree_num": 15,
+    "bearing_deg": 80,
+    "distance_m": 3.35,
+    "east_m": 3.299,
+    "north_m": 0.582,
+    "dbh_cm": 14.224,
+    "disease_initial": 1,
+    "disease_2_mai": 5,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 6,
+    "audpc_adj_4mai": 8
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88658302,
+     37.31772373
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T16",
+    "tree_num": 16,
+    "bearing_deg": 5,
+    "distance_m": 7.1,
+    "east_m": 0.619,
+    "north_m": 7.073,
+    "dbh_cm": 12.7,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88657452,
+     37.31770613
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T17",
+    "tree_num": 17,
+    "bearing_deg": 15,
+    "distance_m": 5.3,
+    "east_m": 1.372,
+    "north_m": 5.119,
+    "dbh_cm": 13.97,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 5,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88657864,
+     37.31771147
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T18",
+    "tree_num": 18,
+    "bearing_deg": 10,
+    "distance_m": 5.8,
+    "east_m": 1.007,
+    "north_m": 5.712,
+    "dbh_cm": 10.414,
+    "disease_initial": 1,
+    "disease_2_mai": 5,
+    "disease_4_mai": 2,
+    "audpc_adj_2mai": 5,
+    "audpc_adj_4mai": 10.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88655682,
+     37.31773282
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T19",
+    "tree_num": 19,
+    "bearing_deg": 20,
+    "distance_m": 8.6,
+    "east_m": 2.941,
+    "north_m": 8.081,
+    "dbh_cm": 16.764,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 5,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88655296,
+     37.31774128
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T20",
+    "tree_num": 20,
+    "bearing_deg": 20,
+    "distance_m": 9.6,
+    "east_m": 3.283,
+    "north_m": 9.021,
+    "dbh_cm": 17.018,
+    "disease_initial": 1,
+    "disease_2_mai": 5,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 5,
+    "audpc_adj_4mai": 10
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.8865854,
+     37.31768085
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T21",
+    "tree_num": 21,
+    "bearing_deg": 10,
+    "distance_m": 2.35,
+    "east_m": 0.408,
+    "north_m": 2.314,
+    "dbh_cm": 6.063808453681098,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 2,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88658093,
+     37.3176799
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T22",
+    "tree_num": 22,
+    "bearing_deg": 20,
+    "distance_m": 2.35,
+    "east_m": 0.804,
+    "north_m": 2.208,
+    "dbh_cm": 4.446792866032805,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 5,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88656062,
+     37.31767969
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T23",
+    "tree_num": 23,
+    "bearing_deg": 50,
+    "distance_m": 3.4,
+    "east_m": 2.605,
+    "north_m": 2.185,
+    "dbh_cm": 2.627650329928476,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.886546,
+     37.31767279
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T24",
+    "tree_num": 24,
+    "bearing_deg": 70,
+    "distance_m": 4.15,
+    "east_m": 3.9,
+    "north_m": 1.419,
+    "dbh_cm": 8.085077938241465,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 2,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.8865354,
+     37.31767587
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T25",
+    "tree_num": 25,
+    "bearing_deg": 70,
+    "distance_m": 5.15,
+    "east_m": 4.839,
+    "north_m": 1.761,
+    "dbh_cm": 6.872316247505244,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 2,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88654892,
+     37.31769281
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T26",
+    "tree_num": 26,
+    "bearing_deg": 45,
+    "distance_m": 5.15,
+    "east_m": 3.642,
+    "north_m": 3.642,
+    "dbh_cm": 6.468062350593172,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.8865295,
+     37.31770054
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T27",
+    "tree_num": 27,
+    "bearing_deg": 50,
+    "distance_m": 7,
+    "east_m": 5.362,
+    "north_m": 4.5,
+    "dbh_cm": 3.031904226840549,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88655813,
+     37.31770409
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T28",
+    "tree_num": 28,
+    "bearing_deg": 30,
+    "distance_m": 5.65,
+    "east_m": 2.825,
+    "north_m": 4.893,
+    "dbh_cm": 1.21276169073622,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88654177,
+     37.31772672
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T29",
+    "tree_num": 29,
+    "bearing_deg": 30,
+    "distance_m": 8.55,
+    "east_m": 4.275,
+    "north_m": 7.405,
+    "dbh_cm": 2.829777278384512,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88648321,
+     37.31768285
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T30",
+    "tree_num": 30,
+    "bearing_deg": 75,
+    "distance_m": 9.8,
+    "east_m": 9.466,
+    "north_m": 2.536,
+    "dbh_cm": 8.287204886697502,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 5,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88648556,
+     37.31767471
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T31",
+    "tree_num": 31,
+    "bearing_deg": 80,
+    "distance_m": 9.4,
+    "east_m": 9.257,
+    "north_m": 1.632,
+    "dbh_cm": 8.89358573206561,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88648001,
+     37.31767549
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T32",
+    "tree_num": 32,
+    "bearing_deg": 80,
+    "distance_m": 9.9,
+    "east_m": 9.75,
+    "north_m": 1.719,
+    "dbh_cm": 2.425523381472439,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88649001,
+     37.31767408
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T33",
+    "tree_num": 33,
+    "bearing_deg": 80,
+    "distance_m": 9,
+    "east_m": 8.863,
+    "north_m": 1.563,
+    "dbh_cm": 8.287204886697502,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88650001,
+     37.31767267
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T34",
+    "tree_num": 34,
+    "bearing_deg": 80,
+    "distance_m": 8.1,
+    "east_m": 7.977,
+    "north_m": 1.407,
+    "dbh_cm": 9.702093525889756,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.8865147,
+     37.31765474
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T35",
+    "tree_num": 35,
+    "bearing_deg": 95,
+    "distance_m": 6.7,
+    "east_m": 6.675,
+    "north_m": -0.584,
+    "dbh_cm": 7.478697092873355,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88651108,
+     37.3176578
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T36",
+    "tree_num": 36,
+    "bearing_deg": 92,
+    "distance_m": 7,
+    "east_m": 6.996,
+    "north_m": -0.244,
+    "dbh_cm": 3.638285072208659,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88654428,
+     37.31763892
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T37",
+    "tree_num": 37,
+    "bearing_deg": 120,
+    "distance_m": 4.68,
+    "east_m": 4.053,
+    "north_m": -2.34,
+    "dbh_cm": 2.829777278384512,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88655154,
+     37.31763423
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T38",
+    "tree_num": 38,
+    "bearing_deg": 130,
+    "distance_m": 4.45,
+    "east_m": 3.409,
+    "north_m": -2.86,
+    "dbh_cm": 8.085077938241465,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88654869,
+     37.31763232
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T39",
+    "tree_num": 39,
+    "bearing_deg": 130,
+    "distance_m": 4.78,
+    "east_m": 3.662,
+    "north_m": -3.073,
+    "dbh_cm": 0.8085077938241465,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 5,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88654576,
+     37.3176179
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T40",
+    "tree_num": 40,
+    "bearing_deg": 140,
+    "distance_m": 6.1,
+    "east_m": 3.921,
+    "north_m": -4.673,
+    "dbh_cm": 2.425523381472439,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88656715,
+     37.3176284
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T41",
+    "tree_num": 41,
+    "bearing_deg": 150,
+    "distance_m": 4.05,
+    "east_m": 2.025,
+    "north_m": -3.507,
+    "dbh_cm": 0.8085077938241465,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88659,
+     37.31762801
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T42",
+    "tree_num": 42,
+    "bearing_deg": 180,
+    "distance_m": 3.55,
+    "east_m": 0.0,
+    "north_m": -3.55,
+    "dbh_cm": 2.425523381472439,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88659346,
+     37.31765768
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T43",
+    "tree_num": 43,
+    "bearing_deg": 230,
+    "distance_m": 0.4,
+    "east_m": -0.306,
+    "north_m": -0.257,
+    "dbh_cm": 3.234031175296586,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88659951,
+     37.31765363
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T44",
+    "tree_num": 44,
+    "bearing_deg": 230,
+    "distance_m": 1.1,
+    "east_m": -0.843,
+    "north_m": -0.707,
+    "dbh_cm": 2.829777278384512,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88660124,
+     37.31766079
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T45",
+    "tree_num": 45,
+    "bearing_deg": 275,
+    "distance_m": 1,
+    "east_m": -0.996,
+    "north_m": 0.087,
+    "dbh_cm": 8.085077938241465,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 5,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88660803,
+     37.31766075
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T46",
+    "tree_num": 46,
+    "bearing_deg": 273,
+    "distance_m": 1.6,
+    "east_m": -1.598,
+    "north_m": 0.084,
+    "dbh_cm": 3.234031175296586,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88661023,
+     37.31766141
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T47",
+    "tree_num": 47,
+    "bearing_deg": 275,
+    "distance_m": 1.8,
+    "east_m": -1.793,
+    "north_m": 0.157,
+    "dbh_cm": 2.425523381472439,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88660849,
+     37.3176776
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T48",
+    "tree_num": 48,
+    "bearing_deg": 320,
+    "distance_m": 2.55,
+    "east_m": -1.639,
+    "north_m": 1.953,
+    "dbh_cm": 3.234031175296586,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88661502,
+     37.31768381
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T49",
+    "tree_num": 49,
+    "bearing_deg": 320,
+    "distance_m": 3.45,
+    "east_m": -2.218,
+    "north_m": 2.643,
+    "dbh_cm": 1.617015587648293,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88660946,
+     37.31768692
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T50",
+    "tree_num": 50,
+    "bearing_deg": 330,
+    "distance_m": 3.45,
+    "east_m": -1.725,
+    "north_m": 2.988,
+    "dbh_cm": 3.234031175296586,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88662263,
+     37.31769106
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T51",
+    "tree_num": 51,
+    "bearing_deg": 320,
+    "distance_m": 4.5,
+    "east_m": -2.893,
+    "north_m": 3.447,
+    "dbh_cm": 3.234031175296586,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 5,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88661002,
+     37.3176943
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T52",
+    "tree_num": 52,
+    "bearing_deg": 335,
+    "distance_m": 4.2,
+    "east_m": -1.775,
+    "north_m": 3.806,
+    "dbh_cm": 6.063808453681098,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 2,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88660314,
+     37.31769916
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T53",
+    "tree_num": 53,
+    "bearing_deg": 345,
+    "distance_m": 4.5,
+    "east_m": -1.165,
+    "north_m": 4.347,
+    "dbh_cm": 6.387211571210758,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 5,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.8865994,
+     37.31770259
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T54",
+    "tree_num": 54,
+    "bearing_deg": 350,
+    "distance_m": 4.8,
+    "east_m": -0.834,
+    "north_m": 4.727,
+    "dbh_cm": 2.425523381472439,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.8866046,
+     37.31770352
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T55",
+    "tree_num": 55,
+    "bearing_deg": 345,
+    "distance_m": 5,
+    "east_m": -1.294,
+    "north_m": 4.83,
+    "dbh_cm": 3.234031175296586,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88659891,
+     37.31770037
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T56",
+    "tree_num": 56,
+    "bearing_deg": 350,
+    "distance_m": 4.55,
+    "east_m": -0.79,
+    "north_m": 4.481,
+    "dbh_cm": 5.659554556769025,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88664276,
+     37.31768433
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T57",
+    "tree_num": 57,
+    "bearing_deg": 300,
+    "distance_m": 5.4,
+    "east_m": -4.677,
+    "north_m": 2.7,
+    "dbh_cm": 4.042538969120733,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88664667,
+     37.31768613
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T58",
+    "tree_num": 58,
+    "bearing_deg": 300,
+    "distance_m": 5.8,
+    "east_m": -5.023,
+    "north_m": 2.9,
+    "dbh_cm": 1.617015587648293,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 5,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88664675,
+     37.31768113
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T59",
+    "tree_num": 59,
+    "bearing_deg": 295,
+    "distance_m": 5.55,
+    "east_m": -5.03,
+    "north_m": 2.346,
+    "dbh_cm": 3.234031175296586,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88657688,
+     37.31768879
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T60",
+    "tree_num": 60,
+    "bearing_deg": 20,
+    "distance_m": 3.4,
+    "east_m": 1.163,
+    "north_m": 3.195,
+    "dbh_cm": 8.085077938241465,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88658093,
+     37.3176799
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-T61",
+    "tree_num": 61,
+    "bearing_deg": 20,
+    "distance_m": 2.35,
+    "east_m": 0.804,
+    "north_m": 2.208,
+    "dbh_cm": 2.627650329928476,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 2,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88537248,
+     37.31723349
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T1",
+    "tree_num": 1,
+    "bearing_deg": 160,
+    "distance_m": 1.95,
+    "east_m": 0.667,
+    "north_m": -1.832,
+    "dbh_cm": 18.542,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.8853858,
+     37.31724448
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T2",
+    "tree_num": 2,
+    "bearing_deg": 220,
+    "distance_m": 0.8,
+    "east_m": -0.514,
+    "north_m": -0.613,
+    "dbh_cm": 12.446,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 2,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 1.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88538118,
+     37.31725532
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T3",
+    "tree_num": 3,
+    "bearing_deg": 350,
+    "distance_m": 0.6,
+    "east_m": -0.104,
+    "north_m": 0.591,
+    "dbh_cm": 19.558,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88538588,
+     37.31727662
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T4",
+    "tree_num": 4,
+    "bearing_deg": 350,
+    "distance_m": 3,
+    "east_m": -0.521,
+    "north_m": 2.954,
+    "dbh_cm": 10.16,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88539621,
+     37.31728556
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T5",
+    "tree_num": 5,
+    "bearing_deg": 340,
+    "distance_m": 4.2,
+    "east_m": -1.436,
+    "north_m": 3.947,
+    "dbh_cm": 12.192,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88540482,
+     37.31728433
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T6",
+    "tree_num": 6,
+    "bearing_deg": 330,
+    "distance_m": 4.4,
+    "east_m": -2.2,
+    "north_m": 3.811,
+    "dbh_cm": 10.922,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88536746,
+     37.31730679
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T7",
+    "tree_num": 7,
+    "bearing_deg": 10,
+    "distance_m": 6.4,
+    "east_m": 1.111,
+    "north_m": 6.303,
+    "dbh_cm": 16.764,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 4,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 4.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88538,
+     37.31732298
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T8",
+    "tree_num": 8,
+    "bearing_deg": 360,
+    "distance_m": 8.1,
+    "east_m": -0.0,
+    "north_m": 8.1,
+    "dbh_cm": 13.208,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88537095,
+     37.31733258
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T9",
+    "tree_num": 9,
+    "bearing_deg": 5,
+    "distance_m": 9.2,
+    "east_m": 0.802,
+    "north_m": 9.165,
+    "dbh_cm": 16.002,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 4,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 4.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88533375,
+     37.31731399
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T10",
+    "tree_num": 10,
+    "bearing_deg": 30,
+    "distance_m": 8.2,
+    "east_m": 4.1,
+    "north_m": 7.101,
+    "dbh_cm": 16.256,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88533093,
+     37.31731789
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T11",
+    "tree_num": 11,
+    "bearing_deg": 30,
+    "distance_m": 8.7,
+    "east_m": 4.35,
+    "north_m": 7.534,
+    "dbh_cm": 12.446,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88532437,
+     37.31724611
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T12",
+    "tree_num": 12,
+    "bearing_deg": 95,
+    "distance_m": 4.95,
+    "east_m": 4.931,
+    "north_m": -0.431,
+    "dbh_cm": 8.382,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88533834,
+     37.31724413
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T13",
+    "tree_num": 13,
+    "bearing_deg": 100,
+    "distance_m": 3.75,
+    "east_m": 3.693,
+    "north_m": -0.651,
+    "dbh_cm": 9.652,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88534184,
+     37.31723891
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T14",
+    "tree_num": 14,
+    "bearing_deg": 110,
+    "distance_m": 3.6,
+    "east_m": 3.383,
+    "north_m": -1.231,
+    "dbh_cm": 8.89,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88533115,
+     37.31722747
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T15",
+    "tree_num": 15,
+    "bearing_deg": 120,
+    "distance_m": 5,
+    "east_m": 4.33,
+    "north_m": -2.5,
+    "dbh_cm": 10.414,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88537163,
+     37.31721211
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T16",
+    "tree_num": 16,
+    "bearing_deg": 170,
+    "distance_m": 4.27,
+    "east_m": 0.741,
+    "north_m": -4.205,
+    "dbh_cm": 7.874,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88538,
+     37.31720089
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T17",
+    "tree_num": 17,
+    "bearing_deg": 180,
+    "distance_m": 5.45,
+    "east_m": 0.0,
+    "north_m": -5.45,
+    "dbh_cm": 9.906,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88541328,
+     37.31720396
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T18",
+    "tree_num": 18,
+    "bearing_deg": 210,
+    "distance_m": 5.9,
+    "east_m": -2.95,
+    "north_m": -5.11,
+    "dbh_cm": 11.684,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88541949,
+     37.31719538
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T19",
+    "tree_num": 19,
+    "bearing_deg": 210,
+    "distance_m": 7,
+    "east_m": -3.5,
+    "north_m": -6.062,
+    "dbh_cm": 12.7,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88541048,
+     37.31718311
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T20",
+    "tree_num": 20,
+    "bearing_deg": 200,
+    "distance_m": 7.9,
+    "east_m": -2.702,
+    "north_m": -7.424,
+    "dbh_cm": 10.922,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88534767,
+     37.3172594
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T21",
+    "tree_num": 21,
+    "bearing_deg": 70,
+    "distance_m": 3.05,
+    "east_m": 2.866,
+    "north_m": 1.043,
+    "dbh_cm": 8.085077938241465,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88536195,
+     37.31727497
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T22",
+    "tree_num": 22,
+    "bearing_deg": 30,
+    "distance_m": 3.2,
+    "east_m": 1.6,
+    "north_m": 2.771,
+    "dbh_cm": 7.276570144417318,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88533533,
+     37.31728568
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T23",
+    "tree_num": 23,
+    "bearing_deg": 45,
+    "distance_m": 5.6,
+    "east_m": 3.96,
+    "north_m": 3.96,
+    "dbh_cm": 7.680824041329392,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88529459,
+     37.31724403
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T24",
+    "tree_num": 24,
+    "bearing_deg": 95,
+    "distance_m": 7.6,
+    "east_m": 7.571,
+    "north_m": -0.662,
+    "dbh_cm": 6.063808453681098,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88531001,
+     37.31724014
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T25",
+    "tree_num": 25,
+    "bearing_deg": 100,
+    "distance_m": 6.3,
+    "east_m": 6.204,
+    "north_m": -1.094,
+    "dbh_cm": 4.851046762944878,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88526818,
+     37.31724219
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T26",
+    "tree_num": 26,
+    "bearing_deg": 95,
+    "distance_m": 9.95,
+    "east_m": 9.912,
+    "north_m": -0.867,
+    "dbh_cm": 4.446792866032805,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88528424,
+     37.31725401
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T27",
+    "tree_num": 27,
+    "bearing_deg": 87,
+    "distance_m": 8.5,
+    "east_m": 8.488,
+    "north_m": 0.445,
+    "dbh_cm": 7.680824041329392,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88530966,
+     37.31728244
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T28",
+    "tree_num": 28,
+    "bearing_deg": 60,
+    "distance_m": 7.2,
+    "east_m": 6.235,
+    "north_m": 3.6,
+    "dbh_cm": 8.085077938241465,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88530346,
+     37.3172882
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T29",
+    "tree_num": 29,
+    "bearing_deg": 58,
+    "distance_m": 8,
+    "east_m": 6.784,
+    "north_m": 4.239,
+    "dbh_cm": 6.468062350593172,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88529744,
+     37.31728807
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T30",
+    "tree_num": 30,
+    "bearing_deg": 60,
+    "distance_m": 8.45,
+    "east_m": 7.318,
+    "north_m": 4.225,
+    "dbh_cm": 6.953167026887659,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88529105,
+     37.31728313
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T31",
+    "tree_num": 31,
+    "bearing_deg": 65,
+    "distance_m": 8.7,
+    "east_m": 7.885,
+    "north_m": 3.677,
+    "dbh_cm": 7.034017806270073,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88528356,
+     37.31727064
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T32",
+    "tree_num": 32,
+    "bearing_deg": 75,
+    "distance_m": 8.85,
+    "east_m": 8.548,
+    "north_m": 2.291,
+    "dbh_cm": 2.021269484560366,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88538,
+     37.31721126
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T33",
+    "tree_num": 33,
+    "bearing_deg": 180,
+    "distance_m": 4.3,
+    "east_m": 0.0,
+    "north_m": -4.3,
+    "dbh_cm": 7.680824041329392,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88539447,
+     37.31721825
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T34",
+    "tree_num": 34,
+    "bearing_deg": 200,
+    "distance_m": 3.75,
+    "east_m": -1.283,
+    "north_m": -3.524,
+    "dbh_cm": 4.446792866032805,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.8853898,
+     37.31720563
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T35",
+    "tree_num": 35,
+    "bearing_deg": 190,
+    "distance_m": 5,
+    "east_m": -0.868,
+    "north_m": -4.924,
+    "dbh_cm": 2.829777278384512,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.8853946,
+     37.31720648
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T36",
+    "tree_num": 36,
+    "bearing_deg": 195,
+    "distance_m": 5,
+    "east_m": -1.294,
+    "north_m": -4.83,
+    "dbh_cm": 4.042538969120733,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88540143,
+     37.31722035
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T37",
+    "tree_num": 37,
+    "bearing_deg": 210,
+    "distance_m": 3.8,
+    "east_m": -1.9,
+    "north_m": -3.291,
+    "dbh_cm": 7.276570144417318,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88542029,
+     37.31721783
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T38",
+    "tree_num": 38,
+    "bearing_deg": 225,
+    "distance_m": 5.05,
+    "east_m": -3.571,
+    "north_m": -3.571,
+    "dbh_cm": 4.042538969120733,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88542436,
+     37.31722519
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T39",
+    "tree_num": 39,
+    "bearing_deg": 235,
+    "distance_m": 4.8,
+    "east_m": -3.932,
+    "north_m": -2.753,
+    "dbh_cm": 11.72336301045012,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88542627,
+     37.31721305
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T40",
+    "tree_num": 40,
+    "bearing_deg": 225,
+    "distance_m": 5.8,
+    "east_m": -4.101,
+    "north_m": -4.101,
+    "dbh_cm": 8.085077938241465,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88545222,
+     37.31723983
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T41",
+    "tree_num": 41,
+    "bearing_deg": 260,
+    "distance_m": 6.5,
+    "east_m": -6.401,
+    "north_m": -1.129,
+    "dbh_cm": 4.851046762944878,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88540161,
+     37.31726448
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T42",
+    "tree_num": 42,
+    "bearing_deg": 310,
+    "distance_m": 2.5,
+    "east_m": -1.915,
+    "north_m": 1.607,
+    "dbh_cm": 1.617015587648293,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88541908,
+     37.31726802
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T43",
+    "tree_num": 43,
+    "bearing_deg": 300,
+    "distance_m": 4,
+    "east_m": -3.464,
+    "north_m": 2.0,
+    "dbh_cm": 6.468062350593172,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88543672,
+     37.31726649
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T44",
+    "tree_num": 44,
+    "bearing_deg": 290,
+    "distance_m": 5.35,
+    "east_m": -5.027,
+    "north_m": 1.83,
+    "dbh_cm": 6.670189299049207,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88542061,
+     37.31730618
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T45",
+    "tree_num": 45,
+    "bearing_deg": 330,
+    "distance_m": 7.2,
+    "east_m": -3.6,
+    "north_m": 6.235,
+    "dbh_cm": 6.468062350593172,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88540686,
+     37.31733007
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T46",
+    "tree_num": 46,
+    "bearing_deg": 345,
+    "distance_m": 9.2,
+    "east_m": -2.381,
+    "north_m": 8.887,
+    "dbh_cm": 13.74463249501049,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88543359,
+     37.31732413
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T47",
+    "tree_num": 47,
+    "bearing_deg": 330,
+    "distance_m": 9.5,
+    "east_m": -4.75,
+    "north_m": 8.227,
+    "dbh_cm": 8.89358573206561,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88544144,
+     37.31732557
+    ]
+   },
+   "properties": {
+    "kind": "tree",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-T48",
+    "tree_num": 48,
+    "bearing_deg": 327,
+    "distance_m": 10,
+    "east_m": -5.446,
+    "north_m": 8.387,
+    "dbh_cm": 12.1276169073622,
+    "disease_initial": 1,
+    "disease_2_mai": 1,
+    "disease_4_mai": 1,
+    "audpc_adj_2mai": 0,
+    "audpc_adj_4mai": 0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88659,
+     37.31766
+    ]
+   },
+   "properties": {
+    "kind": "soil",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-S-Stand centre",
+    "position": "Stand centre",
+    "bearing_deg": null,
+    "distance_m": 0,
+    "east_m": 0.0,
+    "north_m": 0.0,
+    "months": [
+     "may",
+     "july",
+     "september"
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88659,
+     37.3177501
+    ]
+   },
+   "properties": {
+    "kind": "soil",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-S-10 m @ 000\u00b0",
+    "position": "10 m @ 000\u00b0",
+    "bearing_deg": 0,
+    "distance_m": 10,
+    "east_m": 0.0,
+    "north_m": 10.0,
+    "months": [
+     "may",
+     "july",
+     "september"
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88647718,
+     37.31766
+    ]
+   },
+   "properties": {
+    "kind": "soil",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-S-10 m @ 090\u00b0",
+    "position": "10 m @ 090\u00b0",
+    "bearing_deg": 90,
+    "distance_m": 10,
+    "east_m": 10.0,
+    "north_m": 0.0,
+    "months": [
+     "may",
+     "july",
+     "september"
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88659,
+     37.3175699
+    ]
+   },
+   "properties": {
+    "kind": "soil",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-S-10 m @ 180\u00b0",
+    "position": "10 m @ 180\u00b0",
+    "bearing_deg": 180,
+    "distance_m": 10,
+    "east_m": 0.0,
+    "north_m": -10.0,
+    "months": [
+     "may",
+     "july",
+     "september"
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88670282,
+     37.31766
+    ]
+   },
+   "properties": {
+    "kind": "soil",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "id": "virulent-S-10 m @ 270\u00b0",
+    "position": "10 m @ 270\u00b0",
+    "bearing_deg": 270,
+    "distance_m": 10,
+    "east_m": -10.0,
+    "north_m": -0.0,
+    "months": [
+     "may",
+     "july",
+     "september"
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88626,
+     37.31776
+    ]
+   },
+   "properties": {
+    "kind": "soil",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-S-Stand centre",
+    "position": "Stand centre",
+    "bearing_deg": null,
+    "distance_m": 0,
+    "east_m": 0.0,
+    "north_m": 0.0,
+    "months": [
+     "may",
+     "july",
+     "september"
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88626,
+     37.3178501
+    ]
+   },
+   "properties": {
+    "kind": "soil",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-S-10 m @ 000\u00b0",
+    "position": "10 m @ 000\u00b0",
+    "bearing_deg": 0,
+    "distance_m": 10,
+    "east_m": 0.0,
+    "north_m": 10.0,
+    "months": [
+     "may",
+     "july",
+     "september"
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88614718,
+     37.31776
+    ]
+   },
+   "properties": {
+    "kind": "soil",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-S-10 m @ 090\u00b0",
+    "position": "10 m @ 090\u00b0",
+    "bearing_deg": 90,
+    "distance_m": 10,
+    "east_m": 10.0,
+    "north_m": 0.0,
+    "months": [
+     "may",
+     "july",
+     "september"
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88626,
+     37.3176699
+    ]
+   },
+   "properties": {
+    "kind": "soil",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-S-10 m @ 180\u00b0",
+    "position": "10 m @ 180\u00b0",
+    "bearing_deg": 180,
+    "distance_m": 10,
+    "east_m": 0.0,
+    "north_m": -10.0,
+    "months": [
+     "may",
+     "july",
+     "september"
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88637282,
+     37.31776
+    ]
+   },
+   "properties": {
+    "kind": "soil",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "id": "attenuated-S-10 m @ 270\u00b0",
+    "position": "10 m @ 270\u00b0",
+    "bearing_deg": 270,
+    "distance_m": 10,
+    "east_m": -10.0,
+    "north_m": -0.0,
+    "months": [
+     "may",
+     "july",
+     "september"
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88538,
+     37.31725
+    ]
+   },
+   "properties": {
+    "kind": "soil",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-S-Stand centre",
+    "position": "Stand centre",
+    "bearing_deg": null,
+    "distance_m": 0,
+    "east_m": 0.0,
+    "north_m": 0.0,
+    "months": [
+     "may",
+     "july",
+     "september"
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88538,
+     37.3173401
+    ]
+   },
+   "properties": {
+    "kind": "soil",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-S-10 m @ 000\u00b0",
+    "position": "10 m @ 000\u00b0",
+    "bearing_deg": 0,
+    "distance_m": 10,
+    "east_m": 0.0,
+    "north_m": 10.0,
+    "months": [
+     "may",
+     "july",
+     "september"
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88526718,
+     37.31725
+    ]
+   },
+   "properties": {
+    "kind": "soil",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-S-10 m @ 090\u00b0",
+    "position": "10 m @ 090\u00b0",
+    "bearing_deg": 90,
+    "distance_m": 10,
+    "east_m": 10.0,
+    "north_m": 0.0,
+    "months": [
+     "may",
+     "july",
+     "september"
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88538,
+     37.3171599
+    ]
+   },
+   "properties": {
+    "kind": "soil",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-S-10 m @ 180\u00b0",
+    "position": "10 m @ 180\u00b0",
+    "bearing_deg": 180,
+    "distance_m": 10,
+    "east_m": 0.0,
+    "north_m": -10.0,
+    "months": [
+     "may",
+     "july",
+     "september"
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.88549282,
+     37.31725
+    ]
+   },
+   "properties": {
+    "kind": "soil",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "id": "no_fungus_control-S-10 m @ 270\u00b0",
+    "position": "10 m @ 270\u00b0",
+    "bearing_deg": 270,
+    "distance_m": 10,
+    "east_m": -10.0,
+    "north_m": -0.0,
+    "months": [
+     "may",
+     "july",
+     "september"
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -76.88545221306927,
+       37.31723982732337
+      ],
+      [
+       -76.88541048269227,
+       37.317183107217616
+      ],
+      [
+       -76.88526817748122,
+       37.31724218803309
+      ],
+      [
+       -76.88528356548724,
+       37.31727064269457
+      ],
+      [
+       -76.88529104514119,
+       37.31728313102921
+      ],
+      [
+       -76.88533092534739,
+       37.317317883920055
+      ],
+      [
+       -76.88537095221346,
+       37.317332579788605
+      ],
+      [
+       -76.88540686132134,
+       37.3173300749134
+      ],
+      [
+       -76.88544143920876,
+       37.317325569742174
+      ],
+      [
+       -76.88545221306927,
+       37.31723982732337
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "stand_hull",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -76.88538,
+       37.31734010342455
+      ],
+      [
+       -76.88537606280303,
+       37.31734004853598
+      ],
+      [
+       -76.88537213040294,
+       37.31733988393714
+      ],
+      [
+       -76.88536820759074,
+       37.317339609828565
+      ],
+      [
+       -76.88536429914579,
+       37.31733922654422
+      ],
+      [
+       -76.8853604098299,
+       37.31733873455107
+      ],
+      [
+       -76.88535654438161,
+       37.31733813444854
+      ],
+      [
+       -76.88535270751038,
+       37.31733742696777
+      ],
+      [
+       -76.88534890389084,
+       37.31733661297069
+      ],
+      [
+       -76.88534513815712,
+       37.31733569344906
+      ],
+      [
+       -76.8853414148972,
+       37.317334669523156
+      ],
+      [
+       -76.88533773864727,
+       37.31733354244049
+      ],
+      [
+       -76.88533411388629,
+       37.31733231357422
+      ],
+      [
+       -76.88533054503047,
+       37.31733098442154
+      ],
+      [
+       -76.88532703642792,
+       37.31732955660182
+      ],
+      [
+       -76.88532359235332,
+       37.31732803185463
+      ],
+      [
+       -76.88532021700274,
+       37.31732641203765
+      ],
+      [
+       -76.88531691448856,
+       37.31732469912437
+      ],
+      [
+       -76.88531368883433,
+       37.31732289520171
+      ],
+      [
+       -76.88531054397005,
+       37.31732100246749
+      ],
+      [
+       -76.88530748372725,
+       37.31731902322768
+      ],
+      [
+       -76.88530451183435,
+       37.317316959893716
+      ],
+      [
+       -76.88530163191216,
+       37.317314814979426
+      ],
+      [
+       -76.8852988474694,
+       37.31731259109807
+      ],
+      [
+       -76.88529616189851,
+       37.31731029095911
+      ],
+      [
+       -76.88529357847142,
+       37.31730791736489
+      ],
+      [
+       -76.88529110033566,
+       37.31730547320729
+      ],
+      [
+       -76.88528873051045,
+       37.31730296146414
+      ],
+      [
+       -76.88528647188305,
+       37.31730038519559
+      ],
+      [
+       -76.88528432720526,
+       37.317297747540444
+      ],
+      [
+       -76.88528229909002,
+       37.31729505171228
+      ],
+      [
+       -76.88528039000829,
+       37.31729230099554
+      ],
+      [
+       -76.885278602286,
+       37.31728949874155
+      ],
+      [
+       -76.8852769381012,
+       37.31728664836443
+      ],
+      [
+       -76.88527539948144,
+       37.31728375333693
+      ],
+      [
+       -76.88527398830132,
+       37.31728081718618
+      ],
+      [
+       -76.88527270628012,
+       37.317277843489435
+      ],
+      [
+       -76.88527155497978,
+       37.317274835869696
+      ],
+      [
+       -76.885270535803,
+       37.31727179799127
+      ],
+      [
+       -76.88526964999147,
+       37.317268733555345
+      ],
+      [
+       -76.88526889862445,
+       37.317265646295475
+      ],
+      [
+       -76.88526828261732,
+       37.317262539973
+      ],
+      [
+       -76.88526780272062,
+       37.31725941837251
+      ],
+      [
+       -76.88526745951903,
+       37.31725628529717
+      ],
+      [
+       -76.88526725343067,
+       37.31725314456417
+      ],
+      [
+       -76.88526718470663,
+       37.31725
+      ],
+      [
+       -76.88526725343067,
+       37.31724685543583
+      ],
+      [
+       -76.88526745951903,
+       37.31724371470283
+      ],
+      [
+       -76.88526780272062,
+       37.317240581627495
+      ],
+      [
+       -76.88526828261732,
+       37.317237460027
+      ],
+      [
+       -76.88526889862445,
+       37.31723435370453
+      ],
+      [
+       -76.88526964999147,
+       37.31723126644466
+      ],
+      [
+       -76.885270535803,
+       37.317228202008735
+      ],
+      [
+       -76.88527155497978,
+       37.317225164130306
+      ],
+      [
+       -76.88527270628012,
+       37.31722215651057
+      ],
+      [
+       -76.88527398830132,
+       37.31721918281382
+      ],
+      [
+       -76.88527539948144,
+       37.31721624666307
+      ],
+      [
+       -76.8852769381012,
+       37.31721335163557
+      ],
+      [
+       -76.885278602286,
+       37.31721050125845
+      ],
+      [
+       -76.88528039000829,
+       37.31720769900446
+      ],
+      [
+       -76.88528229909002,
+       37.317204948287724
+      ],
+      [
+       -76.88528432720526,
+       37.31720225245956
+      ],
+      [
+       -76.88528647188305,
+       37.317199614804416
+      ],
+      [
+       -76.88528873051045,
+       37.317197038535866
+      ],
+      [
+       -76.88529110033566,
+       37.31719452679271
+      ],
+      [
+       -76.88529357847142,
+       37.31719208263511
+      ],
+      [
+       -76.88529616189851,
+       37.317189709040896
+      ],
+      [
+       -76.8852988474694,
+       37.31718740890193
+      ],
+      [
+       -76.88530163191216,
+       37.31718518502058
+      ],
+      [
+       -76.88530451183435,
+       37.317183040106286
+      ],
+      [
+       -76.88530748372725,
+       37.31718097677232
+      ],
+      [
+       -76.88531054397005,
+       37.317178997532515
+      ],
+      [
+       -76.88531368883433,
+       37.31717710479829
+      ],
+      [
+       -76.88531691448856,
+       37.31717530087563
+      ],
+      [
+       -76.88532021700274,
+       37.31717358796235
+      ],
+      [
+       -76.88532359235332,
+       37.317171968145374
+      ],
+      [
+       -76.88532703642792,
+       37.31717044339818
+      ],
+      [
+       -76.88533054503047,
+       37.317169015578465
+      ],
+      [
+       -76.88533411388629,
+       37.31716768642578
+      ],
+      [
+       -76.88533773864727,
+       37.317166457559516
+      ],
+      [
+       -76.8853414148972,
+       37.31716533047685
+      ],
+      [
+       -76.88534513815712,
+       37.31716430655094
+      ],
+      [
+       -76.88534890389084,
+       37.31716338702931
+      ],
+      [
+       -76.88535270751038,
+       37.317162573032235
+      ],
+      [
+       -76.88535654438161,
+       37.31716186555146
+      ],
+      [
+       -76.8853604098299,
+       37.31716126544893
+      ],
+      [
+       -76.88536429914579,
+       37.31716077345578
+      ],
+      [
+       -76.88536820759074,
+       37.31716039017144
+      ],
+      [
+       -76.88537213040294,
+       37.317160116062865
+      ],
+      [
+       -76.88537606280303,
+       37.31715995146402
+      ],
+      [
+       -76.88538,
+       37.317159896575454
+      ],
+      [
+       -76.88538393719696,
+       37.31715995146402
+      ],
+      [
+       -76.88538786959705,
+       37.317160116062865
+      ],
+      [
+       -76.88539179240925,
+       37.31716039017144
+      ],
+      [
+       -76.8853957008542,
+       37.31716077345578
+      ],
+      [
+       -76.8853995901701,
+       37.31716126544893
+      ],
+      [
+       -76.88540345561839,
+       37.31716186555146
+      ],
+      [
+       -76.88540729248962,
+       37.317162573032235
+      ],
+      [
+       -76.88541109610915,
+       37.31716338702931
+      ],
+      [
+       -76.88541486184288,
+       37.31716430655094
+      ],
+      [
+       -76.8854185851028,
+       37.31716533047685
+      ],
+      [
+       -76.88542226135273,
+       37.317166457559516
+      ],
+      [
+       -76.88542588611371,
+       37.31716768642578
+      ],
+      [
+       -76.88542945496953,
+       37.317169015578465
+      ],
+      [
+       -76.88543296357207,
+       37.31717044339818
+      ],
+      [
+       -76.88543640764668,
+       37.317171968145374
+      ],
+      [
+       -76.88543978299725,
+       37.31717358796235
+      ],
+      [
+       -76.88544308551144,
+       37.31717530087563
+      ],
+      [
+       -76.88544631116567,
+       37.31717710479829
+      ],
+      [
+       -76.88544945602995,
+       37.317178997532515
+      ],
+      [
+       -76.88545251627275,
+       37.31718097677232
+      ],
+      [
+       -76.88545548816565,
+       37.317183040106286
+      ],
+      [
+       -76.88545836808784,
+       37.31718518502058
+      ],
+      [
+       -76.8854611525306,
+       37.31718740890193
+      ],
+      [
+       -76.88546383810149,
+       37.317189709040896
+      ],
+      [
+       -76.88546642152858,
+       37.31719208263511
+      ],
+      [
+       -76.88546889966433,
+       37.31719452679271
+      ],
+      [
+       -76.88547126948954,
+       37.317197038535866
+      ],
+      [
+       -76.88547352811695,
+       37.317199614804416
+      ],
+      [
+       -76.88547567279474,
+       37.31720225245956
+      ],
+      [
+       -76.88547770090997,
+       37.317204948287724
+      ],
+      [
+       -76.8854796099917,
+       37.31720769900446
+      ],
+      [
+       -76.885481397714,
+       37.31721050125845
+      ],
+      [
+       -76.8854830618988,
+       37.31721335163557
+      ],
+      [
+       -76.88548460051855,
+       37.31721624666307
+      ],
+      [
+       -76.88548601169867,
+       37.31721918281382
+      ],
+      [
+       -76.88548729371988,
+       37.31722215651057
+      ],
+      [
+       -76.88548844502021,
+       37.317225164130306
+      ],
+      [
+       -76.885489464197,
+       37.317228202008735
+      ],
+      [
+       -76.88549035000852,
+       37.31723126644466
+      ],
+      [
+       -76.88549110137555,
+       37.31723435370453
+      ],
+      [
+       -76.88549171738268,
+       37.317237460027
+      ],
+      [
+       -76.88549219727938,
+       37.317240581627495
+      ],
+      [
+       -76.88549254048097,
+       37.31724371470283
+      ],
+      [
+       -76.88549274656933,
+       37.31724685543583
+      ],
+      [
+       -76.88549281529336,
+       37.31725
+      ],
+      [
+       -76.88549274656933,
+       37.31725314456417
+      ],
+      [
+       -76.88549254048097,
+       37.31725628529717
+      ],
+      [
+       -76.88549219727938,
+       37.31725941837251
+      ],
+      [
+       -76.88549171738268,
+       37.317262539973
+      ],
+      [
+       -76.88549110137555,
+       37.317265646295475
+      ],
+      [
+       -76.88549035000852,
+       37.317268733555345
+      ],
+      [
+       -76.885489464197,
+       37.31727179799127
+      ],
+      [
+       -76.88548844502021,
+       37.317274835869696
+      ],
+      [
+       -76.88548729371988,
+       37.317277843489435
+      ],
+      [
+       -76.88548601169867,
+       37.31728081718618
+      ],
+      [
+       -76.88548460051855,
+       37.31728375333693
+      ],
+      [
+       -76.8854830618988,
+       37.31728664836443
+      ],
+      [
+       -76.885481397714,
+       37.31728949874155
+      ],
+      [
+       -76.8854796099917,
+       37.31729230099554
+      ],
+      [
+       -76.88547770090997,
+       37.31729505171228
+      ],
+      [
+       -76.88547567279474,
+       37.317297747540444
+      ],
+      [
+       -76.88547352811695,
+       37.31730038519559
+      ],
+      [
+       -76.88547126948954,
+       37.31730296146414
+      ],
+      [
+       -76.88546889966433,
+       37.31730547320729
+      ],
+      [
+       -76.88546642152858,
+       37.31730791736489
+      ],
+      [
+       -76.88546383810149,
+       37.31731029095911
+      ],
+      [
+       -76.8854611525306,
+       37.31731259109807
+      ],
+      [
+       -76.88545836808784,
+       37.317314814979426
+      ],
+      [
+       -76.88545548816565,
+       37.317316959893716
+      ],
+      [
+       -76.88545251627275,
+       37.31731902322768
+      ],
+      [
+       -76.88544945602995,
+       37.31732100246749
+      ],
+      [
+       -76.88544631116567,
+       37.31732289520171
+      ],
+      [
+       -76.88544308551144,
+       37.31732469912437
+      ],
+      [
+       -76.88543978299725,
+       37.31732641203765
+      ],
+      [
+       -76.88543640764668,
+       37.31732803185463
+      ],
+      [
+       -76.88543296357207,
+       37.31732955660182
+      ],
+      [
+       -76.88542945496953,
+       37.31733098442154
+      ],
+      [
+       -76.88542588611371,
+       37.31733231357422
+      ],
+      [
+       -76.88542226135273,
+       37.31733354244049
+      ],
+      [
+       -76.8854185851028,
+       37.317334669523156
+      ],
+      [
+       -76.88541486184288,
+       37.31733569344906
+      ],
+      [
+       -76.88541109610915,
+       37.31733661297069
+      ],
+      [
+       -76.88540729248962,
+       37.31733742696777
+      ],
+      [
+       -76.88540345561839,
+       37.31733813444854
+      ],
+      [
+       -76.8853995901701,
+       37.31733873455107
+      ],
+      [
+       -76.8853957008542,
+       37.31733922654422
+      ],
+      [
+       -76.88539179240925,
+       37.317339609828565
+      ],
+      [
+       -76.88538786959705,
+       37.31733988393714
+      ],
+      [
+       -76.88538393719696,
+       37.31734004853598
+      ],
+      [
+       -76.88538,
+       37.31734010342455
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "sampling_ring",
+    "stand": "no_fungus_control",
+    "stand_label": "No-fungus control",
+    "radius_m": 10.0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -76.8863491246839,
+       37.31776
+      ],
+      [
+       -76.88634710527651,
+       37.31775391801937
+      ],
+      [
+       -76.88631047390327,
+       37.31770243292703
+      ],
+      [
+       -76.88628014894752,
+       37.31769994607273
+      ],
+      [
+       -76.88614815416248,
+       37.31772749068723
+      ],
+      [
+       -76.88613556389069,
+       37.31774247488544
+      ],
+      [
+       -76.88618912895387,
+       37.317807493510976
+      ],
+      [
+       -76.88625131316371,
+       37.317839345068805
+      ],
+      [
+       -76.88627694497154,
+       37.31783675910074
+      ],
+      [
+       -76.88634209624364,
+       37.31781501714628
+      ],
+      [
+       -76.8863491246839,
+       37.31776
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "stand_hull",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -76.88626,
+       37.31785010341677
+      ],
+      [
+       -76.88625606277644,
+       37.3178500485282
+      ],
+      [
+       -76.88625213034977,
+       37.31784988392937
+      ],
+      [
+       -76.88624820751107,
+       37.31784960982082
+      ],
+      [
+       -76.8862442990397,
+       37.31784922653651
+      ],
+      [
+       -76.88624040969754,
+       37.317848734543404
+      ],
+      [
+       -76.88623654422312,
+       37.31784813444093
+      ],
+      [
+       -76.88623270732597,
+       37.31784742696021
+      ],
+      [
+       -76.88622890368075,
+       37.31784661296321
+      ],
+      [
+       -76.88622513792158,
+       37.317845693441654
+      ],
+      [
+       -76.8862214146365,
+       37.31784466951584
+      ],
+      [
+       -76.88621773836172,
+       37.317843542433266
+      ],
+      [
+       -76.88621411357626,
+       37.317842313567105
+      ],
+      [
+       -76.88621054469633,
+       37.31784098441454
+      ],
+      [
+       -76.88620703607008,
+       37.31783955659494
+      ],
+      [
+       -76.8862035919722,
+       37.317838031847884
+      ],
+      [
+       -76.88620021659882,
+       37.31783641203104
+      ],
+      [
+       -76.88619691406231,
+       37.31783469911792
+      ],
+      [
+       -76.8861936883863,
+       37.317832895195416
+      ],
+      [
+       -76.88619054350077,
+       37.31783100246135
+      ],
+      [
+       -76.8861874832373,
+       37.31782902322172
+      ],
+      [
+       -76.88618451132432,
+       37.317826959887924
+      ],
+      [
+       -76.88618163138266,
+       37.317824814973825
+      ],
+      [
+       -76.8861788469211,
+       37.317822591092664
+      ],
+      [
+       -76.88617616133206,
+       37.3178202909539
+      ],
+      [
+       -76.88617357788752,
+       37.31781791735989
+      ],
+      [
+       -76.88617109973501,
+       37.3178154732025
+      ],
+      [
+       -76.88616872989378,
+       37.31781296145956
+      ],
+      [
+       -76.88616647125113,
+       37.31781038519124
+      ],
+      [
+       -76.88616432655884,
+       37.317807747536314
+      ],
+      [
+       -76.88616229842991,
+       37.31780505170838
+      ],
+      [
+       -76.88616038933527,
+       37.31780230099188
+      ],
+      [
+       -76.88615860160091,
+       37.31779949873814
+      ],
+      [
+       -76.88615693740486,
+       37.317796648361266
+      ],
+      [
+       -76.88615539877472,
+       37.31779375333401
+      ],
+      [
+       -76.88615398758506,
+       37.317790817183514
+      ],
+      [
+       -76.88615270555519,
+       37.31778784348703
+      ],
+      [
+       -76.88615155424708,
+       37.31778483586755
+      ],
+      [
+       -76.88615053506341,
+       37.31778179798938
+      ],
+      [
+       -76.8861496492459,
+       37.31777873355373
+      ],
+      [
+       -76.8861488978738,
+       37.31777564629412
+      ],
+      [
+       -76.8861482818625,
+       37.31777253997192
+      ],
+      [
+       -76.88614780196257,
+       37.31776941837169
+      ],
+      [
+       -76.88614745875866,
+       37.31776628529663
+      ],
+      [
+       -76.8861472526689,
+       37.3177631445639
+      ],
+      [
+       -76.88614718394442,
+       37.31776
+      ],
+      [
+       -76.8861472526689,
+       37.3177568554361
+      ],
+      [
+       -76.88614745875866,
+       37.31775371470337
+      ],
+      [
+       -76.88614780196257,
+       37.31775058162831
+      ],
+      [
+       -76.8861482818625,
+       37.31774746002808
+      ],
+      [
+       -76.8861488978738,
+       37.317744353705876
+      ],
+      [
+       -76.8861496492459,
+       37.31774126644627
+      ],
+      [
+       -76.88615053506341,
+       37.31773820201062
+      ],
+      [
+       -76.88615155424708,
+       37.31773516413245
+      ],
+      [
+       -76.88615270555519,
+       37.31773215651297
+      ],
+      [
+       -76.88615398758506,
+       37.317729182816485
+      ],
+      [
+       -76.88615539877472,
+       37.31772624666599
+      ],
+      [
+       -76.88615693740486,
+       37.31772335163873
+      ],
+      [
+       -76.88615860160091,
+       37.31772050126186
+      ],
+      [
+       -76.88616038933527,
+       37.31771769900812
+      ],
+      [
+       -76.88616229842991,
+       37.317714948291616
+      ],
+      [
+       -76.88616432655884,
+       37.317712252463686
+      ],
+      [
+       -76.88616647125113,
+       37.31770961480876
+      ],
+      [
+       -76.88616872989378,
+       37.31770703854044
+      ],
+      [
+       -76.88617109973501,
+       37.3177045267975
+      ],
+      [
+       -76.88617357788752,
+       37.31770208264011
+      ],
+      [
+       -76.88617616133206,
+       37.3176997090461
+      ],
+      [
+       -76.8861788469211,
+       37.317697408907335
+      ],
+      [
+       -76.88618163138266,
+       37.317695185026174
+      ],
+      [
+       -76.88618451132432,
+       37.317693040112076
+      ],
+      [
+       -76.8861874832373,
+       37.31769097677828
+      ],
+      [
+       -76.88619054350077,
+       37.31768899753865
+      ],
+      [
+       -76.8861936883863,
+       37.317687104804584
+      ],
+      [
+       -76.88619691406231,
+       37.31768530088208
+      ],
+      [
+       -76.88620021659882,
+       37.31768358796896
+      ],
+      [
+       -76.8862035919722,
+       37.317681968152115
+      ],
+      [
+       -76.88620703607008,
+       37.31768044340506
+      ],
+      [
+       -76.88621054469633,
+       37.31767901558546
+      ],
+      [
+       -76.88621411357626,
+       37.317677686432894
+      ],
+      [
+       -76.88621773836172,
+       37.31767645756673
+      ],
+      [
+       -76.8862214146365,
+       37.31767533048416
+      ],
+      [
+       -76.88622513792158,
+       37.317674306558345
+      ],
+      [
+       -76.88622890368075,
+       37.31767338703679
+      ],
+      [
+       -76.88623270732597,
+       37.317672573039786
+      ],
+      [
+       -76.88623654422312,
+       37.31767186555907
+      ],
+      [
+       -76.88624040969754,
+       37.317671265456596
+      ],
+      [
+       -76.8862442990397,
+       37.31767077346349
+      ],
+      [
+       -76.88624820751107,
+       37.31767039017918
+      ],
+      [
+       -76.88625213034977,
+       37.31767011607063
+      ],
+      [
+       -76.88625606277644,
+       37.3176699514718
+      ],
+      [
+       -76.88626,
+       37.31766989658323
+      ],
+      [
+       -76.88626393722355,
+       37.3176699514718
+      ],
+      [
+       -76.88626786965021,
+       37.31767011607063
+      ],
+      [
+       -76.88627179248891,
+       37.31767039017918
+      ],
+      [
+       -76.88627570096028,
+       37.31767077346349
+      ],
+      [
+       -76.88627959030245,
+       37.317671265456596
+      ],
+      [
+       -76.88628345577686,
+       37.31767186555907
+      ],
+      [
+       -76.88628729267401,
+       37.317672573039786
+      ],
+      [
+       -76.88629109631924,
+       37.31767338703679
+      ],
+      [
+       -76.8862948620784,
+       37.317674306558345
+      ],
+      [
+       -76.88629858536349,
+       37.31767533048416
+      ],
+      [
+       -76.88630226163826,
+       37.31767645756673
+      ],
+      [
+       -76.88630588642373,
+       37.317677686432894
+      ],
+      [
+       -76.88630945530366,
+       37.31767901558546
+      ],
+      [
+       -76.88631296392991,
+       37.31768044340506
+      ],
+      [
+       -76.88631640802778,
+       37.317681968152115
+      ],
+      [
+       -76.88631978340116,
+       37.31768358796896
+      ],
+      [
+       -76.88632308593768,
+       37.31768530088208
+      ],
+      [
+       -76.88632631161369,
+       37.317687104804584
+      ],
+      [
+       -76.88632945649921,
+       37.31768899753865
+      ],
+      [
+       -76.88633251676269,
+       37.31769097677828
+      ],
+      [
+       -76.88633548867567,
+       37.317693040112076
+      ],
+      [
+       -76.88633836861733,
+       37.317695185026174
+      ],
+      [
+       -76.88634115307889,
+       37.317697408907335
+      ],
+      [
+       -76.88634383866793,
+       37.3176997090461
+      ],
+      [
+       -76.88634642211247,
+       37.31770208264011
+      ],
+      [
+       -76.88634890026498,
+       37.3177045267975
+      ],
+      [
+       -76.8863512701062,
+       37.31770703854044
+      ],
+      [
+       -76.88635352874886,
+       37.31770961480876
+      ],
+      [
+       -76.88635567344114,
+       37.317712252463686
+      ],
+      [
+       -76.88635770157008,
+       37.317714948291616
+      ],
+      [
+       -76.88635961066471,
+       37.31771769900812
+      ],
+      [
+       -76.88636139839907,
+       37.31772050126186
+      ],
+      [
+       -76.88636306259512,
+       37.31772335163873
+      ],
+      [
+       -76.88636460122527,
+       37.31772624666599
+      ],
+      [
+       -76.88636601241492,
+       37.317729182816485
+      ],
+      [
+       -76.8863672944448,
+       37.31773215651297
+      ],
+      [
+       -76.88636844575291,
+       37.31773516413245
+      ],
+      [
+       -76.88636946493658,
+       37.31773820201062
+      ],
+      [
+       -76.88637035075409,
+       37.31774126644627
+      ],
+      [
+       -76.88637110212619,
+       37.317744353705876
+      ],
+      [
+       -76.88637171813748,
+       37.31774746002808
+      ],
+      [
+       -76.88637219803742,
+       37.31775058162831
+      ],
+      [
+       -76.88637254124133,
+       37.31775371470337
+      ],
+      [
+       -76.88637274733108,
+       37.3177568554361
+      ],
+      [
+       -76.88637281605557,
+       37.31776
+      ],
+      [
+       -76.88637274733108,
+       37.3177631445639
+      ],
+      [
+       -76.88637254124133,
+       37.31776628529663
+      ],
+      [
+       -76.88637219803742,
+       37.31776941837169
+      ],
+      [
+       -76.88637171813748,
+       37.31777253997192
+      ],
+      [
+       -76.88637110212619,
+       37.31777564629412
+      ],
+      [
+       -76.88637035075409,
+       37.31777873355373
+      ],
+      [
+       -76.88636946493658,
+       37.31778179798938
+      ],
+      [
+       -76.88636844575291,
+       37.31778483586755
+      ],
+      [
+       -76.8863672944448,
+       37.31778784348703
+      ],
+      [
+       -76.88636601241492,
+       37.317790817183514
+      ],
+      [
+       -76.88636460122527,
+       37.31779375333401
+      ],
+      [
+       -76.88636306259512,
+       37.317796648361266
+      ],
+      [
+       -76.88636139839907,
+       37.31779949873814
+      ],
+      [
+       -76.88635961066471,
+       37.31780230099188
+      ],
+      [
+       -76.88635770157008,
+       37.31780505170838
+      ],
+      [
+       -76.88635567344114,
+       37.317807747536314
+      ],
+      [
+       -76.88635352874886,
+       37.31781038519124
+      ],
+      [
+       -76.8863512701062,
+       37.31781296145956
+      ],
+      [
+       -76.88634890026498,
+       37.3178154732025
+      ],
+      [
+       -76.88634642211247,
+       37.31781791735989
+      ],
+      [
+       -76.88634383866793,
+       37.3178202909539
+      ],
+      [
+       -76.88634115307889,
+       37.317822591092664
+      ],
+      [
+       -76.88633836861733,
+       37.317824814973825
+      ],
+      [
+       -76.88633548867567,
+       37.317826959887924
+      ],
+      [
+       -76.88633251676269,
+       37.31782902322172
+      ],
+      [
+       -76.88632945649921,
+       37.31783100246135
+      ],
+      [
+       -76.88632631161369,
+       37.317832895195416
+      ],
+      [
+       -76.88632308593768,
+       37.31783469911792
+      ],
+      [
+       -76.88631978340116,
+       37.31783641203104
+      ],
+      [
+       -76.88631640802778,
+       37.317838031847884
+      ],
+      [
+       -76.88631296392991,
+       37.31783955659494
+      ],
+      [
+       -76.88630945530366,
+       37.31784098441454
+      ],
+      [
+       -76.88630588642373,
+       37.317842313567105
+      ],
+      [
+       -76.88630226163826,
+       37.317843542433266
+      ],
+      [
+       -76.88629858536349,
+       37.31784466951584
+      ],
+      [
+       -76.8862948620784,
+       37.317845693441654
+      ],
+      [
+       -76.88629109631924,
+       37.31784661296321
+      ],
+      [
+       -76.88628729267401,
+       37.31784742696021
+      ],
+      [
+       -76.88628345577686,
+       37.31784813444093
+      ],
+      [
+       -76.88627959030245,
+       37.317848734543404
+      ],
+      [
+       -76.88627570096028,
+       37.31784922653651
+      ],
+      [
+       -76.88627179248891,
+       37.31784960982082
+      ],
+      [
+       -76.88626786965021,
+       37.31784988392937
+      ],
+      [
+       -76.88626393722355,
+       37.3178500485282
+      ],
+      [
+       -76.88626,
+       37.31785010341677
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "sampling_ring",
+    "stand": "attenuated",
+    "stand_label": "Formerly attenuated strain",
+    "radius_m": 10.0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -76.88667499550367,
+       37.317641808119845
+      ],
+      [
+       -76.88666132221584,
+       37.31762711225232
+      ],
+      [
+       -76.88654576488321,
+       37.31761789467263
+      ],
+      [
+       -76.88648000449153,
+       37.3176754887776
+      ],
+      [
+       -76.88648320846326,
+       37.31768285022687
+      ],
+      [
+       -76.88655296253802,
+       37.31774128229364
+      ],
+      [
+       -76.88658301669541,
+       37.317723730147755
+      ],
+      [
+       -76.88664666742964,
+       37.3176861299913
+      ],
+      [
+       -76.88666698557434,
+       37.31765462082593
+      ],
+      [
+       -76.88667499550367,
+       37.317641808119845
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "stand_hull",
+    "stand": "virulent",
+    "stand_label": "Virulent strain"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -76.88659,
+       37.31775010341829
+      ],
+      [
+       -76.88658606278166,
+       37.31775004852972
+      ],
+      [
+       -76.88658213036021,
+       37.317749883930894
+      ],
+      [
+       -76.8865782075267,
+       37.317749609822336
+      ],
+      [
+       -76.8865742990605,
+       37.31774922653801
+      ],
+      [
+       -76.88657040972349,
+       37.31774873454491
+      ],
+      [
+       -76.88656654425421,
+       37.31774813444242
+      ],
+      [
+       -76.88656270736213,
+       37.31774742696169
+      ],
+      [
+       -76.88655890372193,
+       37.317746612964676
+      ],
+      [
+       -76.88655513796778,
+       37.3177456934431
+      ],
+      [
+       -76.88655141468762,
+       37.317744669517275
+      ],
+      [
+       -76.88654773841772,
+       37.31774354243468
+      ],
+      [
+       -76.88654411363706,
+       37.317742313568495
+      ],
+      [
+       -76.88654054476186,
+       37.317740984415906
+      ],
+      [
+       -76.88653703614024,
+       37.31773955659629
+      ],
+      [
+       -76.88653359204693,
+       37.3177380318492
+      ],
+      [
+       -76.88653021667803,
+       37.31773641203234
+      ],
+      [
+       -76.88652691414589,
+       37.31773469911918
+      ],
+      [
+       -76.88652368847416,
+       37.31773289519665
+      ],
+      [
+       -76.8865205435928,
+       37.317731002462544
+      ],
+      [
+       -76.88651748333336,
+       37.31772902322289
+      ],
+      [
+       -76.88651451142432,
+       37.31772695988906
+      ],
+      [
+       -76.88651163148648,
+       37.31772481497492
+      ],
+      [
+       -76.88650884702861,
+       37.31772259109372
+      ],
+      [
+       -76.88650616144314,
+       37.31772029095492
+      ],
+      [
+       -76.88650357800202,
+       37.317717917360866
+      ],
+      [
+       -76.8865010998528,
+       37.317715473203435
+      ],
+      [
+       -76.88649873001471,
+       37.31771296146045
+      ],
+      [
+       -76.88649647137504,
+       37.317710385192086
+      ],
+      [
+       -76.8864943266856,
+       37.31770774753712
+      ],
+      [
+       -76.88649229855935,
+       37.31770505170914
+      ],
+      [
+       -76.88649038946726,
+       37.31770230099259
+      ],
+      [
+       -76.88648860173525,
+       37.317699498738804
+      ],
+      [
+       -76.8864869375414,
+       37.31769664836188
+      ],
+      [
+       -76.8864853989133,
+       37.31769375333458
+      ],
+      [
+       -76.88648398772551,
+       37.31769081718404
+      ],
+      [
+       -76.88648270569733,
+       37.3176878434875
+      ],
+      [
+       -76.88648155439074,
+       37.317684835867965
+      ],
+      [
+       -76.88648053520843,
+       37.31768179798975
+      ],
+      [
+       -76.8864796493921,
+       37.31767873355404
+      ],
+      [
+       -76.88647889802098,
+       37.31767564629438
+      ],
+      [
+       -76.88647828201051,
+       37.31767253997213
+      ],
+      [
+       -76.88647780211122,
+       37.31766941837184
+      ],
+      [
+       -76.88647745890775,
+       37.31766628529673
+      ],
+      [
+       -76.88647725281828,
+       37.317663144563944
+      ],
+      [
+       -76.88647718409388,
+       37.31766
+      ],
+      [
+       -76.88647725281828,
+       37.31765685543605
+      ],
+      [
+       -76.88647745890775,
+       37.31765371470326
+      ],
+      [
+       -76.88647780211122,
+       37.31765058162815
+      ],
+      [
+       -76.88647828201051,
+       37.317647460027864
+      ],
+      [
+       -76.88647889802098,
+       37.31764435370561
+      ],
+      [
+       -76.8864796493921,
+       37.31764126644595
+      ],
+      [
+       -76.88648053520843,
+       37.317638202010244
+      ],
+      [
+       -76.88648155439074,
+       37.31763516413203
+      ],
+      [
+       -76.88648270569733,
+       37.317632156512495
+      ],
+      [
+       -76.88648398772551,
+       37.317629182815956
+      ],
+      [
+       -76.8864853989133,
+       37.31762624666541
+      ],
+      [
+       -76.8864869375414,
+       37.31762335163811
+      ],
+      [
+       -76.88648860173525,
+       37.31762050126119
+      ],
+      [
+       -76.88649038946726,
+       37.3176176990074
+      ],
+      [
+       -76.88649229855935,
+       37.31761494829085
+      ],
+      [
+       -76.8864943266856,
+       37.31761225246287
+      ],
+      [
+       -76.88649647137504,
+       37.31760961480791
+      ],
+      [
+       -76.88649873001471,
+       37.31760703853954
+      ],
+      [
+       -76.8865010998528,
+       37.31760452679656
+      ],
+      [
+       -76.88650357800202,
+       37.31760208263913
+      ],
+      [
+       -76.88650616144314,
+       37.317599709045076
+      ],
+      [
+       -76.88650884702861,
+       37.31759740890627
+      ],
+      [
+       -76.88651163148648,
+       37.31759518502507
+      ],
+      [
+       -76.88651451142432,
+       37.317593040110935
+      ],
+      [
+       -76.88651748333336,
+       37.317590976777105
+      ],
+      [
+       -76.8865205435928,
+       37.31758899753745
+      ],
+      [
+       -76.88652368847416,
+       37.317587104803344
+      ],
+      [
+       -76.88652691414589,
+       37.317585300880815
+      ],
+      [
+       -76.88653021667803,
+       37.317583587967654
+      ],
+      [
+       -76.88653359204693,
+       37.31758196815079
+      ],
+      [
+       -76.88653703614024,
+       37.317580443403706
+      ],
+      [
+       -76.88654054476186,
+       37.31757901558409
+      ],
+      [
+       -76.88654411363706,
+       37.3175776864315
+      ],
+      [
+       -76.88654773841772,
+       37.317576457565316
+      ],
+      [
+       -76.88655141468762,
+       37.31757533048272
+      ],
+      [
+       -76.88655513796778,
+       37.31757430655689
+      ],
+      [
+       -76.88655890372193,
+       37.31757338703532
+      ],
+      [
+       -76.88656270736213,
+       37.317572573038305
+      ],
+      [
+       -76.88656654425421,
+       37.317571865557575
+      ],
+      [
+       -76.88657040972349,
+       37.317571265455086
+      ],
+      [
+       -76.8865742990605,
+       37.31757077346198
+      ],
+      [
+       -76.8865782075267,
+       37.31757039017766
+      ],
+      [
+       -76.88658213036021,
+       37.3175701160691
+      ],
+      [
+       -76.88658606278166,
+       37.317569951470276
+      ],
+      [
+       -76.88659,
+       37.3175698965817
+      ],
+      [
+       -76.88659393721834,
+       37.317569951470276
+      ],
+      [
+       -76.88659786963979,
+       37.3175701160691
+      ],
+      [
+       -76.8866017924733,
+       37.31757039017766
+      ],
+      [
+       -76.8866057009395,
+       37.31757077346198
+      ],
+      [
+       -76.8866095902765,
+       37.317571265455086
+      ],
+      [
+       -76.88661345574579,
+       37.317571865557575
+      ],
+      [
+       -76.88661729263787,
+       37.317572573038305
+      ],
+      [
+       -76.88662109627806,
+       37.31757338703532
+      ],
+      [
+       -76.88662486203222,
+       37.31757430655689
+      ],
+      [
+       -76.88662858531238,
+       37.31757533048272
+      ],
+      [
+       -76.88663226158228,
+       37.317576457565316
+      ],
+      [
+       -76.88663588636294,
+       37.3175776864315
+      ],
+      [
+       -76.88663945523814,
+       37.31757901558409
+      ],
+      [
+       -76.88664296385976,
+       37.317580443403706
+      ],
+      [
+       -76.88664640795307,
+       37.31758196815079
+      ],
+      [
+       -76.88664978332197,
+       37.317583587967654
+      ],
+      [
+       -76.8866530858541,
+       37.317585300880815
+      ],
+      [
+       -76.88665631152584,
+       37.317587104803344
+      ],
+      [
+       -76.8866594564072,
+       37.31758899753745
+      ],
+      [
+       -76.88666251666663,
+       37.317590976777105
+      ],
+      [
+       -76.88666548857567,
+       37.317593040110935
+      ],
+      [
+       -76.88666836851351,
+       37.31759518502507
+      ],
+      [
+       -76.88667115297139,
+       37.31759740890627
+      ],
+      [
+       -76.88667383855686,
+       37.317599709045076
+      ],
+      [
+       -76.88667642199798,
+       37.31760208263913
+      ],
+      [
+       -76.8866789001472,
+       37.31760452679656
+      ],
+      [
+       -76.88668126998529,
+       37.31760703853954
+      ],
+      [
+       -76.88668352862496,
+       37.31760961480791
+      ],
+      [
+       -76.8866856733144,
+       37.31761225246287
+      ],
+      [
+       -76.88668770144065,
+       37.31761494829085
+      ],
+      [
+       -76.88668961053274,
+       37.3176176990074
+      ],
+      [
+       -76.88669139826474,
+       37.31762050126119
+      ],
+      [
+       -76.88669306245859,
+       37.31762335163811
+      ],
+      [
+       -76.8866946010867,
+       37.31762624666541
+      ],
+      [
+       -76.88669601227448,
+       37.317629182815956
+      ],
+      [
+       -76.88669729430266,
+       37.317632156512495
+      ],
+      [
+       -76.88669844560926,
+       37.31763516413203
+      ],
+      [
+       -76.88669946479156,
+       37.317638202010244
+      ],
+      [
+       -76.8867003506079,
+       37.31764126644595
+      ],
+      [
+       -76.88670110197901,
+       37.31764435370561
+      ],
+      [
+       -76.88670171798948,
+       37.317647460027864
+      ],
+      [
+       -76.88670219788878,
+       37.31765058162815
+      ],
+      [
+       -76.88670254109225,
+       37.31765371470326
+      ],
+      [
+       -76.88670274718172,
+       37.31765685543605
+      ],
+      [
+       -76.88670281590612,
+       37.31766
+      ],
+      [
+       -76.88670274718172,
+       37.317663144563944
+      ],
+      [
+       -76.88670254109225,
+       37.31766628529673
+      ],
+      [
+       -76.88670219788878,
+       37.31766941837184
+      ],
+      [
+       -76.88670171798948,
+       37.31767253997213
+      ],
+      [
+       -76.88670110197901,
+       37.31767564629438
+      ],
+      [
+       -76.8867003506079,
+       37.31767873355404
+      ],
+      [
+       -76.88669946479156,
+       37.31768179798975
+      ],
+      [
+       -76.88669844560926,
+       37.317684835867965
+      ],
+      [
+       -76.88669729430266,
+       37.3176878434875
+      ],
+      [
+       -76.88669601227448,
+       37.31769081718404
+      ],
+      [
+       -76.8866946010867,
+       37.31769375333458
+      ],
+      [
+       -76.88669306245859,
+       37.31769664836188
+      ],
+      [
+       -76.88669139826474,
+       37.317699498738804
+      ],
+      [
+       -76.88668961053274,
+       37.31770230099259
+      ],
+      [
+       -76.88668770144065,
+       37.31770505170914
+      ],
+      [
+       -76.8866856733144,
+       37.31770774753712
+      ],
+      [
+       -76.88668352862496,
+       37.317710385192086
+      ],
+      [
+       -76.88668126998529,
+       37.31771296146045
+      ],
+      [
+       -76.8866789001472,
+       37.317715473203435
+      ],
+      [
+       -76.88667642199798,
+       37.317717917360866
+      ],
+      [
+       -76.88667383855686,
+       37.31772029095492
+      ],
+      [
+       -76.88667115297139,
+       37.31772259109372
+      ],
+      [
+       -76.88666836851351,
+       37.31772481497492
+      ],
+      [
+       -76.88666548857567,
+       37.31772695988906
+      ],
+      [
+       -76.88666251666663,
+       37.31772902322289
+      ],
+      [
+       -76.8866594564072,
+       37.317731002462544
+      ],
+      [
+       -76.88665631152584,
+       37.31773289519665
+      ],
+      [
+       -76.8866530858541,
+       37.31773469911918
+      ],
+      [
+       -76.88664978332197,
+       37.31773641203234
+      ],
+      [
+       -76.88664640795307,
+       37.3177380318492
+      ],
+      [
+       -76.88664296385976,
+       37.31773955659629
+      ],
+      [
+       -76.88663945523814,
+       37.317740984415906
+      ],
+      [
+       -76.88663588636294,
+       37.317742313568495
+      ],
+      [
+       -76.88663226158228,
+       37.31774354243468
+      ],
+      [
+       -76.88662858531238,
+       37.317744669517275
+      ],
+      [
+       -76.88662486203222,
+       37.3177456934431
+      ],
+      [
+       -76.88662109627806,
+       37.317746612964676
+      ],
+      [
+       -76.88661729263787,
+       37.31774742696169
+      ],
+      [
+       -76.88661345574579,
+       37.31774813444242
+      ],
+      [
+       -76.8866095902765,
+       37.31774873454491
+      ],
+      [
+       -76.8866057009395,
+       37.31774922653801
+      ],
+      [
+       -76.8866017924733,
+       37.317749609822336
+      ],
+      [
+       -76.88659786963979,
+       37.317749883930894
+      ],
+      [
+       -76.88659393721834,
+       37.31775004852972
+      ],
+      [
+       -76.88659,
+       37.31775010341829
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "kind": "sampling_ring",
+    "stand": "virulent",
+    "stand_label": "Virulent strain",
+    "radius_m": 10.0
+   }
+  }
+ ]
+}
