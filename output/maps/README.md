@@ -41,7 +41,16 @@ which also writes `output/spatial/site_points.csv` and `site_points.geojson`
 
 ## Static figures
 
-Run from the **repository root** (every path in the script is relative to it):
+**Automatic:** pushing a change to `R/09_satellite_map.R` or the data file
+triggers `.github/workflows/satellite-map.yml`, which renders the figures on
+a GitHub-hosted runner (open internet access to the tile servers, unlike the
+sandboxes this repo is otherwise developed in) and commits the PNGs straight
+to `output/figures/` on `main`. Trigger it by hand from the Actions tab
+("Render satellite map figures" → Run workflow) whenever you want a refresh
+without a code change.
+
+**Locally**, from the **repository root** (every path in the script is
+relative to it):
 
 ```
 Rscript R/09_satellite_map.R
