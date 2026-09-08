@@ -136,7 +136,6 @@ function soilPopup(s) {
 }
 
 /* ---------- layers --------------------------------------------------- */
-const hullLayer = L.layerGroup();
 const ringLayer = L.layerGroup();
 const treeLayer = L.layerGroup();
 const soilLayer = L.layerGroup();
@@ -144,13 +143,6 @@ const centreLayer = L.layerGroup();
 const labelLayer = L.layerGroup();
 
 SITE.standOrder.forEach(stand => {
-  const colour = SITE.standColour[stand];
-
-  L.polygon(SITE.hulls[stand].map(([lon, lat]) => [lat, lon]), {
-    color: colour, weight: 2.5, opacity: 0.95, fillColor: colour,
-    fillOpacity: 0.10, interactive: false
-  }).addTo(hullLayer);
-
   L.polygon(SITE.rings[stand].map(([lon, lat]) => [lat, lon]), {
     color: '#ffffff', weight: 1.5, opacity: 0.8, dashArray: '5 5',
     fill: false, interactive: false
@@ -200,7 +192,7 @@ SITE.centres.forEach(c => {
     }).addTo(labelLayer);
 });
 
-[hullLayer, ringLayer, treeLayer, soilLayer, centreLayer, labelLayer]
+[ringLayer, treeLayer, soilLayer, centreLayer, labelLayer]
   .forEach(l => l.addTo(map));
 
 map.fitBounds(
@@ -210,8 +202,7 @@ map.fitBounds(
 /* ---------- controls ------------------------------------------------- */
 L.control.layers(
   { 'Esri satellite': esriImagery, 'USGS imagery': usgsImagery, 'OpenStreetMap': osm },
-  { 'Stand outline (stem hull)': hullLayer,
-    '10 m sampling ring': ringLayer,
+  { '10 m sampling ring': ringLayer,
     'Mapped Ailanthus stems': treeLayer,
     'Soil collection points': soilLayer,
     'Stand centres': centreLayer,
@@ -246,8 +237,6 @@ panel.onAdd = function () {
       Soil collection point</div>
     <div class="row"><span class="swatch" style="background:rgba(13,17,23,.55);border-color:#fff;border-width:2px"></span>
       Stand centre</div>
-    <div class="row"><span class="swatch hollow" style="border-color:#D55E00"></span>
-      Stand outline (stem hull)</div>
     <p class="note">Dashed white ring = 10 m soil-sampling radius.
       ${SITE.trees.length} mapped stems, ${SITE.soil.length} soil points
       (centre + 10 m N/E/S/W per stand), each sampled in May, July and September.</p>`;

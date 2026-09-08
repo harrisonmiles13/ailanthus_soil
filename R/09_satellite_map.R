@@ -69,10 +69,6 @@ STAND_LABEL <- c(no_fungus_control = "No-fungus control",
                  attenuated        = "Formerly attenuated strain",
                  virulent          = "Virulent strain")
 STAND_LEVELS <- unname(STAND_LABEL)
-# Okabe-Ito, matching PLOT_COLOURS in R/v2_style.R
-STAND_COLOUR <- c("No-fungus control"          = "#0072B2",
-                  "Formerly attenuated strain" = "#D55E00",
-                  "Virulent strain"            = "#009E73")
 
 # --- polar offset -> local metres -> WGS84 ----------------------------------
 polar_to_xy <- function(distance, bearing) {
@@ -135,13 +131,6 @@ trees_sf   <- as_pts(trees)
 soil_sf    <- as_pts(soil)
 centres_sf <- as_pts(centres)
 
-# stand outline = convex hull of the mapped stems; ring = 10 m sampling radius
-hulls_sf <- do.call(rbind, lapply(STAND_LEVELS, function(lab) {
-  stems <- sf::st_geometry(trees_sf[trees_sf$stand_label == lab, ])
-  sf::st_sf(stand_label = factor(lab, levels = STAND_LEVELS),
-            geometry    = sf::st_convex_hull(sf::st_combine(stems)))
-}))
-
 rings_sf <- centres_sf %>%
   sf::st_transform(3857) %>%
   sf::st_buffer(SAMPLING_RADIUS / cos(mean(STAND_CENTRES$lat) * pi / 180)) %>%
@@ -149,7 +138,7 @@ rings_sf <- centres_sf %>%
 
 # --- one map panel ----------------------------------------------------------
 # `pad` is the margin in metres added around the features before fetching tiles.
-map_panel <- function(tr, so, ce, hu, ri, pad, zoom, point_range, ring = TRUE) {
+map_panel <- function(tr, so, ce, ri, pad, zoom, point_range, ring = TRUE) {
   feats  <- c(sf::st_geometry(tr), sf::st_geometry(so), sf::st_geometry(ce))
   extent <- sf::st_as_sfc(sf::st_bbox(feats)) %>%
     sf::st_transform(3857) %>%
@@ -172,64 +161,81 @@ map_panel <- function(tr, so, ce, hu, ri, pad, zoom, point_range, ring = TRUE) {
     stop("Could not fetch ", TILE_PROVIDER, " tiles -- check the network connection.",
          call. = FALSE)
   bb <- sf::st_bbox(extent)
+  # width:height of the ground being mapped, used to size the saved figure so
+  # the panel fills it instead of leaving white bands above and below
+  mid <- m_per_deg(mean(c(bb[["ymin"]], bb[["ymax"]])))
+  ground_aspect <- ((bb[["xmax"]] - bb[["xmin"]]) * mid$lon) /
+                   ((bb[["ymax"]] - bb[["ymin"]]) * mid$lat)
 
   p <- ggplot() +
-    tidyterra::geom_spatraster_rgb(data = tiles, maxcell = 5e6) +
-    geom_sf(data = hu, aes(colour = stand_label), fill = NA,
-            linewidth = 0.7, show.legend = FALSE)
+    tidyterra::geom_spatraster_rgb(data = tiles, maxcell = 5e6)
 
   if (ring)
     p <- p + geom_sf(data = ri, fill = NA, colour = "white",
                      linewidth = 0.4, linetype = "22")
 
-  p +
-    geom_sf(data = tr, aes(size = dbh_cm, fill = disease_sep),
-            shape = 21, colour = "grey15", stroke = 0.25, alpha = 0.95) +
+  p <- p +
+    # Disease score rides `colour`, not `fill`, for the same reason as
+    # 06_disease_influence_map_v2.R: the basemap already owns a fill scale and
+    # ggnewscale is not a dependency here. A fixed grey ring on top restores
+    # the marker definition that shape 21 would have given.
+    geom_sf(data = tr, aes(size = dbh_cm, colour = disease_sep),
+            shape = 16, alpha = 0.95) +
+    geom_sf(data = tr, aes(size = dbh_cm), shape = 21, fill = NA,
+            colour = "grey15", stroke = 0.3, show.legend = FALSE) +
     geom_sf(data = so, shape = 23, size = 3.2, fill = "#17becf",
             colour = "black", stroke = 0.6) +
     geom_sf(data = ce, shape = 3, size = 3.4, colour = "white", stroke = 0.9) +
-    scale_fill_gradient(low = "white", high = "#08306b",
-                        limits = c(1, 6), breaks = 1:6,
-                        name = "Stem disease score\n(September, 1-6)") +
-    scale_colour_manual(values = STAND_COLOUR) +
+    scale_colour_gradient(low = "white", high = "#08306b",
+                          limits = c(1, 6), breaks = 1:6,
+                          name = "Stem disease score\n(September, 1-6)") +
     scale_size_continuous(range = point_range, breaks = c(2, 5, 10, 20, 30),
                           name = "Stem DBH (cm)") +
     coord_sf(xlim = c(bb["xmin"], bb["xmax"]),
              ylim = c(bb["ymin"], bb["ymax"]), expand = FALSE, crs = 4326) +
     labs(x = NULL, y = NULL) +
-    guides(fill = guide_colourbar(order = 1, barheight = grid::unit(6, "lines")),
-           size = guide_legend(order = 2)) +
+    guides(colour = guide_colourbar(order = 1, barheight = grid::unit(6, "lines")),
+           size   = guide_legend(order = 2)) +
     theme_minimal(base_size = 13) +
     theme(panel.grid = element_line(colour = alpha("white", 0.18), linewidth = 0.25),
           axis.text = element_text(size = rel(0.7), colour = "grey30"),
           legend.position = "right",
           plot.margin = margin(6, 8, 6, 6))
+
+  structure(p, ground_aspect = ground_aspect)
+}
+
+# Save at a height that matches the panel's own aspect, so the figure is not
+# padded with empty bands. legend_in / extra_in approximate the non-panel
+# furniture (colourbar + size legend, axis text, caption).
+save_panel <- function(p, file, width, legend_in, extra_in = 1.0) {
+  height <- (width - legend_in) / attr(p, "ground_aspect") + extra_in
+  ggsave(file, p, width = width, height = height, dpi = 300)
+  cat(sprintf("Wrote %s  (%.1f x %.1f in @ 300 dpi)\n", file, width, height))
 }
 
 # --- overview: all three stands ---------------------------------------------
-ov <- map_panel(trees_sf, soil_sf, centres_sf, hulls_sf, rings_sf,
-                pad = 35, zoom = 20, point_range = c(0.7, 3.2)) +
-  geom_sf_text(data = centres_sf, aes(label = stand_label),
-               colour = "white", size = 3.6, fontface = "bold",
-               nudge_y = 0.00016) +
+ov <- map_panel(trees_sf, soil_sf, centres_sf, rings_sf,
+                pad = 15, zoom = 20, point_range = c(0.7, 3.2)) +
+  geom_label(data = centres, aes(x = lon, y = lat + 0.00018, label = stand_label),
+             colour = "white", fill = "grey10", alpha = 0.62, size = 3.6,
+             fontface = "bold", label.size = 0, label.r = grid::unit(0.12, "lines"),
+             label.padding = grid::unit(0.22, "lines"), inherit.aes = FALSE) +
   labs(caption = sprintf(
     "Esri World Imagery. %d mapped Ailanthus stems, %d soil-collection points (stand centre + 10 m N/E/S/W).",
     nrow(trees_sf), nrow(soil_sf)))
 
-f <- file.path(OUT_FIG, "satellite_map_overview.png")
-ggsave(f, ov, width = 12, height = 8.5, dpi = 300)
-cat("Wrote", f, "\n")
+save_panel(ov, file.path(OUT_FIG, "satellite_map_overview.png"),
+           width = 12, legend_in = 3.0)
 
 # --- one zoomed panel per stand ---------------------------------------------
 for (s in STAND_CENTRES$stand) {
   lab <- unname(STAND_LABEL[s])
   keep <- function(x) x[x$stand_label == lab, ]
-  p <- map_panel(keep(trees_sf), keep(soil_sf), keep(centres_sf),
-                 keep(hulls_sf), keep(rings_sf),
-                 pad = 12, zoom = 20, point_range = c(1.4, 6)) +
+  p <- map_panel(keep(trees_sf), keep(soil_sf), keep(centres_sf), keep(rings_sf),
+                 pad = 4, zoom = 20, point_range = c(1.4, 6)) +
     labs(caption = sprintf("%s -- Esri World Imagery; dashed ring = %d m soil-sampling radius.",
                            lab, SAMPLING_RADIUS))
-  f <- file.path(OUT_FIG, sprintf("satellite_map_%s.png", s))
-  ggsave(f, p, width = 9, height = 8, dpi = 300)
-  cat("Wrote", f, "\n")
+  save_panel(p, file.path(OUT_FIG, sprintf("satellite_map_%s.png", s)),
+             width = 10, legend_in = 3.0)
 }

@@ -220,7 +220,10 @@ def convex_hull(points: list[tuple[float, float]]) -> list[tuple[float, float]]:
 
 
 def stand_hulls(trees: list[dict]) -> dict[str, list[tuple[float, float]]]:
-    """Mapped-stem convex hull per stand, as a closed (lon, lat) ring."""
+    """Mapped-stem convex hull per stand, as a closed (lon, lat) ring.
+
+    Kept as a GeoJSON layer for GIS use; the maps themselves no longer draw it.
+    """
     hulls = {}
     for stand in STAND_ORDER:
         local = [(t["east_m"], t["north_m"]) for t in trees if t["stand"] == stand]
@@ -299,13 +302,12 @@ def write_geojson(records: list[dict], hulls, rings, path: Path) -> None:
          "features": features}, indent=1))
 
 
-def write_html(trees, soil, centres, hulls, rings, path: Path) -> None:
+def write_html(trees, soil, centres, rings, path: Path) -> None:
     template = (Path(__file__).parent / "satellite_map_template.html").read_text()
     payload = {
         "trees": trees,
         "soil": [{k: v for k, v in s.items() if k != "pooled_samples"} for s in soil],
         "centres": centres,
-        "hulls": {k: [list(p) for p in v] for k, v in hulls.items()},
         "rings": {k: [list(p) for p in v] for k, v in rings.items()},
         "standOrder": STAND_ORDER,
         "standLabel": STAND_LABEL,
@@ -326,7 +328,7 @@ def main() -> None:
 
     write_csv(records, SPATIAL_DIR / "site_points.csv")
     write_geojson(records, hulls, rings, SPATIAL_DIR / "site_points.geojson")
-    write_html(trees, soil, centres, hulls, rings, MAP_DIR / "satellite_map.html")
+    write_html(trees, soil, centres, rings, MAP_DIR / "satellite_map.html")
 
     lats = [r["latitude"] for r in records]
     lons = [r["longitude"] for r in records]
