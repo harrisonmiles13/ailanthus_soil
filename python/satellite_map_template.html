@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ailanthus soil study — site map</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+  :root {
+    --panel-bg: rgba(255, 255, 255, 0.94);
+    --ink: #14181d;
+    --muted: #5b6673;
+    --rule: #d8dee6;
+  }
+  html, body { margin: 0; height: 100%; }
+  body {
+    font: 13px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
+    color: var(--ink);
+  }
+  #map { position: absolute; inset: 0; background: #10141a; }
+
+  .card {
+    background: var(--panel-bg);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.25), 0 6px 20px rgba(0,0,0,.18);
+    padding: 10px 12px;
+  }
+  .card h2 {
+    font-size: 12px; text-transform: uppercase; letter-spacing: .06em;
+    margin: 0 0 7px; color: var(--muted); font-weight: 700;
+  }
+  .card h2:not(:first-child) { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--rule); }
+
+  #panel { width: 232px; max-height: calc(100vh - 24px); overflow-y: auto; }
+  #panel label { display: flex; align-items: center; gap: 7px; padding: 2px 0; cursor: pointer; }
+  #panel input { margin: 0; }
+
+  .swatch { width: 13px; height: 13px; border-radius: 50%; flex: 0 0 auto;
+            border: 1px solid rgba(0,0,0,.55); }
+  .swatch.diamond { border-radius: 2px; transform: rotate(45deg); }
+  .swatch.hollow { background: none; border-width: 2px; border-radius: 3px; }
+  .row { display: flex; align-items: center; gap: 7px; padding: 2px 0; }
+  .note { color: var(--muted); font-size: 11.5px; margin: 6px 0 0; }
+
+  .ramp { height: 10px; border-radius: 5px; margin: 5px 0 3px; border: 1px solid rgba(0,0,0,.3); }
+  .ramp-labels { display: flex; justify-content: space-between; color: var(--muted); font-size: 11px; }
+
+  .sizes { display: flex; align-items: flex-end; gap: 10px; padding: 4px 2px 0; }
+  .sizes span { display: flex; flex-direction: column; align-items: center;
+                gap: 3px; color: var(--muted); font-size: 11px; }
+  .sizes i { display: block; border-radius: 50%; background: #cfd6de;
+             border: 1px solid rgba(0,0,0,.5); }
+
+  .leaflet-popup-content { margin: 10px 12px; font-size: 12.5px; }
+  .popup-title { font-weight: 700; margin-bottom: 5px; }
+  .popup-stand { color: var(--muted); font-size: 11.5px; margin-bottom: 6px; }
+  .popup-table { border-collapse: collapse; }
+  .popup-table td { padding: 1px 0; vertical-align: top; }
+  .popup-table td:first-child { color: var(--muted); padding-right: 10px; white-space: nowrap; }
+  .stand-tip {
+    background: rgba(12,16,22,.78); border: none; box-shadow: none; color: #fff;
+    font-weight: 700; font-size: 12px; letter-spacing: .02em; padding: 3px 7px;
+  }
+  .stand-tip::before { display: none; }
+</style>
+</head>
+<body>
+<div id="map"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script>
+const SITE = /*__SITE_DATA__*/null;
+
+/* ---------- basemaps ------------------------------------------------- */
+const esriImagery = L.tileLayer(
+  'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  { maxZoom: 22, maxNativeZoom: 19,
+    attribution: 'Imagery &copy; Esri, Maxar, Earthstar Geographics' });
+
+const usgsImagery = L.tileLayer(
+  'https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}',
+  { maxZoom: 22, maxNativeZoom: 16, attribution: 'Imagery &copy; USGS The National Map' });
+
+const osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+  { maxZoom: 19, attribution: '&copy; OpenStreetMap contributors' });
+
+const map = L.map('map', { layers: [esriImagery], zoomSnap: 0.25, maxZoom: 22 });
+
+/* ---------- symbology ------------------------------------------------ */
+// white -> dark blue, matching the disease-score ramp in R/06_disease_influence_map*.R
+const DISEASE_RAMP = ['#ffffff', '#08306b'];
+const AUDPC_RAMP = ['#fff5eb', '#7f2704'];
+
+const maxAudpc = Math.max(...SITE.trees.map(t => t.audpc_adj_4mai || 0)) || 1;
+
+function lerpHex(a, b, t) {
+  const p = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
+  const [ar, ag, ab] = p(a), [br, bg, bb] = p(b);
+  const m = (x, y) => Math.round(x + (y - x) * Math.max(0, Math.min(1, t)));
+  return `rgb(${m(ar, br)},${m(ag, bg)},${m(ab, bb)})`;
+}
+
+function treeFill(t, mode) {
+  if (mode === 'stand') return SITE.standColour[t.stand];
+  if (mode === 'audpc') return lerpHex(...AUDPC_RAMP, (t.audpc_adj_4mai || 0) / maxAudpc);
+  const score = t.disease_4_mai == null ? 1 : t.disease_4_mai;   // untracked -> asymptomatic
+  return lerpHex(...DISEASE_RAMP, (score - 1) / 5);
+}
+
+// DBH 0.8-31 cm; sqrt keeps the small stems visible without the big ones flooding
+const radiusFor = dbh => 2.6 + 1.15 * Math.sqrt(dbh || 1);
+
+const fmt = v => (v == null ? '—' : (typeof v === 'number' ? +v.toFixed(2) : v));
+
+function treePopup(t) {
+  return `<div class="popup-title">Ailanthus stem ${t.tree_num}</div>
+    <div class="popup-stand">${t.stand_label}</div>
+    <table class="popup-table">
+      <tr><td>DBH</td><td>${fmt(t.dbh_cm)} cm</td></tr>
+      <tr><td>From centre</td><td>${fmt(t.distance_m)} m @ ${fmt(t.bearing_deg)}&deg;</td></tr>
+      <tr><td>Disease (May / Jul / Sep)</td>
+          <td>${fmt(t.disease_initial)} / ${fmt(t.disease_2_mai)} / ${fmt(t.disease_4_mai)}</td></tr>
+      <tr><td>AUDPC 2 / 4 MAI</td>
+          <td>${fmt(t.audpc_adj_2mai)} / ${fmt(t.audpc_adj_4mai)}</td></tr>
+      <tr><td>Coordinates</td><td>${t.latitude.toFixed(6)}, ${t.longitude.toFixed(6)}</td></tr>
+    </table>`;
+}
+
+function soilPopup(s) {
+  return `<div class="popup-title">Soil collection — ${s.position}</div>
+    <div class="popup-stand">${s.stand_label}</div>
+    <table class="popup-table">
+      <tr><td>Sampled</td><td>${s.months.join(', ')}</td></tr>
+      <tr><td>Coordinates</td><td>${s.latitude.toFixed(6)}, ${s.longitude.toFixed(6)}</td></tr>
+    </table>`;
+}
+
+/* ---------- layers --------------------------------------------------- */
+const hullLayer = L.layerGroup();
+const ringLayer = L.layerGroup();
+const treeLayer = L.layerGroup();
+const soilLayer = L.layerGroup();
+const centreLayer = L.layerGroup();
+const labelLayer = L.layerGroup();
+
+SITE.standOrder.forEach(stand => {
+  const colour = SITE.standColour[stand];
+
+  L.polygon(SITE.hulls[stand].map(([lon, lat]) => [lat, lon]), {
+    color: colour, weight: 2.5, opacity: 0.95, fillColor: colour,
+    fillOpacity: 0.10, interactive: false
+  }).addTo(hullLayer);
+
+  L.polygon(SITE.rings[stand].map(([lon, lat]) => [lat, lon]), {
+    color: '#ffffff', weight: 1.5, opacity: 0.8, dashArray: '5 5',
+    fill: false, interactive: false
+  }).addTo(ringLayer);
+});
+
+const treeMarkers = SITE.trees.map(t => {
+  const m = L.circleMarker([t.latitude, t.longitude], {
+    radius: radiusFor(t.dbh_cm), color: '#0d1117', weight: 1,
+    fillColor: treeFill(t, 'disease'), fillOpacity: 0.92
+  }).bindPopup(treePopup(t));
+  m.addTo(treeLayer);
+  return { marker: m, tree: t };
+});
+
+SITE.soil.forEach(s => {
+  L.marker([s.latitude, s.longitude], {
+    icon: L.divIcon({
+      className: '',
+      html: '<div style="width:13px;height:13px;background:#17becf;' +
+            'border:1.6px solid #0d1117;transform:rotate(45deg);' +
+            'box-shadow:0 0 0 1px rgba(255,255,255,.65)"></div>',
+      iconSize: [13, 13], iconAnchor: [6.5, 6.5], popupAnchor: [0, -8]
+    })
+  }).bindPopup(soilPopup(s)).addTo(soilLayer);
+});
+
+SITE.centres.forEach(c => {
+  L.marker([c.latitude, c.longitude], {
+    icon: L.divIcon({
+      className: '',
+      html: '<div style="width:16px;height:16px;border:2.5px solid #fff;' +
+            'border-radius:50%;background:rgba(13,17,23,.55);' +
+            'box-shadow:0 0 0 1px rgba(0,0,0,.6)"></div>',
+      iconSize: [16, 16], iconAnchor: [8, 8], popupAnchor: [0, -10]
+    })
+  }).bindPopup(
+      `<div class="popup-title">${c.stand_label}</div>
+       <div class="popup-stand">Stand centre (plot origin)</div>
+       <table class="popup-table">
+         <tr><td>Coordinates</td><td>${c.latitude.toFixed(5)}, ${c.longitude.toFixed(5)}</td></tr>
+       </table>`).addTo(centreLayer);
+
+  L.marker([c.latitude, c.longitude], { opacity: 0, interactive: false })
+    .bindTooltip(c.stand_label, {
+      permanent: true, direction: 'top', offset: [0, -12], className: 'stand-tip'
+    }).addTo(labelLayer);
+});
+
+[hullLayer, ringLayer, treeLayer, soilLayer, centreLayer, labelLayer]
+  .forEach(l => l.addTo(map));
+
+map.fitBounds(
+  L.latLngBounds(SITE.trees.concat(SITE.soil).map(p => [p.latitude, p.longitude])),
+  { padding: [70, 70] });
+
+/* ---------- controls ------------------------------------------------- */
+L.control.layers(
+  { 'Esri satellite': esriImagery, 'USGS imagery': usgsImagery, 'OpenStreetMap': osm },
+  { 'Stand outline (stem hull)': hullLayer,
+    '10 m sampling ring': ringLayer,
+    'Mapped Ailanthus stems': treeLayer,
+    'Soil collection points': soilLayer,
+    'Stand centres': centreLayer,
+    'Stand labels': labelLayer },
+  { position: 'topright', collapsed: false }
+).addTo(map);
+
+L.control.scale({ position: 'bottomright', imperial: false, maxWidth: 160 }).addTo(map);
+
+const panel = L.control({ position: 'topleft' });
+panel.onAdd = function () {
+  const div = L.DomUtil.create('div', 'card');
+  div.id = 'panel';
+  div.innerHTML = `
+    <h2>Stem colour</h2>
+    <label><input type="radio" name="sym" value="disease" checked> September disease score</label>
+    <label><input type="radio" name="sym" value="audpc"> AUDPC (4 MAI)</label>
+    <label><input type="radio" name="sym" value="stand"> Stand</label>
+    <div id="ramp-box"></div>
+
+    <h2>Stem size — DBH</h2>
+    <div class="sizes">
+      ${[2, 5, 10, 20, 30].map(d => {
+        const r = 2 * radiusFor(d);
+        return `<span><i style="width:${r}px;height:${r}px"></i>${d}</span>`;
+      }).join('')}
+    </div>
+    <p class="note">cm at breast height</p>
+
+    <h2>Features</h2>
+    <div class="row"><span class="swatch diamond" style="background:#17becf"></span>
+      Soil collection point</div>
+    <div class="row"><span class="swatch" style="background:rgba(13,17,23,.55);border-color:#fff;border-width:2px"></span>
+      Stand centre</div>
+    <div class="row"><span class="swatch hollow" style="border-color:#D55E00"></span>
+      Stand outline (stem hull)</div>
+    <p class="note">Dashed white ring = 10 m soil-sampling radius.
+      ${SITE.trees.length} mapped stems, ${SITE.soil.length} soil points
+      (centre + 10 m N/E/S/W per stand), each sampled in May, July and September.</p>`;
+  L.DomEvent.disableClickPropagation(div);
+  L.DomEvent.disableScrollPropagation(div);
+  return div;
+};
+panel.addTo(map);
+
+function rampHTML(mode) {
+  if (mode === 'stand') {
+    return SITE.standOrder.map(s =>
+      `<div class="row"><span class="swatch" style="background:${SITE.standColour[s]}"></span>
+        ${SITE.standLabel[s]}</div>`).join('');
+  }
+  const [lo, hi] = mode === 'audpc' ? AUDPC_RAMP : DISEASE_RAMP;
+  const labels = mode === 'audpc'
+    ? ['0', maxAudpc.toFixed(0)]
+    : ['1 — asymptomatic', '6 — dead'];
+  return `<div class="ramp" style="background:linear-gradient(90deg,${lo},${hi})"></div>
+          <div class="ramp-labels"><span>${labels[0]}</span><span>${labels[1]}</span></div>`;
+}
+
+function applySymbology(mode) {
+  treeMarkers.forEach(({ marker, tree }) =>
+    marker.setStyle({ fillColor: treeFill(tree, mode) }));
+  document.getElementById('ramp-box').innerHTML = rampHTML(mode);
+}
+
+document.querySelectorAll('input[name="sym"]').forEach(el =>
+  el.addEventListener('change', e => applySymbology(e.target.value)));
+applySymbology('disease');
+</script>
+</body>
+</html>
