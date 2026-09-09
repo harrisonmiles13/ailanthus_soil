@@ -7,9 +7,18 @@
 # offsets -- compass bearing + distance in metres -- from a stand centre. The
 # only absolute positions in the study are the three stand centres:
 #
-#   Formerly attenuated strain   37.31776, -76.88626
-#   Virulent strain              37.31766, -76.88659
-#   No-fungus control            37.31725, -76.88538
+#   Formerly attenuated strain   37.31794, -76.88636
+#   Virulent strain              37.31775, -76.88661
+#   No-fungus control            37.31746, -76.88533
+#
+# These were corrected on 2026-09-09 from the field-recorded GPS fixes
+# (37.31776,-76.88626 / 37.31766,-76.88659 / 37.31725,-76.88538), which a
+# side-by-side check against Google Earth showed sitting 10-24 m south of
+# the true plot locations -- plausible GPS multipath drift from taking the
+# fix under canopy. Per-stand offsets were not identical (10-24 m, all
+# roughly northward), so this looks like independent per-plot GPS error
+# rather than one shared datum/systematic bias. Only the three anchors
+# moved; every tree/soil bearing+distance offset is unchanged.
 #
 # This script projects those offsets onto WGS84 and writes two versions of
 # each panel:
@@ -73,9 +82,9 @@ dir.create(CACHE_DIR, showWarnings = FALSE, recursive = TRUE)
 
 STAND_CENTRES <- tibble::tribble(
   ~stand,               ~lat,      ~lon,
-  "no_fungus_control", 37.31725, -76.88538,
-  "attenuated",        37.31776, -76.88626,
-  "virulent",          37.31766, -76.88659
+  "no_fungus_control", 37.31746, -76.88533,
+  "attenuated",        37.31794, -76.88636,
+  "virulent",          37.31775, -76.88661
 )
 
 TREAT_TO_STAND <- c(vnaa140_control = "no_fungus_control",

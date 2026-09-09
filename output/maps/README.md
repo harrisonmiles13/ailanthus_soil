@@ -9,9 +9,15 @@ absolute coordinates in the study:
 
 | Stand | Latitude | Longitude |
 |---|---|---|
-| Formerly attenuated strain (`vnaa140_2019`) | 37.31776 | -76.88626 |
-| Virulent strain (`vnaa140_2023`) | 37.31766 | -76.88659 |
-| No-fungus control (`vnaa140_control`) | 37.31725 | -76.88538 |
+| Formerly attenuated strain (`vnaa140_2019`) | 37.31794 | -76.88636 |
+| Virulent strain (`vnaa140_2023`) | 37.31775 | -76.88661 |
+| No-fungus control (`vnaa140_control`) | 37.31746 | -76.88533 |
+
+Corrected 2026-09-09 against Google Earth: the original field GPS fixes
+(37.31776,-76.88626 / 37.31766,-76.88659 / 37.31725,-76.88538) placed all
+three stands 10–24 m south of their true position, most likely from GPS
+multipath under canopy. Only these three anchors changed — every tree and
+soil-collection point is still the same bearing/distance offset from them.
 
 Both scripts below project the offsets the same way, using the bearing convention
 already in `R/06_disease_influence_map.R` (`x = d·sin θ` east, `y = d·cos θ` north,
