@@ -53,7 +53,7 @@
 RENDER_BASEMAP_MAPS <- TRUE     # satellite_map_*.png       (needs maptiles, tidyterra, network)
 RENDER_BLANK_MAPS   <- TRUE     # satellite_map_*_blank.png (geometry only, no extra deps)
 
-need <- c("readxl", "dplyr", "ggplot2", "tibble", "sf")
+need <- c("readxl", "dplyr", "ggplot2", "tibble", "sf", "ggrepel")
 if (RENDER_BASEMAP_MAPS) need <- c(need, "maptiles", "tidyterra")
 missing <- need[!vapply(need, requireNamespace, logical(1), quietly = TRUE)]
 if (length(missing))
@@ -61,7 +61,7 @@ if (length(missing))
        paste0('"', missing, '"', collapse = ", "), "))", call. = FALSE)
 
 suppressPackageStartupMessages({
-  library(readxl); library(dplyr); library(ggplot2)
+  library(readxl); library(dplyr); library(ggplot2); library(ggrepel)
 })
 
 DATA_FILE       <- "bioassay_data_v_final.xlsx"
@@ -195,16 +195,18 @@ feature_layers <- function(tr, so, ce, ri, point_range, ring_colour, ring = TRUE
             shape = 16, alpha = 0.95),
     geom_sf(data = tr, aes(size = dbh_cm), shape = 21, fill = NA,
             colour = "grey15", stroke = 0.3, show.legend = FALSE),
-    geom_sf(data = so, shape = 23, size = 3.2, fill = "#17becf",
-            colour = "black", stroke = 0.6),
+    geom_sf(data = so, aes(shape = "Soil-collection point"), size = 3.2,
+            fill = "#17becf", colour = "black", stroke = 0.6),
     geom_sf(data = ce, shape = 3, size = 3.4, colour = ring_colour, stroke = 0.9),
     scale_colour_gradient(low = "white", high = "#08306b",
                           limits = c(1, 6), breaks = 1:6,
                           name = "Stem disease score\n(September, 1-6)"),
     scale_size_continuous(range = point_range, breaks = c(2, 5, 10, 20, 30),
                           name = "Stem DBH (cm)"),
+    scale_shape_manual(values = c("Soil-collection point" = 23), name = NULL),
     guides(colour = guide_colourbar(order = 1, barheight = grid::unit(6, "lines")),
-           size   = guide_legend(order = 2))
+           size   = guide_legend(order = 2),
+           shape  = guide_legend(order = 3))
   ))
 }
 
@@ -293,10 +295,12 @@ save_panel <- function(p, file, width, legend_in, extra_in = 1.0, transparent = 
 if (RENDER_BASEMAP_MAPS) {
   ov <- map_panel(trees_sf, soil_sf, centres_sf, rings_sf,
                   pad = 15, zoom = 20, point_range = c(0.7, 3.2)) +
-    geom_label(data = centres, aes(x = lon, y = lat + 0.00018, label = stand_label),
+    geom_label_repel(data = centres, aes(x = lon, y = lat, label = stand_label),
                colour = "white", fill = "grey10", alpha = 0.62, size = 3.6,
                fontface = "bold", label.size = 0, label.r = grid::unit(0.12, "lines"),
-               label.padding = grid::unit(0.22, "lines"), inherit.aes = FALSE) +
+               label.padding = grid::unit(0.22, "lines"), inherit.aes = FALSE,
+               nudge_y = 0.00013, box.padding = 0.3, point.padding = 0.15,
+               force = 1, max.overlaps = Inf, min.segment.length = Inf, seed = 1) +
     labs(caption = sprintf(
       "Esri World Imagery. %d mapped Ailanthus stems, %d soil-collection points (stand centre + 10 m N/E/S/W).",
       nrow(trees_sf), nrow(soil_sf)))
@@ -308,8 +312,10 @@ if (RENDER_BASEMAP_MAPS) {
 if (RENDER_BLANK_MAPS) {
   ovb <- blank_panel(trees_sf, soil_sf, centres_sf, rings_sf,
                      pad = 15, point_range = c(0.7, 3.2)) +
-    geom_text(data = centres, aes(x = lon, y = lat + 0.00018, label = stand_label),
-              colour = "grey10", size = 3.6, fontface = "bold", inherit.aes = FALSE) +
+    geom_text_repel(data = centres, aes(x = lon, y = lat, label = stand_label),
+              colour = "grey10", size = 3.6, fontface = "bold", inherit.aes = FALSE,
+              nudge_y = 0.00013, box.padding = 0.3, point.padding = 0.15,
+              force = 1, max.overlaps = Inf, min.segment.length = Inf, seed = 1) +
     labs(caption = sprintf(
       "No basemap -- register against an independent site photo. %d mapped Ailanthus stems, %d soil-collection points.",
       nrow(trees_sf), nrow(soil_sf)))
