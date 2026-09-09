@@ -11,14 +11,15 @@ absolute positions we have:
 
     formerly attenuated strain  37.31794, -76.88636
     virulent strain             37.31775, -76.88661
-    no-fungus control           37.31746, -76.88533
+    no-fungus control           37.31736, -76.88526
 
 Corrected 2026-09-09 from the original field GPS fixes (37.31776,-76.88626 /
 37.31766,-76.88659 / 37.31725,-76.88538), which sat 10-24 m south of the true
 plot locations per a side-by-side check against Google Earth -- plausible
 canopy-multipath drift, not a shared datum offset (the three corrections
-weren't identical). Only the anchors moved; tree/soil bearing+distance data
-is unchanged.
+weren't identical). The no-fungus control anchor was refined a second time
+the same day, a further 12.5 m SE, from a closer look at the same imagery.
+Only the anchors moved; tree/soil bearing+distance data is unchanged.
 
 This script turns those polar offsets into WGS84 latitude/longitude, then
 writes:
@@ -63,7 +64,7 @@ SAMPLING_RADIUS_M = 10.0       # radius of the soil-sampling design
 STAND_CENTRES = {
     "attenuated":        (37.31794, -76.88636),
     "virulent":          (37.31775, -76.88661),
-    "no_fungus_control": (37.31746, -76.88533),
+    "no_fungus_control": (37.31736, -76.88526),
 }
 
 # tree_data$Plot / bioassay_primary$treatment -> canonical stand key
