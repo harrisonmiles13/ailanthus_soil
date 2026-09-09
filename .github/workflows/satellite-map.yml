@@ -42,7 +42,7 @@ jobs:
       - name: Install R packages
         run: |
           install.packages(c("readxl", "dplyr", "ggplot2", "tibble",
-                             "sf", "maptiles", "tidyterra"))
+                             "sf", "ggrepel", "maptiles", "tidyterra"))
         shell: Rscript {0}
 
       - name: Render figures

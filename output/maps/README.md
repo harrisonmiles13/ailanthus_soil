@@ -72,7 +72,7 @@ adjusting for the R version actually installed. First run needs the mapping
 packages:
 
 ```r
-install.packages(c("sf", "maptiles", "tidyterra"))
+install.packages(c("sf", "ggrepel", "maptiles", "tidyterra"))
 ```
 
 It writes, at 300 dpi, two versions of every panel:
