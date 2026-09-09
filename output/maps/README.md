@@ -11,13 +11,15 @@ absolute coordinates in the study:
 |---|---|---|
 | Formerly attenuated strain (`vnaa140_2019`) | 37.31794 | -76.88636 |
 | Virulent strain (`vnaa140_2023`) | 37.31775 | -76.88661 |
-| No-fungus control (`vnaa140_control`) | 37.31746 | -76.88533 |
+| No-fungus control (`vnaa140_control`) | 37.31736 | -76.88526 |
 
 Corrected 2026-09-09 against Google Earth: the original field GPS fixes
 (37.31776,-76.88626 / 37.31766,-76.88659 / 37.31725,-76.88538) placed all
 three stands 10–24 m south of their true position, most likely from GPS
-multipath under canopy. Only these three anchors changed — every tree and
-soil-collection point is still the same bearing/distance offset from them.
+multipath under canopy. The no-fungus control anchor was refined a second
+time the same day, a further 12.5 m SE, from a closer look at the same
+imagery. Only these three anchors changed — every tree and soil-collection
+point is still the same bearing/distance offset from them.
 
 Both scripts below project the offsets the same way, using the bearing convention
 already in `R/06_disease_influence_map.R` (`x = d·sin θ` east, `y = d·cos θ` north,
@@ -83,12 +85,16 @@ It writes, at 300 dpi, two versions of every panel:
 | `satellite_map_attenuated.png` | formerly attenuated strain, zoomed, on imagery |
 | `satellite_map_virulent.png` | virulent strain, zoomed, on imagery |
 | `satellite_map_no_fungus_control.png` | no-fungus control, zoomed, on imagery |
-| `satellite_map_overview_blank.png` | all three stands, no basemap, transparent background |
-| `satellite_map_<stand>_blank.png` | one zoomed panel per stand, no basemap, transparent background |
+| `satellite_map_overview_blank.png` | all three stands, no basemap, white background |
+| `satellite_map_<stand>_blank.png` | one zoomed panel per stand, no basemap, white background |
 
 Each figure is sized to its own mapped aspect ratio, so the panel fills it
-rather than leaving blank bands. Imagery is downloaded on first run and cached
-under `output/spatial/tile_cache/` (git-ignored).
+rather than leaving blank bands. Every panel carries a north arrow and a
+scale bar in its bottom-left corner (the scale bar's distance is chosen
+automatically — a "nice" round number near a quarter of the panel's ground
+width — so it reads sensibly whether the panel spans one stand or all
+three). Imagery is downloaded on first run and cached under
+`output/spatial/tile_cache/` (git-ignored).
 
 A convex hull of the mapped stems per stand is still written to
 `site_points.geojson` for GIS use, but neither map draws it.
@@ -98,9 +104,9 @@ A convex hull of the mapped stems per stand is still written to
 A cached basemap can be the wrong vintage for the vegetation being described —
 Esri's mosaic for this site, for instance, does not necessarily show canopy
 cover from the study period. The `_blank` figures carry only the geometry
-(stems, soil points, sampling ring, stand centre, a 5 m scale bar) on a
-transparent background, with **no basemap fetch at all** — so they can be
-layered in image-editing or GIS software over an independent photo of the
+(stems, soil points, sampling ring, stand centre, north arrow, scale bar) on
+a **plain white background**, with **no basemap fetch at all** — so they can
+be layered in image-editing or GIS software over an independent photo of the
 site from the study dates, using the scale bar and the known 10 m sampling
 rings to register scale and rotation by eye.
 

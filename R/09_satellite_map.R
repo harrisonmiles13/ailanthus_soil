@@ -9,7 +9,7 @@
 #
 #   Formerly attenuated strain   37.31794, -76.88636
 #   Virulent strain              37.31775, -76.88661
-#   No-fungus control            37.31746, -76.88533
+#   No-fungus control            37.31736, -76.88526
 #
 # These were corrected on 2026-09-09 from the field-recorded GPS fixes
 # (37.31776,-76.88626 / 37.31766,-76.88659 / 37.31725,-76.88538), which a
@@ -17,7 +17,9 @@
 # the true plot locations -- plausible GPS multipath drift from taking the
 # fix under canopy. Per-stand offsets were not identical (10-24 m, all
 # roughly northward), so this looks like independent per-plot GPS error
-# rather than one shared datum/systematic bias. Only the three anchors
+# rather than one shared datum/systematic bias. The no-fungus control
+# anchor was refined a second time the same day, a further 12.5 m SE, from
+# a closer look at the same Google Earth imagery. Only the three anchors
 # moved; every tree/soil bearing+distance offset is unchanged.
 #
 # This script projects those offsets onto WGS84 and writes two versions of
@@ -25,12 +27,13 @@
 #
 #   output/figures/satellite_map_overview.png         on Esri World Imagery
 #   output/figures/satellite_map_<stand>.png
-#   output/figures/satellite_map_overview_blank.png    transparent background,
-#   output/figures/satellite_map_<stand>_blank.png     no imagery at all
+#   output/figures/satellite_map_overview_blank.png    no imagery at all,
+#   output/figures/satellite_map_<stand>_blank.png     white background
 #
-# The "_blank" figures carry only the geometry (stems, soil points, sampling
-# rings, a scale bar) on a transparent background, with no basemap fetch and
-# no dependency on maptiles/tidyterra. They exist so the point cloud can be
+# Every panel carries a north arrow and a scale bar in its bottom-left
+# corner. The "_blank" figures carry only the geometry (stems, soil points,
+# sampling rings) on a plain white background, with no basemap fetch and no
+# dependency on maptiles/tidyterra. They exist so the point cloud can be
 # hand-registered, in image-editing or GIS software, against an independent
 # photo of the site from the study period -- useful whenever a basemap
 # provider's cached imagery is a different vintage than the vegetation being
@@ -82,7 +85,7 @@ dir.create(CACHE_DIR, showWarnings = FALSE, recursive = TRUE)
 
 STAND_CENTRES <- tibble::tribble(
   ~stand,               ~lat,      ~lon,
-  "no_fungus_control", 37.31746, -76.88533,
+  "no_fungus_control", 37.31736, -76.88526,
   "attenuated",        37.31794, -76.88636,
   "virulent",          37.31775, -76.88661
 )
@@ -176,7 +179,54 @@ compute_extent <- function(tr, so, ce, pad) {
   mid <- m_per_deg(mean(c(bb[["ymin"]], bb[["ymax"]])))
   ground_aspect <- ((bb[["xmax"]] - bb[["xmin"]]) * mid$lon) /
                    ((bb[["ymax"]] - bb[["ymin"]]) * mid$lat)
-  list(extent = extent, bb = bb, ground_aspect = ground_aspect)
+  list(extent = extent, bb = bb, ground_aspect = ground_aspect, mid = mid)
+}
+
+# --- north arrow + scale bar, shared by both panel types --------------------
+# Anchored in the bottom-left corner (the emptiest part of every panel here:
+# open field on the overview, the ring's own corner margin on a per-stand
+# panel). The scale bar picks a "nice" round distance near a quarter of the
+# panel's ground width, so it reads sensibly whether the panel spans ~30 m
+# (a single stand) or ~150 m (the overview). `halo` draws a translucent white
+# backing chip first, so black ink stays legible over imagery of any colour
+# (grass, bare soil, dark canopy); the blank panel's flat background doesn't
+# need one.
+cartography_layers <- function(bb, mid, colour = "grey15", halo = FALSE) {
+  W <- bb[["xmax"]] - bb[["xmin"]]; H <- bb[["ymax"]] - bb[["ymin"]]
+
+  ax  <- bb[["xmin"]] + 0.05 * W
+  ay0 <- bb[["ymin"]] + 0.08 * H
+  ay1 <- ay0 + 0.07 * H
+  arrow_df <- data.frame(x = ax, xend = ax, y = ay0, yend = ay1)
+
+  card_w_m <- W * mid$lon
+  nice   <- c(1, 2, 5, 10, 20, 25, 50, 100, 200, 500)
+  bar_m  <- nice[which.min(abs(nice - 0.25 * card_w_m))]
+  bar_x0 <- ax + 0.06 * W
+  bar_x1 <- bar_x0 + bar_m / mid$lon
+  bar_df <- data.frame(x = c(bar_x0, bar_x1), y = ay0)
+
+  layers <- list()
+  if (halo) {
+    pad_x <- 0.018 * W; pad_y <- 0.03 * H
+    layers <- c(layers, list(annotate(
+      "rect", xmin = ax - pad_x, xmax = bar_x1 + pad_x,
+      ymin = ay0 - pad_y, ymax = ay1 + pad_y,
+      fill = "white", alpha = 0.55, colour = NA)))
+  }
+
+  c(layers, list(
+    geom_segment(data = arrow_df, aes(x = x, xend = xend, y = y, yend = yend),
+                arrow = grid::arrow(length = grid::unit(0.09, "inches"), type = "closed"),
+                linewidth = 0.8, colour = colour, inherit.aes = FALSE),
+    annotate("text", x = ax, y = ay1, label = "N", vjust = -0.4, size = 3.4,
+             fontface = "bold", colour = colour),
+    geom_line(data = bar_df, aes(x, y), linewidth = 1, colour = colour, inherit.aes = FALSE),
+    annotate("text", x = bar_x0, y = ay0, label = "0", vjust = 2.1, hjust = 0.5,
+             size = 3.0, colour = colour),
+    annotate("text", x = bar_x1, y = ay0, label = paste(bar_m, "m"), vjust = 2.1, hjust = 0.5,
+             size = 3.0, colour = colour)
+  ))
 }
 
 # --- shared data layers: stems, soil points, sampling ring -------------------
@@ -233,6 +283,7 @@ map_panel <- function(tr, so, ce, ri, pad, zoom, point_range, ring = TRUE) {
   p <- ggplot() +
     tidyterra::geom_spatraster_rgb(data = tiles, maxcell = 5e6) +
     feature_layers(tr, so, ce, ri, point_range, ring_colour = "white", ring = ring) +
+    cartography_layers(bb, ext$mid, colour = "grey15", halo = TRUE) +
     coord_sf(xlim = c(bb["xmin"], bb["xmax"]),
              ylim = c(bb["ymin"], bb["ymax"]), expand = FALSE, crs = 4326) +
     labs(x = NULL, y = NULL) +
@@ -245,37 +296,25 @@ map_panel <- function(tr, so, ce, ri, pad, zoom, point_range, ring = TRUE) {
   structure(p, ground_aspect = ext$ground_aspect)
 }
 
-# --- blank panel: geometry only, transparent background, no basemap ----------
+# --- blank panel: geometry only, white background, no basemap ---------------
 # For hand-registering this point cloud against an independent site photo
 # (e.g. taken near the study dates) in image-editing or GIS software. Needs
 # only sf/ggplot2 -- no maptiles, no tidyterra, no network access.
-blank_panel <- function(tr, so, ce, ri, pad, point_range, scale_bar_m = 5) {
+blank_panel <- function(tr, so, ce, ri, pad, point_range) {
   ext <- compute_extent(tr, so, ce, pad)
   bb  <- ext$bb
-  mid <- m_per_deg(mean(c(bb[["ymin"]], bb[["ymax"]])))
-
-  # a short reference line of known ground length in the bottom-left margin,
-  # for scaling (and, from its bearing, rotating) this layer onto a photo
-  # that has no coordinate reference of its own
-  bar_x0 <- bb[["xmin"]] + 0.10 * (bb[["xmax"]] - bb[["xmin"]])
-  bar_y0 <- bb[["ymin"]] + 0.06 * (bb[["ymax"]] - bb[["ymin"]])
-  bar    <- data.frame(x = c(bar_x0, bar_x0 + scale_bar_m / mid$lon), y = bar_y0)
 
   p <- ggplot() +
     feature_layers(tr, so, ce, ri, point_range, ring_colour = "grey40") +
-    geom_line(data = bar, aes(x, y), linewidth = 1, colour = "grey15",
-             inherit.aes = FALSE) +
-    geom_text(data = bar[1, ], aes(x, y, label = paste(scale_bar_m, "m")),
-             colour = "grey15", size = 3.2, vjust = 2.1, hjust = 0,
-             inherit.aes = FALSE) +
+    cartography_layers(bb, ext$mid, colour = "grey15", halo = FALSE) +
     coord_sf(xlim = c(bb["xmin"], bb["xmax"]),
              ylim = c(bb["ymin"], bb["ymax"]), expand = FALSE, crs = 4326) +
     labs(x = NULL, y = NULL) +
     theme_void(base_size = 13) +
     theme(legend.position = "right",
           legend.background = element_blank(),
-          plot.background = element_blank(),
-          panel.background = element_blank(),
+          plot.background = element_rect(fill = "white", colour = NA),
+          panel.background = element_rect(fill = "white", colour = NA),
           plot.margin = margin(6, 8, 6, 6))
 
   structure(p, ground_aspect = ext$ground_aspect)
@@ -283,11 +322,10 @@ blank_panel <- function(tr, so, ce, ri, pad, point_range, scale_bar_m = 5) {
 
 # Save at a height that matches the panel's own aspect, so the figure is not
 # padded with empty bands. legend_in / extra_in approximate the non-panel
-# furniture (colourbar + size legend, axis text, caption).
-save_panel <- function(p, file, width, legend_in, extra_in = 1.0, transparent = FALSE) {
+# furniture (colourbar + size legend, axis text).
+save_panel <- function(p, file, width, legend_in, extra_in = 0.15) {
   height <- (width - legend_in) / attr(p, "ground_aspect") + extra_in
-  ggsave(file, p, width = width, height = height, dpi = 300,
-        bg = if (transparent) "transparent" else "white")
+  ggsave(file, p, width = width, height = height, dpi = 300, bg = "white")
   cat(sprintf("Wrote %s  (%.1f x %.1f in @ 300 dpi)\n", file, width, height))
 }
 
@@ -300,10 +338,7 @@ if (RENDER_BASEMAP_MAPS) {
                fontface = "bold", label.size = 0, label.r = grid::unit(0.12, "lines"),
                label.padding = grid::unit(0.22, "lines"), inherit.aes = FALSE,
                nudge_y = 0.00013, box.padding = 0.3, point.padding = 0.15,
-               force = 1, max.overlaps = Inf, min.segment.length = Inf, seed = 1) +
-    labs(caption = sprintf(
-      "Esri World Imagery. %d mapped Ailanthus stems, %d soil-collection points (stand centre + 10 m N/E/S/W).",
-      nrow(trees_sf), nrow(soil_sf)))
+               force = 1, max.overlaps = Inf, min.segment.length = Inf, seed = 1)
 
   save_panel(ov, file.path(OUT_FIG, "satellite_map_overview.png"),
              width = 12, legend_in = 3.0)
@@ -315,13 +350,10 @@ if (RENDER_BLANK_MAPS) {
     geom_text_repel(data = centres, aes(x = lon, y = lat, label = stand_label),
               colour = "grey10", size = 3.6, fontface = "bold", inherit.aes = FALSE,
               nudge_y = 0.00013, box.padding = 0.3, point.padding = 0.15,
-              force = 1, max.overlaps = Inf, min.segment.length = Inf, seed = 1) +
-    labs(caption = sprintf(
-      "No basemap -- register against an independent site photo. %d mapped Ailanthus stems, %d soil-collection points.",
-      nrow(trees_sf), nrow(soil_sf)))
+              force = 1, max.overlaps = Inf, min.segment.length = Inf, seed = 1)
 
   save_panel(ovb, file.path(OUT_FIG, "satellite_map_overview_blank.png"),
-             width = 12, legend_in = 3.0, transparent = TRUE)
+             width = 12, legend_in = 3.0)
 }
 
 # --- one zoomed panel per stand ---------------------------------------------
@@ -331,18 +363,14 @@ for (s in STAND_CENTRES$stand) {
   tr <- keep(trees_sf); so <- keep(soil_sf); ce <- keep(centres_sf); ri <- keep(rings_sf)
 
   if (RENDER_BASEMAP_MAPS) {
-    p <- map_panel(tr, so, ce, ri, pad = 4, zoom = 20, point_range = c(1.4, 6)) +
-      labs(caption = sprintf("%s -- Esri World Imagery; dashed ring = %d m soil-sampling radius.",
-                             lab, SAMPLING_RADIUS))
+    p <- map_panel(tr, so, ce, ri, pad = 4, zoom = 20, point_range = c(1.4, 6))
     save_panel(p, file.path(OUT_FIG, sprintf("satellite_map_%s.png", s)),
                width = 10, legend_in = 3.0)
   }
 
   if (RENDER_BLANK_MAPS) {
-    pb <- blank_panel(tr, so, ce, ri, pad = 4, point_range = c(1.4, 6)) +
-      labs(caption = sprintf(
-        "%s -- no basemap; dashed ring = %d m soil-sampling radius.", lab, SAMPLING_RADIUS))
+    pb <- blank_panel(tr, so, ce, ri, pad = 4, point_range = c(1.4, 6))
     save_panel(pb, file.path(OUT_FIG, sprintf("satellite_map_%s_blank.png", s)),
-               width = 10, legend_in = 3.0, transparent = TRUE)
+               width = 10, legend_in = 3.0)
   }
 }
