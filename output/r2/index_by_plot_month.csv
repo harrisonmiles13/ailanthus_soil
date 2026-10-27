@@ -1,0 +1,10 @@
+"plot","month","n","ani_mean","ani_sd"
+"attenuated","may",5,0,0
+"attenuated","july",5,2180.31090478413,1103.25737310552
+"attenuated","september",5,7127.95913579645,3577.73697250868
+"no_fungus_control","may",5,0,0
+"no_fungus_control","july",5,0,0
+"no_fungus_control","september",5,754.749927646846,611.211348778819
+"virulent","may",5,0,0
+"virulent","july",5,2502.27723298388,1214.72698400583
+"virulent","september",5,5418.0481451736,2638.89115359029
