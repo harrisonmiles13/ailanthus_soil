@@ -20,6 +20,8 @@ Checks: B = `plot * month` fixed (slope from within plot-date spatial gradient o
 | `index_confounding.csv` | Share of index variance explained by plot, month, plot + month, plot x month |
 | `index_by_plot_month.csv` | Index mean and SD per plot-date cell |
 | `sessionInfo.txt` | R and package versions used |
+| `figures/figure4_partial_residuals.png` | Figure 4 rebuilt on the primary model (`R/11_figure4_r2.R`): partial residuals with plot, month and station effects removed, one fitted slope and 95% band per panel |
+| `figures/figure3_disease_influence_map.png` | Figure 3 with US spelling on axis titles (`R/12_figure3_map_r2.R`, otherwise identical to `R/06_disease_influence_map_v2.R`) |
 
 `singular = TRUE` means the station variance was estimated at or near zero; the fit then reduces to the corresponding fixed-effects model with month.
 

@@ -65,9 +65,9 @@ respcols <- as.vector(outer(SPECIES, RESPONSES, paste, sep = "_"))
 dat <- merge(ani[, c("pooled_sample", "plot", "month", "distance", "bearing", "ani_tm")],
              resp[, c("pooled_sample", respcols)], by = "pooled_sample")
 
-# station = fixed sampling point within a plot (centre, or 10 m at a bearing)
+# station = fixed sampling point within a plot (center, or 10 m at a bearing)
 station_id <- function(plot, distance, bearing)
-  paste(plot, ifelse(distance == 0, "centre", paste0("b", bearing)), sep = "_")
+  paste(plot, ifelse(distance == 0, "center", paste0("b", bearing)), sep = "_")
 dat$station <- factor(station_id(dat$plot, dat$distance, dat$bearing))
 dat$plot    <- factor(dat$plot)
 dat$month   <- factor(dat$month, levels = c("may", "july", "september"))
