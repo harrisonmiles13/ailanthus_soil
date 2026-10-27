@@ -22,3 +22,5 @@ Checks: B = `plot * month` fixed (slope from within plot-date spatial gradient o
 | `sessionInfo.txt` | R and package versions used |
 
 `singular = TRUE` means the station variance was estimated at or near zero; the fit then reduces to the corresponding fixed-effects model with month.
+
+Committed outputs were generated under R 4.5.3 (lme4 2.0.6, lmerTest 3.2.1, glmmTMB 1.1.14; full list in `sessionInfo.txt`). A run under R 4.3.3 gave the same primary results to <1e-11; the largest difference anywhere was 0.0013 in one check-model p value.
