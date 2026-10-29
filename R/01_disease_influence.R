@@ -4,9 +4,9 @@ library(tidyr)
 library(purrr)
 
 DATA_FILE   <- "bioassay_data_v_final.xlsx"
-DIST_FLOOR  <- 0.5          # metres; minimum tree-to-sample distance
-ALPHA       <- 2            # primary size exponent (DBH^2 ~ basal area)
-BETA        <- 0.15         # primary decay constant (mean reach ~= 1/beta m)
+DIST_FLOOR  <- 0.5
+ALPHA       <- 2
+BETA        <- 0.15
 AUDPC_COLS  <- c("audpc_adj_1mai", "audpc_adj_2mai",
                  "audpc_adj_3mai", "audpc_adj_4mai")
 
@@ -27,7 +27,7 @@ trees <- read_excel(DATA_FILE, sheet = "tree_data")
 
 trees <- trees %>%
   mutate(
-    BA_cm2 = dbh_cm^2 * 0.785,                 # basal area, pi*(dbh/2)^2 (cm^2)
+    BA_cm2 = dbh_cm^2 * 0.785,
     tx     = polar_to_xy(Distance_m, Bearing)$x,
     ty     = polar_to_xy(Distance_m, Bearing)$y
   )
@@ -46,7 +46,7 @@ soil <- read_excel(DATA_FILE, sheet = "bioassay_primary") %>%
   )
 
 ani_at <- function(plot, sx, sy, audpc_col, alpha = ALPHA, beta = BETA) {
-  if (is.na(plot)) return(0)                      
+  if (is.na(plot)) return(0)
   pt <- trees[trees$Plot == plot, ]
   d  <- sqrt((pt$tx - sx)^2 + (pt$ty - sy)^2)
   d  <- pmax(d, DIST_FLOOR)
@@ -88,7 +88,7 @@ alpha_grid <- c(0, 1, 2)
 beta_grid  <- c(0.05, 0.10, 0.15, 0.20, 0.30, 0.50)
 
 ail      <- !is.na(soil$plot)
-ref_vals <- ani_out$ani_disease_4mai            
+ref_vals <- ani_out$ani_disease_4mai
 
 sensitivity <- map_dfr(alpha_grid, function(a) {
   map_dfr(beta_grid, function(b) {

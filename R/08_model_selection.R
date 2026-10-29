@@ -1,19 +1,3 @@
-# 08_model_selection.R
-# ---------------------------------------------------------------------------
-# Formal (Burnham & Anderson) model-selection table for review: for each of the
-# 12 species x response comparisons, the two candidate models
-#   null    : response ~ plot
-#   disease : response ~ z_ani + plot     (z_ani = standardized time-matched ANI_disease)
-# with their information criterion (AICc for Gaussian length/ratio; QAICc for the
-# overdispersed germination counts), within-pair ΔIC, and Akaike weights.
-#
-# Mirrors the IC logic of 02_bioassay_regression.R exactly; the per-comparison
-# ΔIC (= IC[null] − IC[disease]) reproduces the dAICc column of
-# output/tables/bioassay_regression.csv.
-#
-# Output: output/tables/model_selection.csv   (24 rows = 12 comparisons x 2 models)
-# ---------------------------------------------------------------------------
-
 suppressMessages({ library(readxl); library(readr) })
 
 SEEDS   <- c(bes = 10, jg = 100, wsr = 40, yar = 40)
@@ -65,14 +49,18 @@ write.csv(tab, "output/tables/model_selection.csv", row.names=FALSE)
 cat("\nModel selection (per species x response): null [response ~ plot] vs disease-influence [response ~ z_ani + plot]\n")
 cat("IC = AICc (length, ratio) / QAICc (germination); dAICc within each pair; weight = Akaike weight; * = better model\n\n")
 print(tab, row.names=FALSE)
-# sanity: dIC(null - disease) must equal committed dAICc
 ref <- read.csv("output/tables/bioassay_regression.csv")
 chk <- merge(
   reshape(tab[,c("species","response","model","IC")], idvar=c("species","response"),
           timevar="model", direction="wide"),
-  data.frame(species=SPNAME[ref$species], response=RESP[ref$response], dAICc_ref=round(ref$dAICc,2)),
+  data.frame(species=unname(SPNAME[ref$species]),
+             response=unname(RESP[c(length="total_avg", ratio="ratio_avg", germination="germ_perc")[ref$response]]),
+             dAICc_ref=ref$dAICc),
   by=c("species","response"))
+stopifnot(nrow(chk) == 12)
 chk$dIC <- chk$`IC.null (plot only)` - chk$`IC.disease-influence`
-cat(sprintf("\nSanity vs bioassay_regression.csv dAICc: max|diff| = %.3f\n",
-            max(abs(chk$dIC - chk$dAICc_ref))))
+max_diff <- max(abs(chk$dIC - chk$dAICc_ref))
+cat(sprintf("\nSanity vs bioassay_regression.csv dAICc: %d of 12 matched | max|diff| = %.3f\n",
+            nrow(chk), max_diff))
+stopifnot(max_diff < 0.011)
 cat("Wrote output/tables/model_selection.csv\n")

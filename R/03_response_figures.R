@@ -2,14 +2,14 @@ suppressMessages({
   library(readxl); library(readr); library(ggplot2)
 })
 
-SEEDS   <- c(bes = 10, jg = 100, wsr = 40, yar = 40)  
+SEEDS   <- c(bes = 10, jg = 100, wsr = 40, yar = 40)
 SPECIES <- c(bes = "Black-eyed susan", jg = "Johnsongrass",
              wsr = "White snakeroot",  yar = "Yarrow")
-RESP <- list(                                   
+RESP <- list(
   total_avg = c("Total seedling length", "length"),
   ratio_avg = c("Root:shoot ratio",      "ratio"),
   germ_perc = c("Germination (proportion)", "germination"))
-RESP_ORDER <- unname(vapply(RESP, `[`, character(1), 1))  
+RESP_ORDER <- unname(vapply(RESP, `[`, character(1), 1))
 
 ani  <- read_csv("output/tables/ani_disease.csv", show_col_types = FALSE)
 resp <- read_excel("bioassay_data_v_final.xlsx", "bioassay_primary")
@@ -23,8 +23,8 @@ respcols <- as.vector(t(outer(names(SPECIES), names(RESP), paste, sep = "_")))
 dat <- merge(ani[, c("pooled_sample", "plot", "month", "ani_tm")],
              resp[, c("pooled_sample", respcols)], by = "pooled_sample")
 dat$plot  <- factor(dat$plot)
-dat$z_ani <- as.numeric(scale(dat$ani_tm))      
-mu <- mean(dat$ani_tm); sdv <- sd(dat$ani_tm)   
+dat$z_ani <- as.numeric(scale(dat$ani_tm))
+mu <- mean(dat$ani_tm); sdv <- sd(dat$ani_tm)
 
 dir.create("output/figures", showWarnings = FALSE, recursive = TRUE)
 

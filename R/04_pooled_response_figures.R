@@ -23,7 +23,7 @@ respcols <- as.vector(t(outer(names(SPECIES), names(RESP), paste, sep = "_")))
 dat <- merge(ani[, c("pooled_sample", "plot", "month", "ani_tm")],
              resp[, c("pooled_sample", respcols)], by = "pooled_sample")
 dat$plot  <- factor(dat$plot)
-dat$z_ani <- as.numeric(scale(dat$ani_tm))  
+dat$z_ani <- as.numeric(scale(dat$ani_tm))
 mu <- mean(dat$ani_tm); sdv <- sd(dat$ani_tm)
 
 dir.create("output/figures", showWarnings = FALSE, recursive = TRUE)

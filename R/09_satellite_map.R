@@ -1,60 +1,5 @@
-# 09_satellite_map.R
-# ---------------------------------------------------------------------------
-# Satellite-imagery site map: the three Ailanthus stands, every mapped stem,
-# and every soil-collection point.
-#
-# Trees (tree_data) and soil samples (bioassay_primary) are recorded as POLAR
-# offsets -- compass bearing + distance in metres -- from a stand centre. The
-# only absolute positions in the study are the three stand centres:
-#
-#   Formerly attenuated strain   37.31794, -76.88636
-#   Virulent strain              37.31775, -76.88661
-#   No-fungus control            37.31736, -76.88526
-#
-# These were corrected on 2026-09-09 from the field-recorded GPS fixes
-# (37.31776,-76.88626 / 37.31766,-76.88659 / 37.31725,-76.88538), which a
-# side-by-side check against Google Earth showed sitting 10-24 m south of
-# the true plot locations -- plausible GPS multipath drift from taking the
-# fix under canopy. Per-stand offsets were not identical (10-24 m, all
-# roughly northward), so this looks like independent per-plot GPS error
-# rather than one shared datum/systematic bias. The no-fungus control
-# anchor was refined a second time the same day, a further 12.5 m SE, from
-# a closer look at the same Google Earth imagery. Only the three anchors
-# moved; every tree/soil bearing+distance offset is unchanged.
-#
-# This script projects those offsets onto WGS84 and writes two versions of
-# each panel:
-#
-#   output/figures/satellite_map_overview.png         on Esri World Imagery
-#   output/figures/satellite_map_<stand>.png
-#   output/figures/satellite_map_overview_blank.png    no imagery at all,
-#   output/figures/satellite_map_<stand>_blank.png     white background
-#
-# Every panel carries a north arrow and a scale bar in its bottom-left
-# corner. The "_blank" figures carry only the geometry (stems, soil points,
-# sampling rings) on a plain white background, with no basemap fetch and no
-# dependency on maptiles/tidyterra. They exist so the point cloud can be
-# hand-registered, in image-editing or GIS software, against an independent
-# photo of the site from the study period -- useful whenever a basemap
-# provider's cached imagery is a different vintage than the vegetation being
-# described (e.g. it shows bare ground for a period when the plots were
-# forested, or vice versa). Toggle RENDER_BASEMAP_MAPS / RENDER_BLANK_MAPS
-# below to skip either set.
-#
-# The bearing convention matches polar_to_xy() in R/06_disease_influence_map.R
-# (x = d*sin(theta) east, y = d*cos(theta) north, theta clockwise from north).
-# DECLINATION_DEG rotates every bearing before projection and defaults to 0,
-# i.e. bearings are treated as TRUE north exactly as the ANI analyses treat
-# them. If the field compass was uncorrected magnetic, set it to the local
-# declination (about -11 for Williamsburg VA in 2023) to swing the whole point
-# cloud onto true north.
-#
-# NOTE: get_tiles() downloads imagery, so this script needs a network
-# connection the first time it runs (tiles are then cached under CACHE_DIR).
-# ---------------------------------------------------------------------------
-
-RENDER_BASEMAP_MAPS <- TRUE     # satellite_map_*.png       (needs maptiles, tidyterra, network)
-RENDER_BLANK_MAPS   <- TRUE     # satellite_map_*_blank.png (geometry only, no extra deps)
+RENDER_BASEMAP_MAPS <- TRUE
+RENDER_BLANK_MAPS   <- TRUE
 
 need <- c("readxl", "dplyr", "ggplot2", "tibble", "sf", "ggrepel")
 if (RENDER_BASEMAP_MAPS) need <- c(need, "maptiles", "tidyterra")
@@ -71,10 +16,9 @@ DATA_FILE       <- "bioassay_data_v_final.xlsx"
 OUT_FIG         <- "output/figures"
 CACHE_DIR       <- "output/spatial/tile_cache"
 DECLINATION_DEG <- 0
-SAMPLING_RADIUS <- 10          # m, radius of the soil-sampling design
+SAMPLING_RADIUS <- 10
 TILE_PROVIDER   <- "Esri.WorldImagery"
 
-# every path here is relative to the repository root
 if (!file.exists(DATA_FILE))
   stop("Cannot find ", DATA_FILE, " in the working directory (", getwd(), ").\n",
        "Run this from the repository root, e.g.\n",
@@ -98,7 +42,6 @@ STAND_LABEL <- c(no_fungus_control = "No-fungus control",
                  virulent          = "Virulent strain")
 STAND_LEVELS <- unname(STAND_LABEL)
 
-# --- polar offset -> local metres -> WGS84 ----------------------------------
 polar_to_xy <- function(distance, bearing) {
   bearing  <- ifelse(is.na(bearing),  0, bearing)
   distance <- ifelse(is.na(distance), 0, distance)
@@ -106,7 +49,6 @@ polar_to_xy <- function(distance, bearing) {
   list(x = distance * sin(rad), y = distance * cos(rad))
 }
 
-# metres per degree of latitude / longitude at a given latitude (WGS84 series)
 m_per_deg <- function(lat) {
   phi <- lat * pi / 180
   list(lat = 111132.92 - 559.82 * cos(2 * phi) + 1.175 * cos(4 * phi) -
@@ -127,19 +69,16 @@ georef <- function(df, stand_col = "stand") {
   df
 }
 
-# --- trees ------------------------------------------------------------------
 trees <- read_excel(DATA_FILE, "tree_data") %>%
   mutate(stand  = Plot,
          east_m = polar_to_xy(Distance_m, Bearing)$x,
          north_m = polar_to_xy(Distance_m, Bearing)$y,
-         # untracked stems are asymptomatic, as in 06_disease_influence_map.R
          disease_sep = ifelse(is.na(disease_4_mai), 1, disease_4_mai)) %>%
   georef() %>%
   mutate(stand_label = factor(unname(STAND_LABEL[stand]), levels = STAND_LEVELS))
 
-# --- soil-collection points (one row per distinct position) -----------------
 soil <- read_excel(DATA_FILE, "bioassay_primary") %>%
-  filter(treatment != "neg_control") %>%      # off-site soils have no coordinates
+  filter(treatment != "neg_control") %>%
   mutate(stand  = unname(TREAT_TO_STAND[treatment]),
          east_m = polar_to_xy(distance, bearing)$x,
          north_m = polar_to_xy(distance, bearing)$y) %>%
@@ -153,7 +92,6 @@ centres <- STAND_CENTRES %>%
 cat(sprintf("%d stems, %d soil points, %d stands\n",
             nrow(trees), nrow(soil), nrow(centres)))
 
-# --- sf geometry ------------------------------------------------------------
 as_pts <- function(df) sf::st_as_sf(df, coords = c("lon", "lat"), crs = 4326)
 trees_sf   <- as_pts(trees)
 soil_sf    <- as_pts(soil)
@@ -162,17 +100,12 @@ centres_sf <- as_pts(centres)
 rings_sf <- centres_sf %>%
   sf::st_transform(3857) %>%
   sf::st_buffer(SAMPLING_RADIUS / cos(mean(STAND_CENTRES$lat) * pi / 180)) %>%
-  sf::st_transform(4326)          # metres are Web-Mercator-inflated; undo by latitude
+  sf::st_transform(4326)
 
-# --- shared ground extent ----------------------------------------------------
-# `pad` is the margin in ground metres added around the features. Returns the
-# WGS84 extent (as an sfc polygon), its bbox, and the width:height of the
-# ground it covers (so a saved figure can be sized to fill its panel).
 compute_extent <- function(tr, so, ce, pad) {
   feats  <- c(sf::st_geometry(tr), sf::st_geometry(so), sf::st_geometry(ce))
   extent <- sf::st_as_sfc(sf::st_bbox(feats)) %>%
     sf::st_transform(3857) %>%
-    # pad is in ground metres; Web Mercator inflates them by 1/cos(latitude)
     sf::st_buffer(pad / cos(mean(STAND_CENTRES$lat) * pi / 180)) %>%
     sf::st_transform(4326)
   bb  <- sf::st_bbox(extent)
@@ -182,15 +115,6 @@ compute_extent <- function(tr, so, ce, pad) {
   list(extent = extent, bb = bb, ground_aspect = ground_aspect, mid = mid)
 }
 
-# --- north arrow + scale bar, shared by both panel types --------------------
-# Anchored in the bottom-left corner (the emptiest part of every panel here:
-# open field on the overview, the ring's own corner margin on a per-stand
-# panel). The scale bar picks a "nice" round distance near a quarter of the
-# panel's ground width, so it reads sensibly whether the panel spans ~30 m
-# (a single stand) or ~150 m (the overview). `halo` draws a translucent white
-# backing chip first, so black ink stays legible over imagery of any colour
-# (grass, bare soil, dark canopy); the blank panel's flat background doesn't
-# need one.
 cartography_layers <- function(bb, mid, colour = "grey15", halo = FALSE) {
   W <- bb[["xmax"]] - bb[["xmin"]]; H <- bb[["ymax"]] - bb[["ymin"]]
 
@@ -229,12 +153,6 @@ cartography_layers <- function(bb, mid, colour = "grey15", halo = FALSE) {
   ))
 }
 
-# --- shared data layers: stems, soil points, sampling ring -------------------
-# Disease score rides `colour`, not `fill`, for the same reason as
-# 06_disease_influence_map_v2.R: on the imagery panel the basemap already owns
-# a fill scale and ggnewscale is not a dependency here; kept the same way on
-# the blank panel so the two stay visually consistent. A fixed grey ring on
-# top restores the marker definition that shape 21 would have given.
 feature_layers <- function(tr, so, ce, ri, point_range, ring_colour, ring = TRUE) {
   layers <- list()
   if (ring)
@@ -260,13 +178,10 @@ feature_layers <- function(tr, so, ce, ri, point_range, ring_colour, ring = TRUE
   ))
 }
 
-# --- imagery panel ------------------------------------------------------------
 map_panel <- function(tr, so, ce, ri, pad, zoom, point_range, ring = TRUE) {
   ext <- compute_extent(tr, so, ce, pad)
   bb  <- ext$bb
 
-  # imagery is not published at the same maximum zoom everywhere; step down
-  # until the provider actually serves tiles for this extent.
   tiles <- NULL
   for (z in seq(zoom, 17)) {
     tiles <- tryCatch(
@@ -296,10 +211,6 @@ map_panel <- function(tr, so, ce, ri, pad, zoom, point_range, ring = TRUE) {
   structure(p, ground_aspect = ext$ground_aspect)
 }
 
-# --- blank panel: geometry only, white background, no basemap ---------------
-# For hand-registering this point cloud against an independent site photo
-# (e.g. taken near the study dates) in image-editing or GIS software. Needs
-# only sf/ggplot2 -- no maptiles, no tidyterra, no network access.
 blank_panel <- function(tr, so, ce, ri, pad, point_range) {
   ext <- compute_extent(tr, so, ce, pad)
   bb  <- ext$bb
@@ -320,16 +231,12 @@ blank_panel <- function(tr, so, ce, ri, pad, point_range) {
   structure(p, ground_aspect = ext$ground_aspect)
 }
 
-# Save at a height that matches the panel's own aspect, so the figure is not
-# padded with empty bands. legend_in / extra_in approximate the non-panel
-# furniture (colourbar + size legend, axis text).
 save_panel <- function(p, file, width, legend_in, extra_in = 0.15) {
   height <- (width - legend_in) / attr(p, "ground_aspect") + extra_in
   ggsave(file, p, width = width, height = height, dpi = 300, bg = "white")
   cat(sprintf("Wrote %s  (%.1f x %.1f in @ 300 dpi)\n", file, width, height))
 }
 
-# --- overview: all three stands ---------------------------------------------
 if (RENDER_BASEMAP_MAPS) {
   ov <- map_panel(trees_sf, soil_sf, centres_sf, rings_sf,
                   pad = 15, zoom = 20, point_range = c(0.7, 3.2)) +
@@ -356,7 +263,6 @@ if (RENDER_BLANK_MAPS) {
              width = 12, legend_in = 3.0)
 }
 
-# --- one zoomed panel per stand ---------------------------------------------
 for (s in STAND_CENTRES$stand) {
   lab <- unname(STAND_LABEL[s])
   keep <- function(x) x[x$stand_label == lab, ]

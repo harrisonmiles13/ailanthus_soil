@@ -10,7 +10,7 @@ ani  <- read_csv("output/tables/ani_disease.csv", show_col_types = FALSE)
 resp <- read_excel("bioassay_data_v_final.xlsx", "bioassay_primary")
 
 stopifnot(all(ani$month %in% c("may", "july", "september")))
-ani$ani_tm <- 0                                            # may: no disease yet
+ani$ani_tm <- 0
 is_jul <- ani$month == "july"
 is_sep <- ani$month == "september"
 ani$ani_tm[is_jul] <- ani$ani_disease_2mai[is_jul]
@@ -22,7 +22,7 @@ dat <- merge(
   ani[, c("pooled_sample", "plot", "month", "distance", "bearing", "ani_tm")],
   resp[, keep_resp], by = "pooled_sample")
 dat$plot  <- factor(dat$plot)
-dat$z_ani <- as.numeric(scale(dat$ani_tm)) 
+dat$z_ani <- as.numeric(scale(dat$ani_tm))
 
 stopifnot(nrow(dat) == 45)
 cat(sprintf("Regression unit: %d point x month rows (15 points x 3 months) | predictor = time-matched within-plot ANI_disease (per SD)\n\n",
@@ -30,13 +30,13 @@ cat(sprintf("Regression unit: %d point x month rows (15 points x 3 months) | pre
 
 aicc <- function(m) {
   ll <- logLik(m)
-  k  <- attr(ll, "df")          # coefficients (+ sigma for lm)
+  k  <- attr(ll, "df")
   n  <- nobs(m)
   as.numeric(-2 * ll + 2 * k + (2 * k * (k + 1)) / (n - k - 1))
 }
 qaicc <- function(m, chat, n) {
   ll <- logLik(m)
-  k  <- attr(ll, "df") + 1      
+  k  <- attr(ll, "df") + 1
   as.numeric(-2 * as.numeric(ll) / chat + 2 * k + (2 * k * (k + 1)) / (n - k - 1))
 }
 
@@ -52,7 +52,7 @@ fit_one <- function(y_full, label, species_name, family) {
     disp  <- NA_real_
     dic   <- aicc(m0) - aicc(m1)
     unit  <- "resp units / SD"
-  } else {                                  
+  } else {
     n_seed <- SEEDS[[species_name]]
     germ   <- round(y_full * n_seed)
     df <- data.frame(germ = germ, fail = n_seed - germ,
@@ -62,10 +62,10 @@ fit_one <- function(y_full, label, species_name, family) {
 
     b0 <- glm(cbind(germ, fail) ~ plot,         family = binomial, data = df)
     b1 <- glm(cbind(germ, fail) ~ z_ani + plot, family = binomial, data = df)
-    disp <- sum(residuals(b1, "pearson")^2) / df.residual(b1)  
-    chat <- max(disp, 1)                      
+    disp <- sum(residuals(b1, "pearson")^2) / df.residual(b1)
+    chat <- max(disp, 1)
     dic  <- qaicc(b0, chat, n) - qaicc(b1, chat, n)
-    
+
     q1 <- glm(cbind(germ, fail) ~ z_ani + plot, family = quasibinomial, data = df)
     co <- summary(q1)$coefficients["z_ani", ]
     slope <- co[["Estimate"]]; se <- co[["Std. Error"]]
