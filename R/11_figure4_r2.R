@@ -1,38 +1,8 @@
-# 11_figure4_r2.R
-# ---------------------------------------------------------------------------
-# IPSM R2 Figure 4: the 12 species x response relationships under the R2
-# PRIMARY model of 10_repeated_measures_refit.R,
-#
-#   y ~ plot + month + z_ani + (1 | station)
-#   (Gaussian LMM for length and root:shoot; beta-binomial GLMM for germination)
-#
-# A model with plot and month as additive terms has no single fitted line per
-# plot, so each panel shows PARTIAL RESIDUALS: the response after removing the
-# fitted plot, month and station effects, plotted against the disease-influence
-# index, with one fitted line for the disease-influence slope and its 95%
-# confidence band. Points keep plot (colour) and sampling month (shape) so the
-# reader can still see where each observation came from.
-#
-# Partial residual (computed on the model's link scale, then back-transformed):
-#   r_i = (y_i - eta_i) + b * (z_i - zbar) + mean(eta)
-#   eta_i : conditional linear predictor (fixed effects + station BLUP)
-#   b     : disease-influence slope (per SD of the index); zbar: panel mean of z
-# For germination, y_i on the link scale is the empirical logit
-#   log((g + 0.5) / (n - g + 0.5)), and r_i and the line are back-transformed to
-#   proportions with plogis().
-# Fitted line: mean(eta) + b * (z - zbar); band: +/- q * SE(b) * |z - zbar|
-# (q = Satterthwaite t quantile for Gaussian, normal quantile for beta-binomial).
-#
-# Slopes and p values printed on the panels are asserted to match
-# output/r2/regression_r2_primary.csv. Styling follows R/v2_style.R.
-# Output: output/r2/figures/figure4_partial_residuals.png
-# ---------------------------------------------------------------------------
-
 suppressMessages({
   library(readxl); library(readr); library(ggplot2)
   library(lme4); library(lmerTest); library(glmmTMB)
 })
-source("R/v2_style.R")                     # palette, shapes, theme (read only)
+source("R/v2_style.R")
 
 OUT_DIR <- "output/r2/figures"
 dir.create(OUT_DIR, showWarnings = FALSE, recursive = TRUE)
@@ -44,7 +14,6 @@ RESP <- list(total_avg = c("Total seedling length (mm)", "length"),
              ratio_avg = c("Root-to-shoot ratio",        "ratio"),
              germ_perc = c("Germination (proportion)",   "germination"))
 
-# === Data (identical assembly to 10_repeated_measures_refit.R) ==============
 ani  <- read_csv("output/tables/ani_disease.csv", show_col_types = FALSE)
 resp <- read_excel("bioassay_data_v_final.xlsx", "bioassay_primary")
 ani$ani_tm <- 0
@@ -62,7 +31,6 @@ dat$z_ani <- as.numeric(scale(dat$ani_tm))
 mu <- mean(dat$ani_tm); sdv <- sd(dat$ani_tm)
 stopifnot(nrow(dat) == 45, nlevels(dat$station) == 15)
 
-# === Fit primary model and build partial residuals for one panel ============
 partial_panel <- function(d, sp, rc) {
   if (rc == "germ_perc") {
     n <- SEEDS[[sp]]
@@ -72,8 +40,8 @@ partial_panel <- function(d, sp, rc) {
     co  <- summary(m)$coefficients$cond["z_ani", ]
     b <- co[["Estimate"]]; se <- co[["Std. Error"]]; p <- co[["Pr(>|z|)"]]
     q   <- qnorm(0.975)
-    eta <- predict(m, type = "link")                     # includes station BLUP
-    ylk <- log((d$germ + 0.5) / (d$fail + 0.5))           # empirical logit
+    eta <- predict(m, type = "link")
+    ylk <- log((d$germ + 0.5) / (d$fail + 0.5))
     inv <- plogis
   } else {
     m   <- lmerTest::lmer(y ~ plot + month + z_ani + (1 | station),
@@ -81,7 +49,7 @@ partial_panel <- function(d, sp, rc) {
     co  <- summary(m, ddf = "Satterthwaite")$coefficients["z_ani", ]
     b <- co[["Estimate"]]; se <- co[["Std. Error"]]; p <- co[["Pr(>|t|)"]]
     q   <- qt(0.975, co[["df"]])
-    eta <- fitted(m)                                     # includes station BLUP
+    eta <- fitted(m)
     ylk <- d$y
     inv <- identity
   }
@@ -115,7 +83,6 @@ for (sc in names(SPECIES)) for (rc in names(RESP)) {
                                  slope_fig = f$b, p_fig = f$p))
 }
 
-# --- slopes/p on the figure must be the primary-model results ---------------
 ref <- read.csv("output/r2/regression_r2_primary.csv")
 mm  <- merge(chk, ref, by = c("species", "response"))
 stopifnot(nrow(mm) == 12,

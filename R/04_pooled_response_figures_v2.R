@@ -1,17 +1,3 @@
-# 04_pooled_response_figures_v2.R
-# ---------------------------------------------------------------------------
-# v2 restyle of 04_pooled_response_figures.R (the EXPLORATORY pooled variant).
-# SAME pooled fits and SAME numbers as v1 (lm for length/ratio; quasibinomial
-# glm for germination; NO plot/month term; single pooled line + 95% band) --
-# only the presentation changes per the v2 brief (large text, generous space,
-# no titles, colour-blind-safe palette). The confounding CAVEAT is kept, as a
-# caption (not a title), because it is essential to reading these fits.
-#
-# Writes figures to output/figures_v2/; the full-stats text table is the v1
-# script's job, so this v2 script does NOT rewrite output/tables/.
-#   * output/figures_v2/<species>_pooled.png   (4 figures, 3 panels each)
-# ---------------------------------------------------------------------------
-
 suppressMessages({
   library(readxl); library(readr); library(ggplot2)
 })
@@ -41,7 +27,6 @@ dat$plot  <- factor(dat$plot)
 dat$z_ani <- as.numeric(scale(dat$ani_tm))
 mu <- mean(dat$ani_tm); sdv <- sd(dat$ani_tm)
 
-# === Pooled fit, error model matched to v1 (NO plot/month term) ==============
 pooled_fit <- function(d, sp_code, rcode) {
   gx <- seq(min(d$ani_tm), max(d$ani_tm), length.out = 100)
   gz <- (gx - mu) / sdv
@@ -66,7 +51,6 @@ pooled_fit <- function(d, sp_code, rcode) {
 
 pfmt <- function(p) if (p < 0.001) "P < 0.001" else sprintf("P = %.3f", p)
 
-# --- per-species 3-panel figure: ONE pooled line per response ----------------
 make_pooled_panel <- function(sp_code, sp_name) {
   long <- lines <- annot <- data.frame()
   for (rcode in names(RESP)) {

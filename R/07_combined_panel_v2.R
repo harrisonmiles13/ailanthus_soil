@@ -1,15 +1,3 @@
-# 07_combined_panel_v2.R
-# ---------------------------------------------------------------------------
-# v2 restyle of 07_combined_panel.R -- the single 12-panel manuscript figure
-# (Figure 5): 4 species (rows) x 3 responses (columns) of the within-plot fit.
-# SAME fits and SAME numbers as v1 (Gaussian lm for length/ratio; quasibinomial
-# glm for germination; plot partialled out); only the presentation changes per
-# the v2 brief: large text, generous space, no title, colour-blind-safe palette
-# with redundant linetype + shape.
-#
-# Output: output/figures_v2/combined_panel.png  (v1 left untouched).
-# ---------------------------------------------------------------------------
-
 suppressMessages({ library(readxl); library(readr); library(ggplot2) })
 source("R/v2_style.R")
 
@@ -57,7 +45,6 @@ fit_within <- function(d, sp_code, rcode) {
 
 pfmt <- function(p) if (p < 0.001) "p < 0.001" else sprintf("p = %.3f", p)
 
-# panel order: species (rows) x response (cols), row-major for facet_wrap(ncol=3)
 panel_levels <- as.vector(t(outer(unname(SPECIES),
                                   vapply(RESP, `[`, character(1), 1),
                                   function(s, r) paste0(s, "\n", r))))

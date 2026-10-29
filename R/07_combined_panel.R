@@ -1,16 +1,3 @@
-# 07_combined_panel.R
-# ---------------------------------------------------------------------------
-# Single 12-panel manuscript figure (Figure 5): 4 species (rows) x 3 responses
-# (columns) of the within-plot fit used in 02/03. Each panel is independent
-# (free y) and annotated with its own within-plot slope/p, so the one figure
-# replaces the four per-species panels and removes the "as in Figure 1" shorthand.
-#
-# Reuses the exact within-plot fit of 03_response_figures.R (Gaussian lm for
-# length/ratio; quasibinomial glm for germination; plot partialled out).
-#
-# Output: output/figures/combined_panel.png
-# ---------------------------------------------------------------------------
-
 suppressMessages({ library(readxl); library(readr); library(ggplot2) })
 
 SEEDS   <- c(bes = 10, jg = 100, wsr = 40, yar = 40)
@@ -55,7 +42,6 @@ fit_within <- function(d, sp_code, rcode) {
   list(slope = co[["Estimate"]], p = co[["Pr(>|t|)"]], grid = grid)
 }
 
-# panel order: species (rows) x response (cols), row-major for facet_wrap(ncol=3)
 panel_levels <- as.vector(t(outer(unname(SPECIES),
                                   vapply(RESP, `[`, character(1), 1),
                                   function(s, r) paste0(s, "\n", r))))

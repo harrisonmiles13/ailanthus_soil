@@ -1,39 +1,3 @@
-# 10_repeated_measures_refit.R
-# ---------------------------------------------------------------------------
-# IPSM R2 (AE item "Sampling month and repeated measures"). Refits the 12
-# species x response models of 02_bioassay_regression.R with
-#
-#   * sampling month as a fixed effect (the index is 0 in May by construction
-#     and rises with month, so month and disease influence are confounded), and
-#   * a random intercept for soil-sampling station (45 rows = 15 stations x 3
-#     visits; the R1 models treated them as independent).
-#
-# PRIMARY (AE specification), per species x response:
-#   null    : y ~ plot + month         + (1 | station)
-#   disease : y ~ plot + month + z_ani + (1 | station)
-#   length, root:shoot  -> Gaussian LMM (lme4/lmerTest). AICc from ML fits;
-#                          slope inference from the REML fit, Satterthwaite df.
-#   germination         -> beta-binomial GLMM (glmmTMB) on seed counts, which
-#                          models the overdispersion directly and replaces the
-#                          R1 quasibinomial/QAICc route. Wald z for the slope;
-#                          AICc from the likelihood.
-#
-# CHECKS (reported, not primary):
-#   B  plot x month fixed + (1 | station): slope identified only from the spatial
-#      gradient within each plot-date cell (strictest within-plot reading).
-#   C  germination as binomial GLMM with an observation-level random effect in
-#      place of beta-binomial (alternative overdispersion structure).
-#
-# Also: the 18-kernel (alpha x beta) sweep of 05_*.R rerun under the primary
-# specification, and a side-by-side R1 vs R2 comparison.
-#
-# The disease index itself is NOT recomputed for the primary fit: it is read from
-# the committed output/tables/ani_disease.csv (01_disease_influence.R), and z_ani
-# is standardised exactly as in R1, so any change traces to model structure.
-#
-# Writes ONLY under output/r2/. Nothing from the R1 pipeline is modified.
-# ---------------------------------------------------------------------------
-
 suppressMessages({
   library(readxl); library(readr); library(dplyr)
   library(lme4); library(lmerTest); library(glmmTMB)
@@ -53,11 +17,10 @@ TREATMENT_TO_PLOT <- c(vnaa140_2019    = "attenuated",
                        vnaa140_2023    = "virulent",
                        vnaa140_control = "no_fungus_control")
 
-# === Data ===================================================================
 ani  <- read_csv("output/tables/ani_disease.csv", show_col_types = FALSE)
 resp <- read_excel(DATA_FILE, "bioassay_primary")
 
-ani$ani_tm <- 0                                            # may: pre-inoculation
+ani$ani_tm <- 0
 ani$ani_tm[ani$month == "july"]      <- ani$ani_disease_2mai[ani$month == "july"]
 ani$ani_tm[ani$month == "september"] <- ani$ani_disease_4mai[ani$month == "september"]
 
@@ -65,19 +28,17 @@ respcols <- as.vector(outer(SPECIES, RESPONSES, paste, sep = "_"))
 dat <- merge(ani[, c("pooled_sample", "plot", "month", "distance", "bearing", "ani_tm")],
              resp[, c("pooled_sample", respcols)], by = "pooled_sample")
 
-# station = fixed sampling point within a plot (center, or 10 m at a bearing)
 station_id <- function(plot, distance, bearing)
   paste(plot, ifelse(distance == 0, "center", paste0("b", bearing)), sep = "_")
 dat$station <- factor(station_id(dat$plot, dat$distance, dat$bearing))
 dat$plot    <- factor(dat$plot)
 dat$month   <- factor(dat$month, levels = c("may", "july", "september"))
-dat$z_ani   <- as.numeric(scale(dat$ani_tm))               # identical to R1
+dat$z_ani   <- as.numeric(scale(dat$ani_tm))
 dat$obs     <- factor(seq_len(nrow(dat)))
 
 stopifnot(nrow(dat) == 45, nlevels(dat$station) == 15,
           all(table(dat$station) == 3))
 
-# === How confounded is the index with plot and month? =======================
 r2_of <- function(f) summary(lm(f, data = dat))$r.squared
 confound <- data.frame(
   model = c("z_ani ~ plot", "z_ani ~ month", "z_ani ~ plot + month",
@@ -87,18 +48,15 @@ confound <- data.frame(
 confound$residual_var_share <- 1 - confound$R2
 write.csv(confound, file.path(OUT, "index_confounding.csv"), row.names = FALSE)
 
-# within plot-date cell: is there any spatial variation left to estimate from?
 cell_sd <- dat %>% group_by(plot, month) %>%
   summarise(n = n(), ani_mean = mean(ani_tm), ani_sd = sd(ani_tm), .groups = "drop")
 write.csv(cell_sd, file.path(OUT, "index_by_plot_month.csv"), row.names = FALSE)
 
-# === Helpers ================================================================
 aicc_ll <- function(ll, n) {
   k <- attr(ll, "df")
   as.numeric(-2 * ll + 2 * k + (2 * k * (k + 1)) / (n - k - 1))
 }
 
-# run an expression, keeping its value and any warnings/messages as text
 capture <- function(expr) {
   w <- character(0)
   val <- withCallingHandlers(expr,
@@ -109,7 +67,6 @@ capture <- function(expr) {
 
 fixed_rhs <- function(spec) if (spec == "B") "plot * month" else "plot + month"
 
-# Gaussian LMM ---------------------------------------------------------------
 fit_gauss <- function(df, spec) {
   rhs <- fixed_rhs(spec)
   f0  <- as.formula(paste("y ~", rhs, "+ (1 | station)"))
@@ -131,7 +88,6 @@ fit_gauss <- function(df, spec) {
                   collapse = " | "))
 }
 
-# Beta-binomial GLMM (primary germination model) -----------------------------
 fit_betabin <- function(df, spec) {
   rhs <- fixed_rhs(spec)
   f0  <- as.formula(paste("cbind(germ, fail) ~", rhs, "+ (1 | station)"))
@@ -147,14 +103,13 @@ fit_betabin <- function(df, spec) {
     slope_per_SD = co[["Estimate"]], se = co[["Std. Error"]], df = NA_real_,
     statistic = co[["z value"]], p = co[["Pr(>|z|)"]],
     dAICc = aicc_ll(logLik(m0$value), n) - aicc_ll(logLik(m1$value), n),
-    station_var = sv, resid_var = sigma(m1$value),          # beta-binomial phi
+    station_var = sv, resid_var = sigma(m1$value),
     singular = sv < 1e-6 || !conv_ok,
     notes = paste(c(m0$notes, m1$notes, if (!conv_ok) "non-PD Hessian")
                   [nzchar(c(m0$notes, m1$notes, if (!conv_ok) "non-PD Hessian"))],
                   collapse = " | "))
 }
 
-# Binomial GLMM + observation-level RE (check C) -----------------------------
 fit_olre <- function(df, spec) {
   rhs <- fixed_rhs(spec)
   f0  <- as.formula(paste("cbind(germ, fail) ~", rhs, "+ (1 | station) + (1 | obs)"))
@@ -192,7 +147,6 @@ fit_all <- function(d, spec = "A", germ_fun = fit_betabin) {
   do.call(rbind, out)
 }
 
-# === Primary fit (A) and checks (B, C) ======================================
 prim  <- fit_all(dat, "A")
 specB <- fit_all(dat, "B")
 specC <- fit_all(dat, "A", fit_olre)
@@ -202,7 +156,6 @@ specC$spec <- "C"
 write.csv(prim, file.path(OUT, "regression_r2_primary.csv"), row.names = FALSE)
 write.csv(rbind(specB, specC), file.path(OUT, "regression_r2_checks.csv"), row.names = FALSE)
 
-# === R1 vs R2 comparison ====================================================
 r1 <- read.csv("output/tables/bioassay_regression.csv")
 cmp <- merge(
   r1[, c("species", "response", "n", "slope_per_SD", "se", "p", "dAICc")],
@@ -220,7 +173,6 @@ ord <- order(match(cmp$species, SPECIES), match(cmp$response, names(RESPONSES)))
 cmp <- cmp[ord, ]
 write.csv(cmp, file.path(OUT, "comparison_R1_vs_R2.csv"), row.names = FALSE)
 
-# === Kernel sweep under the primary specification ===========================
 polar_to_xy <- function(distance, bearing) {
   bearing  <- ifelse(is.na(bearing),  0, bearing)
   distance <- ifelse(is.na(distance), 0, distance)
@@ -249,11 +201,8 @@ for (a in ALPHA_GRID) for (b in BETA_GRID) {
 sweep <- do.call(rbind, sweep)
 write.csv(sweep, file.path(OUT, "sensitivity_r2.csv"), row.names = FALSE)
 
-# anchor: alpha = 2, beta = 0.15 cell must reproduce the primary fit
 anc <- merge(sweep[sweep$alpha == 2 & sweep$beta == 0.15, c("species", "response", "slope_per_SD", "p")],
              prim[, c("species", "response", "slope_per_SD", "p")], by = c("species", "response"))
-# (index recomputed vs read from csv; tolerance covers optimizer noise at a
-#  boundary fit, e.g. a singular station variance)
 stopifnot(max(abs(anc$slope_per_SD.x - anc$slope_per_SD.y) /
               pmax(abs(anc$slope_per_SD.y), 1e-8)) < 1e-3)
 
@@ -265,7 +214,6 @@ sweep_summ <- sweep %>% group_by(species, response) %>%
   arrange(match(species, SPECIES), match(response, names(RESPONSES)))
 write.csv(sweep_summ, file.path(OUT, "sensitivity_r2_summary.csv"), row.names = FALSE)
 
-# === Console report =========================================================
 show <- function(x) print(as.data.frame(x), row.names = FALSE, digits = 3)
 cat("\n=== Index confounding (share of z_ani variance explained) ===\n"); show(confound)
 cat("\n=== Index by plot x month ===\n"); show(cell_sd)
