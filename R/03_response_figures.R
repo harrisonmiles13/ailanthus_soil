@@ -1,48 +1,19 @@
-# 03_response_figures.R
-# ---------------------------------------------------------------------------
-# Scatter plots for the per-species regression in 02: the time-resolved
-# Ailanthus disease-neighbourhood index ANI_disease (x) vs each bioassay
-# response (y). Two layouts of the SAME within-plot fits used in 02:
-#   * 12 single-panel figures (3 responses x 4 species), <species>_<tag>.png
-#   * 4 per-species 3-panel figures (length | ratio | germination side by side,
-#     faceted with free y scales, each panel carrying its own within-plot
-#     slope/p), for the manuscript: <species>_panel.png
-#
-#   x = time-matched ANI_disease at the soil-sample location
-#       (may = pre-inoc 0, july = 2mai load, september = 4mai load)
-#   y = response measured in soil from that location at that time
-#       (total length / root:shoot ratio / germination)
-#
-# Error model matched to 02 (NOT a single lm for all three responses):
-#   * length, root:shoot ratio : Gaussian      lm(y ~ z_ani + plot)
-#   * germination              : quasibinomial  glm(cbind(germ,fail) ~ z_ani + plot)
-#     -- the overdispersed seed-count model from 02. The curve drawn is the
-#     within-plot logistic, and the panel slope/p are the quasibinomial ones
-#     (log-odds per SD), so the figures and the 02 table report identical stats.
-#
-# The fitted lines/curves drawn are WITHIN-plot (one per plot, plot partialled
-# out); plot is a nuisance block, never interpreted. The subtitle carries the
-# within-plot slope (per SD) and its p -- identical to the 02 table because both
-# use the same common per-SD scaling of ANI_disease.
-# ---------------------------------------------------------------------------
-
 suppressMessages({
   library(readxl); library(readr); library(ggplot2)
 })
 
-SEEDS   <- c(bes = 10, jg = 100, wsr = 40, yar = 40)   # seeds sown per tray (germ denom)
+SEEDS   <- c(bes = 10, jg = 100, wsr = 40, yar = 40)  
 SPECIES <- c(bes = "Black-eyed susan", jg = "Johnsongrass",
              wsr = "White snakeroot",  yar = "Yarrow")
-RESP <- list(                                   # column -> (axis label, file tag)
+RESP <- list(                                   
   total_avg = c("Total seedling length", "length"),
   ratio_avg = c("Root:shoot ratio",      "ratio"),
   germ_perc = c("Germination (proportion)", "germination"))
-RESP_ORDER <- unname(vapply(RESP, `[`, character(1), 1))  # panel order = RESP order
+RESP_ORDER <- unname(vapply(RESP, `[`, character(1), 1))  
 
 ani  <- read_csv("output/tables/ani_disease.csv", show_col_types = FALSE)
 resp <- read_excel("bioassay_data_v_final.xlsx", "bioassay_primary")
 
-# === Time-matched ANI_disease: may = 0, july = 2mai, september = 4mai ========
 stopifnot(all(ani$month %in% c("may", "july", "september")))
 ani$ani_tm <- 0
 ani$ani_tm[ani$month == "july"]      <- ani$ani_disease_2mai[ani$month == "july"]
@@ -52,15 +23,11 @@ respcols <- as.vector(t(outer(names(SPECIES), names(RESP), paste, sep = "_")))
 dat <- merge(ani[, c("pooled_sample", "plot", "month", "ani_tm")],
              resp[, c("pooled_sample", respcols)], by = "pooled_sample")
 dat$plot  <- factor(dat$plot)
-dat$z_ani <- as.numeric(scale(dat$ani_tm))      # common per-SD scaling (matches 02)
-mu <- mean(dat$ani_tm); sdv <- sd(dat$ani_tm)   # to map grid x -> z for predict()
+dat$z_ani <- as.numeric(scale(dat$ani_tm))      
+mu <- mean(dat$ani_tm); sdv <- sd(dat$ani_tm)   
 
 dir.create("output/figures", showWarnings = FALSE, recursive = TRUE)
 
-# === Within-plot fit, error model matched to the response (as in 02) =========
-# Returns the z_ani slope (Estimate, p), the per-plot fitted line on the
-# RESPONSE scale (response units for Gaussian; proportion for germination), and
-# a short family label for the subtitle.
 fit_within <- function(d, sp_code, rcode) {
   if (rcode == "germ_perc") {
     n_seed <- SEEDS[[sp_code]]
@@ -109,10 +76,6 @@ make_fig <- function(sp_code, sp_name, rcode, rlabel, rtag) {
               paste(sp_code, rtag), f$slope, f$p, nrow(d), fn))
 }
 
-# --- per-species 3-panel manuscript figure: length | ratio | germination -----
-# Same per-response within-plot fit as make_fig / 02 (identical numbers); the
-# three responses are faceted with free y scales, each panel carrying its own
-# slope/p. plot stays the within-plot nuisance (colour only), never interpreted.
 make_species_panel <- function(sp_code, sp_name) {
   long <- grids <- annot <- data.frame()
   for (rcode in names(RESP)) {
