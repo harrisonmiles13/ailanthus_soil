@@ -1,34 +1,20 @@
-# 03_response_figures_v2.R
-# ---------------------------------------------------------------------------
-# v2 restyle of 03_response_figures.R. SAME within-plot fits and SAME numbers
-# (Gaussian lm for length/ratio; quasibinomial glm for germination; plot
-# partialled out) -- only the presentation changes, per the v2 brief: large
-# text, generous space, no titles, colour-blind-safe palette with redundant
-# linetype + shape. Reads the v1 outputs, writes to output/figures_v2/; the v1
-# script and output/figures/*.png are left untouched.
-#
-#   * 12 single-panel figures (3 responses x 4 species)  -> <species>_<tag>.png
-#   * 4 per-species 3-panel figures (length|ratio|germ)  -> <species>_panel.png
-# ---------------------------------------------------------------------------
-
 suppressMessages({
   library(readxl); library(readr); library(ggplot2)
 })
 source("R/v2_style.R")
 
-SEEDS   <- c(bes = 10, jg = 100, wsr = 40, yar = 40)   # seeds sown per tray (germ denom)
+SEEDS   <- c(bes = 10, jg = 100, wsr = 40, yar = 40)   
 SPECIES <- c(bes = "Black-eyed Susan", jg = "Johnsongrass",
              wsr = "White snakeroot",  yar = "Yarrow")
-RESP <- list(                                   # column -> (axis label, file tag)
+RESP <- list(                                   
   total_avg = c("Total seedling length (mm)", "length"),
   ratio_avg = c("Root-to-shoot ratio",        "ratio"),
   germ_perc = c("Germination (proportion)",   "germination"))
-RESP_ORDER <- unname(vapply(RESP, `[`, character(1), 1))  # panel order = RESP order
+RESP_ORDER <- unname(vapply(RESP, `[`, character(1), 1))  
 
 ani  <- read_csv("output/tables/ani_disease.csv", show_col_types = FALSE)
 resp <- read_excel("bioassay_data_v_final.xlsx", "bioassay_primary")
 
-# === Time-matched ANI_disease: may = 0, july = 2mai, september = 4mai ========
 stopifnot(all(ani$month %in% c("may", "july", "september")))
 ani$ani_tm <- 0
 ani$ani_tm[ani$month == "july"]      <- ani$ani_disease_2mai[ani$month == "july"]
@@ -38,10 +24,9 @@ respcols <- as.vector(t(outer(names(SPECIES), names(RESP), paste, sep = "_")))
 dat <- merge(ani[, c("pooled_sample", "plot", "month", "ani_tm")],
              resp[, c("pooled_sample", respcols)], by = "pooled_sample")
 dat$plot  <- factor(dat$plot)
-dat$z_ani <- as.numeric(scale(dat$ani_tm))      # common per-SD scaling (matches 02)
-mu <- mean(dat$ani_tm); sdv <- sd(dat$ani_tm)   # to map grid x -> z for predict()
+dat$z_ani <- as.numeric(scale(dat$ani_tm))      
+mu <- mean(dat$ani_tm); sdv <- sd(dat$ani_tm)  
 
-# === Within-plot fit, error model matched to the response (identical to v1) ===
 fit_within <- function(d, sp_code, rcode) {
   if (rcode == "germ_perc") {
     n_seed <- SEEDS[[sp_code]]
@@ -67,7 +52,6 @@ fit_within <- function(d, sp_code, rcode) {
 
 pfmt <- function(p) if (p < 0.001) "P < 0.001" else sprintf("P = %.3f", p)
 
-# --- 12 single-panel figures -------------------------------------------------
 make_fig <- function(sp_code, sp_name, rcode, rlabel, rtag) {
   col <- paste0(sp_code, "_", rcode)
   d <- dat[!is.na(dat[[col]]), ]
@@ -100,7 +84,6 @@ make_fig <- function(sp_code, sp_name, rcode, rlabel, rtag) {
               paste(sp_code, rtag), f$slope, f$p, nrow(d), fn))
 }
 
-# --- per-species 3-panel manuscript figure -----------------------------------
 make_species_panel <- function(sp_code, sp_name) {
   long <- grids <- annot <- data.frame()
   for (rcode in names(RESP)) {
