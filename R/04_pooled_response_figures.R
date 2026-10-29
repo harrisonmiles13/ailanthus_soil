@@ -1,32 +1,3 @@
-# 04_pooled_response_figures.R
-# ---------------------------------------------------------------------------
-# EXPLORATORY single-line variant of 03. The bioassay was sown and grown all at
-# once, ex situ, so from a seedling's view a soil sample is just a disease
-# exposure -- this script drops the per-plot fit AND the month/plot grouping and
-# asks the POOLED question: across ALL soil samples, does the time-matched
-# ANI_disease predict the response? One pooled fitted line per panel; points are
-# shaped by plot (visual only -- plot is NOT in the model, no month shown).
-#
-#   length, ratio : lm(response ~ z_ani)                       # NO plot/month
-#   germination   : glm(cbind(germ,fail) ~ z_ani, quasibinomial)
-#                   -- same overdispersed seed-count model as 02/03, just with
-#                      the plot block dropped; fitted curve is the pooled logistic.
-#   line          : single pooled fit + 95% band over all samples in the panel
-#
-# READ WITH CARE -- this is deliberately the contrast 02/03 avoid. Most of the
-# ANI_disease variance is BETWEEN the 3 plots, and the 3 plots ARE the 3
-# inoculation treatments, so the pooled slope is dominated by a between-plot
-# (effective n = 3), fully-confounded contrast: it conflates Verticillium with
-# anything else differing between those physical plots (soil, drainage, seed
-# bank) and with calendar season. The within-plot fits in 02/03 remain the
-# defensible inferential version; these are a descriptive complement only.
-#
-# Outputs:
-#   * output/figures/<species>_pooled.png        (4 figures, 3 panels each)
-#   * output/tables/pooled_regression_full.txt   (full per-fit summaries, 12 fits)
-# Does NOT touch any 02/03 output.
-# ---------------------------------------------------------------------------
-
 suppressMessages({
   library(readxl); library(readr); library(ggplot2)
 })
@@ -43,7 +14,6 @@ RESP_ORDER <- unname(vapply(RESP, `[`, character(1), 1))
 ani  <- read_csv("output/tables/ani_disease.csv", show_col_types = FALSE)
 resp <- read_excel("bioassay_data_v_final.xlsx", "bioassay_primary")
 
-# time-matched ANI_disease per soil sample: may = 0, july = 2mai, sep = 4mai
 stopifnot(all(ani$month %in% c("may", "july", "september")))
 ani$ani_tm <- 0
 ani$ani_tm[ani$month == "july"]      <- ani$ani_disease_2mai[ani$month == "july"]
@@ -53,15 +23,12 @@ respcols <- as.vector(t(outer(names(SPECIES), names(RESP), paste, sep = "_")))
 dat <- merge(ani[, c("pooled_sample", "plot", "month", "ani_tm")],
              resp[, c("pooled_sample", respcols)], by = "pooled_sample")
 dat$plot  <- factor(dat$plot)
-dat$z_ani <- as.numeric(scale(dat$ani_tm))   # per-SD (same scaling family as 02/03)
+dat$z_ani <- as.numeric(scale(dat$ani_tm))  
 mu <- mean(dat$ani_tm); sdv <- sd(dat$ani_tm)
 
 dir.create("output/figures", showWarnings = FALSE, recursive = TRUE)
 dir.create("output/tables",  showWarnings = FALSE, recursive = TRUE)
 
-# === Pooled fit, error model matched to 02/03 (NO plot/month term) ===========
-# Returns the z_ani slope row and a single pooled fitted line (+95% band) on the
-# response scale: lm CI for Gaussian; Wald-on-logit band for the quasibinomial.
 pooled_fit <- function(d, sp_code, rcode) {
   gx <- seq(min(d$ani_tm), max(d$ani_tm), length.out = 100)
   gz <- (gx - mu) / sdv
@@ -84,7 +51,6 @@ pooled_fit <- function(d, sp_code, rcode) {
   list(slope = co[[1]], se = co[[2]], stat = co[[3]], p = co[[4]], line = line)
 }
 
-# --- per-species 3-panel figure: ONE pooled line per response ----------------
 make_pooled_panel <- function(sp_code, sp_name) {
   long <- lines <- annot <- data.frame()
   for (rcode in names(RESP)) {
@@ -127,7 +93,6 @@ make_pooled_panel <- function(sp_code, sp_name) {
 cat("Writing 4 per-species single-line (pooled) figures, points shaped by plot:\n")
 for (sc in names(SPECIES)) make_pooled_panel(sc, SPECIES[[sc]])
 
-# --- full pooled regression outputs (console + text file) -------------------
 ovw <- data.frame()
 for (sc in names(SPECIES)) for (rc in names(RESP)) {
   col <- paste0(sc, "_", rc); d <- dat[!is.na(dat[[col]]), ]; d$y <- d[[col]]
